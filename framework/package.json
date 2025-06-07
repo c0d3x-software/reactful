@@ -1,0 +1,44 @@
+{
+   "version": "0.0.1",
+   "name": "@c0d3x/reactful",
+   "author": "Jonathan Sena Ribeiro",
+   "description": "@reactful client library",
+   "license": "MIT",
+   "exports": {
+      ".": {
+         "import": "./builds/client/index.js",
+         "type": "./builds/client/index.d.ts"
+      },
+      "./server": {
+         "import": "./builds/server/index.js",
+         "type": "./builds/server/index.d.ts"
+      },
+      "./create": {
+         "import": "./builds/create/index.js",
+         "type": "./builds/create/index.d.ts"
+      }
+   },
+   "scripts": {
+      "build": "bun run ./script/build.js",
+      "clear": "bun run ./script/reinstall.js client",
+      "patch": "bun run ./script/publish.js client patch",
+      "minor": "bun run ./script/publish.js client minor",
+      "major": "bun run ./script/publish.js client major"
+   },
+   "dependencies": {
+      "css": "^3.0.0",
+      "jsdom": "^26.1.0",
+      "marked": "^15.0.12",
+      "pretty-data": "^0.40.0",
+      "sitemap": "^8.0.0"
+   },
+   "devDependencies": {
+      "@types/react": "latest",
+      "bun-types": "^1.2.15",
+      "typescript": "latest"
+   },
+   "peerDependencies": {
+      "react": "latest",
+      "react-dom": "latest"
+   }
+}

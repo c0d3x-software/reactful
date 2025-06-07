@@ -1,0 +1,40 @@
+@import url(../index.css);
+
+table th:empty { border: 0 !important; }
+
+section.infos table tr td,
+section.details td { padding: 3px 10px; }
+
+section.infos tr:not(:last-of-type) td,
+section.details tr:not(:last-of-type) td {
+   border-bottom: dotted #444 2px !important;
+}
+
+section.details table tr td:first-of-type {
+   font-weight: 500 !important;
+   text-align: right;
+}
+
+section.divs table th,
+section.infos table th {
+   text-transform: uppercase !important;
+   color: var(--primary);
+   font-weight: bolder;
+   border:0;
+}
+
+section.divs table th { padding-bottom: 0; }
+section.divs table td { padding-top: 0; }
+
+section.infos table tr td:not(:last-of-type),
+section.divs table tr th:not(:last-of-type),
+section.divs table tr td:not(:last-of-type) {
+   border-right: solid grey 2px !important;
+   z-index: 1;
+}
+
+section.infos table tr td:first-of-type {
+   font-weight: 400 !important;
+   text-align: right;
+}
+

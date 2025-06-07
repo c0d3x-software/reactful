@@ -1,0 +1,45 @@
+Hi, I will present the Reactful framework, an innovative approach to dealing with the core issues in the React development experience.
+
+----
+
+The main React development flaws are its state management complexity, followed by the scopeless CSS, and the lack of a function metadata.
+
+---
+
+CSS imports leaks is not solved by popular CSS-module and styled-component libs.
+
+React state management verbosity and complexity scales in geometric progression.
+
+The lack of functional metadata overloads the framework design with file naming conventions, and limmited semantics with use directives for functional scope.
+
+---
+
+Reactful intruduces five new concepts into React ecosystem to deal with those issues.
+
+Reactful solves the modular CSS issues with its loader CSS transpiler. 
+
+Its function decorators solves the lack of function metadata.
+
+Reactive objects allows self-rendering states for local states props, and injectable global states.
+
+Attribute directives intruduces smart injectable props by dependency injection.
+
+Reactiful IoC containers use the component's second argument for dependency injection.
+
+---
+
+Reactful Framework is also a full-featured React framework.
+
+Its support static and nested directory routing, and dynamic routes with decorators.
+
+Its modular CSS has also component-scoped CSS, style props and classless CSS default.
+
+Reactful server supports markdown, API folder, SEO, CSR, SSR, SSG and ISR.
+
+The already mentioned stateful local props and global stores, has also modular states.
+
+Controlled and uncontrolled components data and bind directives for props, form, and action bindings.
+
+---
+
+So, that's it. The Reactful framework is still in alpha test, but we looking for design feedback from the dev community. Let your thoughts be in the comments. Thank you for watching!

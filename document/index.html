@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <title>Reactful Framework</title>
+   <link rel="stylesheet" href="index.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+   <script src="view/js/logo.js"></script>
+   <script src="index.js"></script>
+   <title>reactful.js</title>
+</head>
+
+<body onload="startup()">
+   <main>
+      <logo style="zoom:2"></logo>
+      <h1>reactful</h1>      
+      <h2 id="c0d3x"><strong></strong>C·O·D·3·X</h2>
+      <p>A minimalist full-featured React meta-framework for simple state management, full hybrid routing and classless CSS web standards</p>
+      
+      <section id="links">
+         <a href="view/index.html">documentation</a>
+         <a href="https://jsenaribeiro.github.io/presentation/">presentation</a>
+         <a href="https://tinyurl.com/c0d3x-channel">introduction</a>
+      </section>
+
+      <input id="email" placeholder="your@email.com (optional)" type="email" />
+      <textarea id="comment" onkeyup="onKey(event)" placeholder="Send your feedbacks, suggestions and critics. We looking for dev community feedbacks to prepare to open source. "></textarea>
+      <button disabled onclick="sendEmail(event)">Send your comment!</button>
+
+      <center style="padding-top:20px; font-size: 15px; color:grey;">● ● ●</center>
+      
+      <p style="font-size:13px;">
+         Support to Reactful project with <a href="https://opencollective.com/dashboard/c0d3x">Open Collective</a>. 
+         If you like to sponsor or be part of the dev team, send a email to <a href='mailto:c0d3x.software@gmail.com'>c0d3x.software@gmail.com</a>.
+      </p>
+   </main>
+
+   <script>            
+      const textarea = document.querySelector('textarea')
+      const button = document.querySelector('button')
+      const email = document.getElementById('email')
+   </script>
+
+   <footer>
+      © 2025 reactful. All rights reserved.
+   </footer>
+</body>
+
+<style>
+   h1 { border:0 !important; }
+</style>
+
+</html>

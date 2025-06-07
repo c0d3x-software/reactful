@@ -1,0 +1,56 @@
+h1, h2, h3, h4, h5, h6 {
+   font-weight: 700;
+   font-family: var(--text-font);
+   color: var(--primary);
+}
+
+h1 {
+   font-weight: 100;
+   font-size: 3rem;
+   text-align: center;
+   letter-spacing: 7px;
+   margin-bottom: 10px;
+   border-bottom: 0px solid var(--primary) !important;
+   padding:0;
+   border:0;
+}
+
+h2, h3, h4 { font-weight: 300; }
+
+h2 {
+   font-size: 1.3rem;
+   margin-bottom: 7px;
+   border-bottom: 1px solid grey !important;
+}
+
+h3 {
+   font-size: 1.2rem;
+   margin-bottom: 10px;
+}
+
+h4 { font-size: 1.1rem; }
+
+p+h3 { margin-top:10px }
+h3+p, h1+p { margin-top:0px }
+h1+p { margin-top:-5px !important; padding: 0 50px; text-align: center; }
+h1+center { margin-top:-20px !important; padding: 0 50px; }
+
+
+/* counting */
+
+body { counter-reset: h3; }
+
+h3::before {
+   counter-increment: h3;
+   content: counter(h3) ". ";
+}
+
+h4 a { font-weight: bolder; }
+
+h4:before { content: '● ' }
+
+h4 {
+   color: #AAA;
+   font-weight: 300;
+   margin-top: 0
+}

@@ -1,0 +1,15 @@
+fieldset {
+   border:0;
+   padding: 10px;
+   margin: 20px 0 0 0;
+   border-top: solid 1px wheat;
+}
+
+legend {
+   font-family: var(--text-font), sans-serif;
+   font-size: 1.3rem;
+   font-weight: 700;;
+   color: var(--primary);
+   padding: 0 10px;
+   text-align: center;
+}

@@ -1,0 +1,77 @@
+table th:empty { border: 0 !important; }
+
+table tr td:first-of-type { color: whitesmoke; }
+
+table {
+   & tr td {
+      padding: 10px 10px !important;
+   }
+
+   & tr td:not(:first-of-type) {
+      text-align: left !important
+   }
+
+   & tr td:first-of-type {
+      text-align: right !important;
+      font-weight: 400 !important;
+   }
+}
+
+[flaws] h1 {
+   margin: 0 0 10px 0 !important;
+   padding: 0 !important;
+}
+
+[flaws] table {
+   width: 777px !important;
+   margin-top: -20px !important;
+}
+
+[flaws] table td {
+   border-color: dimgrey !important
+}
+
+[flaws] table tr td {
+   padding: 20px 50px !important;
+}
+
+[flaws] table td:nth-of-type(1) {
+   color: grey !important;
+   display: none !important;
+}
+
+[flaws] table tr:nth-of-type(1) td:nth-of-type(2) {
+   letter-spacing: 13px !important;
+}
+
+[flaws] table tr:nth-of-type(2) td:nth-of-type(2) {
+   letter-spacing: 7px !important;
+}
+
+[flaws] table tr:nth-of-type(1) td {
+   font-weight: 300 !important;
+   font-size: 1.3em !important;
+   color: white !important;
+}
+
+[flaws] table tr:nth-of-type(2) td {
+   font-size: 1.2em !important;
+   color: white !important;
+}
+
+[flaws] table tr:nth-of-type(3) td {
+   color: silver !important;
+   font-size: 1em !important
+}
+
+[flaws] table tr td:nth-of-type(2) {
+   text-align: center !important;
+}
+
+table:has(tr > td:first-child:last-child) {
+   margin-right: 10px !important;
+   & td {
+      color: #AAA !important;
+      padding: 7px 0 !important;
+   }
+ }

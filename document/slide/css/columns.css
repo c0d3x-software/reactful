@@ -1,0 +1,27 @@
+[cols] { display:grid !important; gap:10px; margin-bottom: 0 !important; }
+
+[cols='2'] { grid-template-columns: repeat(2, 1fr) !important; }
+[cols='3'] { grid-template-columns: repeat(3, 1fr) !important; }
+[cols='4'] { grid-template-columns: repeat(4, 1fr) !important; }
+[cols='2:5'] { grid-template-columns: 2fr 5fr !important; }
+[cols='3:5'] { grid-template-columns: 3fr 5fr !important; }
+[cols='4:5'] { grid-template-columns: 4fr 5fr !important; }
+[cols='5:3'] { grid-template-columns: 5fr 3fr !important; }
+[cols='5:4'] { grid-template-columns: 5fr 4fr !important; }
+[cols='2:7'] { grid-template-columns: 2fr 7fr !important; }
+[cols='3:7'] { grid-template-columns: 3fr 7fr !important; }
+[cols='4:7'] { grid-template-columns: 4fr 7fr !important; }
+[cols='5:7'] { grid-template-columns: 5fr 7fr !important; }
+[cols='7:6'] { grid-template-columns: 7fr 6fr !important; }
+
+[cols='auto:fill'] { grid-template-columns: auto 1fr !important; }
+[cols='auto:fill']> :first-child { 
+   align-self: center !important; 
+   padding-right: 20px;
+}
+
+[cols='fill:auto'] { grid-template-columns: 1fr auto !important; }
+/* [cols='fill:auto']> :first-child { 
+   align-self: center !important; 
+   padding-right: 20px;
+} */

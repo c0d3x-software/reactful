@@ -1,0 +1,26 @@
+table {
+   zoom: 0.9;
+   line-height: 11px;
+   margin-bottom: 20px;
+   margin-left: 30px;
+}
+
+table tr th {
+   color: rgb(96, 164, 216);
+   font-weight: 400 !important;
+   border-bottom:solid 1px #777 !important;
+   padding-bottom: 13px;
+}
+
+table tr:first-of-type td {
+   padding-top: 13px;
+}
+
+table tr td {
+   padding-top: 10px;
+   border: 0 !important
+}
+
+table tr td:nth-of-type(3) {
+   color: #999;
+}

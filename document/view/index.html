@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <title>Reactful Framework</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="css/loading.css" />
+   <link rel="stylesheet" href="index.css" />
+   <script src="index.js"></script>
+   <title>reactful.js</title>
+</head>
+
+<body onload="startup()">
+   <section id="fading" class="loading"></section>
+   <section id="loading" class="loading" >
+      <span class="loader"></span>
+   </section>
+   <section id="content">
+      <nav id="menu">    
+         <ul id="overview">
+            <li><label>OVERVIEW</label></li> 
+            <li><a id="introduction">Introduction</a></li>
+            <li><a id="installation">Installation</a></li>
+            <li><a id="inspiration">Inspiration</a></li>
+         </ul>
+         
+         <ul id="preview">
+            <li><label>PREVIEW</label></li>
+            <li><a id="styling">Style plus</a></li>
+            <li><a id="serving">Server flows</a></li>
+            <li><a id="routing">Routed pages</a></li>
+            <li><a id="storing">Self-rendering</a></li>
+            <li><a id="binding">Data bindings</a></li>
+            <!-- <li><a id="ranking">Ranking SEO</a></li> -->
+            <!-- <li><a id="syncing">Sync Api</a></li> -->
+         </ul>
+         
+         <ul id="review"> 
+            <li><label>REVIEW</label></li>
+            <li><a id="scoping">Extended CSS</a></li>
+            <li><a id="hybriding">Hybrid renders</a></li>
+            <li><a id="reactive">Reactive objects</a></li>
+            <li><a id="paradigm">Binding paradigm</a></li>
+            <li><a id="environment">Server environment</a></li>
+            <li><a id="structure">Routing architecture</a></li>
+            <li><a id="injection">Dependency injection</a></li>
+            <li><a id="decorator">Function decorator</a></li>
+            <li><a id="directive">Property handler</a></li> 
+            <li><a id="philosophy">Core philosophy</a></li>  
+         </ul>
+      </nav>
+      
+      <logo style="display: none;"></logo> 
+      
+      <main id="main" style="padding-top:0;">
+         <header id="header">
+            <h2 style="text-align: left;">
+               <a id="logo" href="../index.html"><img src="img/reactful.png" /></a>
+            </h2>  
+            <h2 style="letter-spacing: 7px;"><a href="../index.html">REACTFUL</a></h2> 
+            <h2>documentation | <a>github</a></h2>
+         </header>
+      
+         <iframe scrolling="no" src="overview/introduction.html">
+         </iframe>
+      </main>      
+   </section>
+</body>
+
+</html>

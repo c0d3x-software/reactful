@@ -1,0 +1,33 @@
+{
+   "name": "@c0d3x/create-reactful",
+   "version": "1.3.0",
+   "main": "index.js",
+   "type": "module",
+   "description": "@reactful scaffold",
+   "author": "jonathan de sena ribeiro <jsenaribeiro@gmail.com>",
+   "bin": {
+      "create-reactful": "index.js"
+   },
+   "files": [
+      "index.js",
+      "commons/.env",
+      "commons/.gitignore",
+      "package.json",
+      "templates",
+      "commons",
+      "vscode"
+   ],
+   "scripts": {
+      "start": "bun run index.js",
+      "patch": "bun run ../script/publish.js create patch 0",
+      "minor": "bun run ../script/publish.js create minor 0",
+      "major": "bun run ../script/publish.js create major 0"
+   },
+   "license": "MIT",
+   "dependencies": {
+      "bun-types": "latest",
+      "inquirer": "^9.3.7",
+      "npm-registry-fetch": "^18.0.2",
+      "tar": "^6.2.1"
+   }
+}

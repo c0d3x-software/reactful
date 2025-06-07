@@ -1,0 +1,49 @@
+nav {
+   display: block;
+   /* background-color: var(--darkest); */
+   font-family: var(--code-font), monospace;
+   text-align: right;
+}
+
+nav ul {
+   padding-right: 10px;
+}
+
+nav li {
+   list-style-type: none;
+   color: var(--default);
+   padding: 3px 0 0 0;
+   font-size: 0.93rem;
+}
+
+nav li label {
+   display: block;
+   color: silver;
+   border-bottom: solid 1px #555;
+   font-family: var(--text-font), monospace;
+   letter-spacing: 3px;
+   font-size: 0.9rem;
+   font-weight: 300;
+   font-weight: 500;
+   padding-bottom: 10px;
+   width: 100%;
+}
+
+nav li a {
+   padding-left: 7px;
+   color: var(--subtile);
+   font-family: var(--text-font), monospace;
+}
+
+nav ul:not(:first-of-type) li:first-of-type {
+   border-top: dashed 0 #555;
+   padding: 20px 0 5px 0;
+   margin: 10px 0 0 0;
+}
+
+main {
+   /* border-left: ridge 3px #555; */
+   padding-left: 20px;
+}
+
+

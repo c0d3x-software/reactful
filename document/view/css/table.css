@@ -1,0 +1,45 @@
+table th:empty { border: 0 !important; }
+
+table tr td:first-of-type {
+   color: whitesmoke;
+}
+
+.infos table tr td,
+.details td {
+   padding: 3px 10px;
+}
+
+.infos tr:not(:last-of-type) td,
+.details tr:not(:last-of-type) td {
+   border-bottom: solid #444 1px !important;
+}
+
+.details table tr td:first-of-type {
+   font-weight: 500 !important;
+   text-align: right;
+}
+
+.divs table th,
+.infos table th {
+   text-transform: uppercase !important;
+   color: var(--primary);
+   font-weight: bolder;
+   border: 0;
+}
+
+.divs table th { padding-bottom: 0; }
+.divs table td { padding-top: 0; }
+
+.infos table tr td:not(:last-of-type),
+.divs table tr th:not(:last-of-type),
+.divs table tr td:not(:last-of-type) {
+   /* border-right: solid grey 2px !important; */
+   /* background-color: #444; */
+   z-index: 1;
+}
+
+.infos table tr th:first-of-type,
+.infos table tr td:first-of-type {
+   font-weight: 400 !important;
+   text-align: right;
+}

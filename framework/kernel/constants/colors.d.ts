@@ -1,0 +1,27 @@
+export declare const COLORS: {
+    RESET: string;
+    BRIGHT: string;
+    DIM: string;
+    UNDERSCORE: string;
+    BLINK: string;
+    REVERSE: string;
+    HIDDEN: string;
+    FG_BLACK: string;
+    FG_RED: string;
+    FG_GREEN: string;
+    FG_YELLOW: string;
+    FG_BLUE: string;
+    FG_MAGENTA: string;
+    FG_CYAN: string;
+    FG_WHITE: string;
+    FG_GRAY: string;
+    BG_BLACK: string;
+    BG_RED: string;
+    BG_GREEN: string;
+    BG_YELLOW: string;
+    BG_BLUE: string;
+    BG_MAGENTA: string;
+    BG_CYAN: string;
+    BG_WHITE: string;
+    BG_GRAY: string;
+};

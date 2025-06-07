@@ -1,0 +1,45 @@
+overview
+- Startup: template
+- Structure: structure
+- Resources: 
+- Comparatives: angular, next.js
+- Optimizations: resizing, splitting
+- Advantages: states, decorators, directives
+- Supports
+
+preview
+- binding
+- serving
+- ranking
+- routing
+- styling
+- storing
+- ?
+
+review (concepts)
+- props directive
+- stateful objects
+- function decorators
+- two-way data binding
+- dependency injection 
+- server components
+- hybrid rendering: isr, ssg, ssr
+
+Comparative
+- angular: module boilerplate 
+- next.js: learning curve 
+- 
+
+Mudar
+- ssr = hybrid rendering
+- ssr, ssg e isr
+
+Pre-installs
+- typescript 
+- jest
+- prettier
+- eslint
+- storybook
+
+Files
+- robot.txt

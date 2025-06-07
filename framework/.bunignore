@@ -1,0 +1,5 @@
+# .bunignore
+**/*.test.ts
+**/*.spec.ts
+tests/
+__tests__/

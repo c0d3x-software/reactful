@@ -1,0 +1,59 @@
+#next-steps {
+   color: transparent;
+}
+
+#ul-steps {   
+   display: grid;
+   padding-top: 5px;
+   /* margin-top: -15px; */
+   margin-bottom: -130px;;
+   grid-template-columns: 1fr 1fr;
+   background-color: transparent;
+}
+
+#ul-steps li {
+   list-style: none;
+   padding: 0 20px;
+   margin: 0;
+}
+
+#ul-steps a {
+   letter-spacing: 1px;
+}
+
+#ul-steps label {
+   display: block;
+   color: var(--subtile);
+   margin-bottom: -5px;
+   letter-spacing: 7px;
+   font-weight: 300;
+}
+
+#ul-steps button {
+   border: 0;
+   color: white;
+   display: block;
+   font-size: 5rem;
+   font-weight: 100;
+   color: var(--subtile);
+   transform: scaleX(0.5);
+   background-color: transparent;
+   font-family: var(--text-font);
+   margin-top: -25px;
+}
+
+#ul-steps #last-button {
+   margin-left:-20px;
+   float:left;
+}
+
+#ul-steps #next-button {
+   float:right;
+   text-align: right;
+}
+
+#ul-steps li:last-of-type {
+   text-align: right;
+   padding-right: 0;   
+}
+

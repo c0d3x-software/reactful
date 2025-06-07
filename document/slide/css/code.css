@@ -1,0 +1,16 @@
+code {
+   border: 0 !important;
+   width: 100% !important;
+   padding: 30px !important;
+   background: #191919 !important;
+   font-family: agave !important;
+   font-size: 0.73rem !important;
+}
+
+.hljs-keyword {
+   color: steelblue !important;
+}
+
+marp-pre {
+   --preserve-aspect-ratio: unset
+}
