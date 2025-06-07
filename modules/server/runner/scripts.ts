@@ -3,7 +3,7 @@
 import { Path, File, logger } from '../shared'
 import { ClientDecoratorInfo, throws } from '../../kernel'
 
-const ENTRY_CLIENT_LIB = `${Path.npm}/@reactful/client/entry`
+const ENTRY_CLIENT_LIB = `${Path.npm}/@c0d3x/reacful/entry`
 
 const scriptTemplate = `
    window.global = {

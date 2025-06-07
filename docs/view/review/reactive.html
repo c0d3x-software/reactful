@@ -265,7 +265,7 @@ body.marp-vscode blockquote {
 <h2 id="injecting-global-store">Injecting global store</h2>
 <p>Global store is an injectable global state that follows the single source of thuth principle (SSoT), beeing injected in the server IoC Container.</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">const</span> myStore = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;world&#x27;</span> }
-<span class="hljs-keyword">await</span> <span class="hljs-title function_">server</span>({ <span class="hljs-attr">store</span>: myStore }).<span class="hljs-title function_">render</span>()
+<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>({ <span class="hljs-attr">store</span>: myStore }).<span class="hljs-title function_">render</span>()
 </code></pre>
 <p>After injected, it is available as feeds.store ias component second argument.</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Hi</span> = (<span class="hljs-params">props, { store }</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>   
@@ -280,12 +280,12 @@ body.marp-vscode blockquote {
 </code></pre>
 <h2 id="partial-modular-states">Partial modular states</h2>
 <p>For multiple shared states, the partial states allows modular approach. First, you need to creat explicitly a store by useStore function.</p>
-<pre><code class="language-ts"><span class="hljs-keyword">import</span> { useStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@reactful/client&#x27;</span>
+<pre><code class="language-ts"><span class="hljs-keyword">import</span> { useStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> person = <span class="hljs-title function_">useStore</span>({ <span class="hljs-attr">guid</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;john&#x27;</span> })
 </code></pre>
 <p>After that, you need to import the crated store and binding it into a component using <code>@client(true, state=null)</code> decorator.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { client } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@reactful/client&#x27;</span>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { client } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
 <span class="hljs-keyword">import</span> { person } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./stores&#x27;</span>
 
 @<span class="hljs-title function_">client</span>(<span class="hljs-literal">true</span>, person)

@@ -258,11 +258,9 @@ DEBOUNCE=<span class="hljs-number">33</span>  <span class="hljs-comment"># batch
 PREFIX_URL=/ <span class="hljs-comment"># root address</span>
 MY_VALUE=<span class="hljs-number">100</span> <span class="hljs-comment"># custom field  </span>
 </code></pre>
-<pre><code class="language-ts"><span class="hljs-keyword">import</span> k <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@reactful/kernel&#x27;</span>
-
-<span class="hljs-keyword">const</span> port = k.<span class="hljs-property">env</span>.<span class="hljs-property">PORT</span>
-<span class="hljs-keyword">const</span> value = k.<span class="hljs-property">env</span>[<span class="hljs-string">&#x27;MY_VALUE&#x27;</span>]
-<span class="hljs-keyword">const</span> address = k.<span class="hljs-property">env</span>.<span class="hljs-property">PUBLIC_URL</span>
+<pre><code class="language-ts"><span class="hljs-keyword">const</span> port = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>.<span class="hljs-property">PORT</span>
+<span class="hljs-keyword">const</span> value = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>[<span class="hljs-string">&#x27;MY_VALUE&#x27;</span>]
+<span class="hljs-keyword">const</span> address = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>.<span class="hljs-property">PUBLIC_URL</span>
 </code></pre>
 </aside>
 <pre><code class="language-ts"><span class="hljs-comment">// use declare const to type env with custom fields</span>
@@ -275,11 +273,11 @@ MY_VALUE=<span class="hljs-number">100</span> <span class="hljs-comment"># custo
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">get</span> = request =&gt; <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Hello World!&#x27;</span>)
 </code></pre>
 <h2 id="http-middleware-draft">HTTP Middleware (draft)</h2>
-<p>The handle launch method allows middlewares in request-response pipeline.</p>
-<pre><code class="language-ts"><span class="hljs-keyword">import</span> { launch } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;reactful/server&#x27;</span>
+<p>The inject launch method also allows middlewares in request-response pipeline.</p>
+<pre><code class="language-ts"><span class="hljs-keyword">import</span> { launch } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful/server&#x27;</span>
 <span class="hljs-keyword">import</span> { middleware } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./middlewares&#x27;</span>
 
-<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>().<span class="hljs-title function_">handle</span>(middleware).<span class="hljs-title function_">render</span>()
+<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>().<span class="hljs-title function_">inject</span>(middleware).<span class="hljs-title function_">render</span>()
 </code></pre>
 <p>Response is optional, if it is returned, it will stop the request pipeline.</p>
 <pre><code class="language-ts"><span class="hljs-keyword">function</span> <span class="hljs-title function_">middleware</span>(<span class="hljs-params">request: Request</span>): <span class="hljs-title class_">Response</span> | <span class="hljs-built_in">void</span> {
@@ -322,9 +320,9 @@ MY_VALUE=<span class="hljs-number">100</span> <span class="hljs-comment"># custo
 </code></pre>
 <h2 id="search-engine-optmization-seo">Search Engine Optmization (SEO)</h2>
 <p>SEO using decorators with typed MetaTag with Open Graph Protocol.</p>
-<aside cols='2'>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { seo } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@reactful/client&#x27;</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">MetaTag</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@reactful/client&#x27;</span>
+<aside cols='5:4'>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { seo } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">MetaTag</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
 
 @<span class="hljs-title function_">seo</span>(<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;description&#x27;</span>) 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Hi</span>(<span class="hljs-params">props</span>) {

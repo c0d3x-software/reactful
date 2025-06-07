@@ -1,4 +1,4 @@
-import { GLOBAL_KEY } from '@reactful/client'
+import { GLOBAL_KEY } from '@c0d3x/reacful'
 globalThis[GLOBAL_KEY].clients ||= {}
 
 
@@ -17,4 +17,4 @@ import('/mnt/b/Repositorios/reactful/prototype/routes/login').then(x => x.defaul
 globalThis[GLOBAL_KEY].clients['/mnt/b/Repositorios/reactful/prototype/routes/profile/detail'] = { off:false, tag:'Detail' }
 import('/mnt/b/Repositorios/reactful/prototype/routes/profile/detail').then(x => x.Detail).then(x => globalThis[GLOBAL_KEY].clients['/mnt/b/Repositorios/reactful/prototype/routes/profile/detail'] = x);
 
-await import('/mnt/b/Repositorios/reactful/node_modules/@reactful/client/renders/index').then(x => x.default());
+await import('/mnt/b/Repositorios/reactful/node_modules/@c0d3x/reacful/renders/index').then(x => x.default());

@@ -10,7 +10,7 @@
    "dependencies": {
       "react": "latest",
       "react-dom": "latest",
-      "@reactful/client": "latest",
+      "@c0d3x/reacful": "latest",
       "@reactful/server": "latest"
    },
    "devDependencies": {

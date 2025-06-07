@@ -29,11 +29,9 @@ MY_VALUE=100 # custom field
 ```
 
 ```ts
-import k from '@c0d3x/reactful/kernel'
-
-const port = k.env.PORT
-const value = k.env['MY_VALUE']
-const address = k.env.PUBLIC_URL
+const port = global.env.PORT
+const value = global.env['MY_VALUE']
+const address = global.env.PUBLIC_URL
 ```
 </aside>
 
@@ -57,7 +55,7 @@ export const get = request => new Response('Hello World!')
 The inject launch method also allows middlewares in request-response pipeline.
 
 ```ts
-import { launch } from 'reactful/server'
+import { launch } from '@c0d3x/reactful/server'
 import { middleware } from './middlewares'
 
 await launch().inject(middleware).render()
@@ -123,7 +121,7 @@ const Await = async () => <p await={Async}><h1>loading...</h1></p>
 
 SEO using decorators with typed MetaTag with Open Graph Protocol.
 
-<aside cols='2'>
+<aside cols='5:4'>
 
 ```tsx
 import { seo } from '@c0d3x/reactful'

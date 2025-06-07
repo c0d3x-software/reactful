@@ -1,5 +1,5 @@
 import { RenderArgs } from './shared';
-import '../declares';
+import '../../kernel/declarations';
 export declare const parent: (args: RenderArgs<any>) => any;
 export declare function child(args: RenderArgs<RRE>): RRE | RRE[];
 export declare const children: (args: RenderArgs<RFC[]>) => RRE[];

@@ -53,7 +53,7 @@ More details in site [documentation](https://jsenaribeiro.github.io/documentatio
 | -------------------: | ------------------------------------------------------ |
 | **@reactful/kernel** | Core decorators, directives, constants, variables, etc |
 | **@reactful/server** | Server transpilers, renders, routing, etc              |
-| **@reactful/client** | Client data binding, routing and renderers             |
+| **@c0d3x/reacful** | Client data binding, routing and renderers             |
 | **@reactful/create** | CLI tool to create an scaffold project with Reactful   |
 | **@reactful/script** | Bun TypeScripts for utilities in package.json          |
 

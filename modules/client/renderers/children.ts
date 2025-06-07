@@ -3,7 +3,7 @@ import { REACTIVE, getTagName } from "../../kernel"
 import { RenderArgs, context, fixKey } from './shared'
 import { element, fragment } from './element'
 import { component } from './component'
-import '../declares'
+import '../../kernel/declarations'
 
 export const parent = (args: RenderArgs<any>) =>
    ! args.jsx ? undefined 

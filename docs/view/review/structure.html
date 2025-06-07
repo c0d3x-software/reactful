@@ -337,7 +337,7 @@ body.marp-vscode blockquote {
 <p>As Reactful supports for <a href='structure.html#client-component'>partial hydration</a>, all routes are sent and cached to the browser as a performatic user experience as a client-side app.</p>
 <h2 id="dynamic-routes">Dynamic routes</h2>
 <p>Dynamic routing (aka parametric route) uses functions decorator. It has highets priority, overriding any static routing conflicts.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { route } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@reactful/client&#x27;</span>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { route } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
 
 @<span class="hljs-title function_">route</span>(<span class="hljs-string">&#x27;/whatever/profile/:id&#x27;</span>)
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Profile</span>(<span class="hljs-params">props, { params }</span>) {
@@ -366,7 +366,7 @@ body.marp-vscode blockquote {
 <p>The active routing elements using [link] directives could be easily style with built-in <a href='./scoping.html#styled-route'>.routed CSS className</a>, to easily creates a toggled state button.</p>
 <h2 id="imperative-routing-draft">Imperative routing (draft)</h2>
 <p>For imperative routing cases, Reactful has a router object.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { router } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@reactful/kernel&#x27;</span>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { router } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful/kernel&#x27;</span>
 
 router.<span class="hljs-property">history</span>  <span class="hljs-comment">// all routes</span>
 router.<span class="hljs-property">current</span>  <span class="hljs-comment">// current route</span>

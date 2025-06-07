@@ -26,15 +26,15 @@ var __export = (target, all) => {
 };
 var __esm = (fn, res) => () => (fn && (res = fn(fn = 0)), res);
 
-// node_modules/@reactful/client/constants/colors.js
+// node_modules/@c0d3x/reacful/constants/colors.js
 var init_colors = __esm(() => {
 });
 
-// node_modules/@reactful/client/constants/status.js
+// node_modules/@c0d3x/reacful/constants/status.js
 var init_status = __esm(() => {
 });
 
-// node_modules/@reactful/client/constants/index.js
+// node_modules/@c0d3x/reacful/constants/index.js
 var GUID, PROXY, GLOBAL_KEY, PRIMITIVES, IS_ONLY_FOR_ROUTE, PREFIX_ERROR;
 var init_constants = __esm(() => {
   init_colors();
@@ -47,7 +47,7 @@ var init_constants = __esm(() => {
   PREFIX_ERROR = "@reactful error: ";
 });
 
-// node_modules/@reactful/client/variables/all.js
+// node_modules/@c0d3x/reacful/variables/all.js
 function allSettings() {
   return globalThis[GLOBAL_KEY];
 }
@@ -58,7 +58,7 @@ var init_all = __esm(() => {
   init_constants();
 });
 
-// node_modules/@reactful/client/extensions/array.js
+// node_modules/@c0d3x/reacful/extensions/array.js
 var init_array = __esm(() => {
   Array.range = function(...args) {
     if (!args.length)
@@ -85,7 +85,7 @@ var init_array = __esm(() => {
   };
 });
 
-// node_modules/@reactful/client/extensions/json.js
+// node_modules/@c0d3x/reacful/extensions/json.js
 var init_json = __esm(() => {
   init_array();
   JSON.is = function(value2) {
@@ -112,7 +112,7 @@ var init_json = __esm(() => {
   };
 });
 
-// node_modules/@reactful/client/extensions/object.js
+// node_modules/@c0d3x/reacful/extensions/object.js
 class ParseObject {
   entries;
   constructor(that) {
@@ -178,7 +178,7 @@ var init_object = __esm(() => {
   };
 });
 
-// node_modules/@reactful/client/extensions/signal.js
+// node_modules/@c0d3x/reacful/extensions/signal.js
 var init_signal = __esm(() => {
   AbortSignal.timeout ??= function timeout(ms) {
     const ctrl = new AbortController;
@@ -187,7 +187,7 @@ var init_signal = __esm(() => {
   };
 });
 
-// node_modules/@reactful/client/extensions/string.js
+// node_modules/@c0d3x/reacful/extensions/string.js
 var init_string = __esm(() => {
   init_object();
   String.prototype.fix = function() {
@@ -247,7 +247,7 @@ var init_string = __esm(() => {
   };
 });
 
-// node_modules/@reactful/client/extensions/number.js
+// node_modules/@c0d3x/reacful/extensions/number.js
 var separtorThousand;
 var init_number = __esm(() => {
   Number.prototype.format = function(commas, digits) {
@@ -2063,14 +2063,14 @@ var require_react = __commonJS((exports, module) => {
   }
 });
 
-// node_modules/@reactful/client/utilities/params.js
+// node_modules/@c0d3x/reacful/utilities/params.js
 var params;
 var init_params = __esm(() => {
   init_variables();
   params = (tag, own, uid, now) => ({ tag, own, uid, mem: now, ioc: variables_default.settings.context });
 });
 
-// node_modules/@reactful/client/utilities/route.js
+// node_modules/@c0d3x/reacful/utilities/route.js
 function isRouted(current, routing) {
   if (!routing || routing == "/")
     return true;
@@ -2086,7 +2086,7 @@ function isRouted(current, routing) {
 var init_route = __esm(() => {
 });
 
-// node_modules/@reactful/client/utilities/throw.js
+// node_modules/@c0d3x/reacful/utilities/throw.js
 function throws(ex, mt) {
   if (!ex)
     return false;
@@ -2100,7 +2100,7 @@ var init_throw = __esm(() => {
   init_constants();
 });
 
-// node_modules/@reactful/client/utilities/delay.js
+// node_modules/@c0d3x/reacful/utilities/delay.js
 var init_delay = __esm(() => {
   init_extensions();
 });
@@ -12263,7 +12263,7 @@ var init_server_browser = __esm(() => {
   $renderToReadableStream = s.renderToReadableStream;
 });
 
-// node_modules/@reactful/client/utilities/jsxon.js
+// node_modules/@c0d3x/reacful/utilities/jsxon.js
 var htmlfyJSX, jsxSerializing, extractFunctionEventsIntoEventProps, map, deserializer, serializer, JSXON;
 var init_jsxon = __esm(() => {
   init_variables();
@@ -12334,7 +12334,7 @@ var init_jsxon = __esm(() => {
   globalThis.JSXON = JSXON;
 });
 
-// node_modules/@reactful/client/utilities/mocks.js
+// node_modules/@c0d3x/reacful/utilities/mocks.js
 var IS_SERVER_SIDE, memoryStorage;
 var init_mocks = __esm(() => {
   IS_SERVER_SIDE = !globalThis.document;
@@ -12366,12 +12366,12 @@ var init_mocks = __esm(() => {
   }
 });
 
-// node_modules/@reactful/client/utilities/http.js
+// node_modules/@c0d3x/reacful/utilities/http.js
 var init_http = __esm(() => {
   init_extensions();
 });
 
-// node_modules/@reactful/client/utilities/html.js
+// node_modules/@c0d3x/reacful/utilities/html.js
 function createElementFromJSX(node) {
   const htmlString = JSXON.htmlfy(node);
   const div = document.createElement("div");
@@ -12384,7 +12384,7 @@ var init_html = __esm(() => {
   getTagName = (node) => typeof node?.type == "function" ? node?.type.name : typeof node?.type == "string" ? node?.type : typeof node?.type == "symbol" ? "<>" : node?.type?.toString() || "";
 });
 
-// node_modules/@reactful/client/utilities/css.js
+// node_modules/@c0d3x/reacful/utilities/css.js
 function getCssRules(src) {
   const stylers = variables_default.settings.stylers || variables_default.settings.stylers;
   const styleSheets = (stylers[src] || []).map(parseStyleSheetText).flatMap((x) => [...x.cssRules]);
@@ -12399,7 +12399,7 @@ var init_css = __esm(() => {
   init_variables();
 });
 
-// node_modules/@reactful/client/utilities/index.js
+// node_modules/@c0d3x/reacful/utilities/index.js
 var init_utilities = __esm(() => {
   init_params();
   init_route();
@@ -12412,7 +12412,7 @@ var init_utilities = __esm(() => {
   init_css();
 });
 
-// node_modules/@reactful/client/extensions/promise.js
+// node_modules/@c0d3x/reacful/extensions/promise.js
 var import_react, IS_SERVER_SIDE2;
 var init_promise = __esm(() => {
   import_react = __toESM(require_react(), 1);
@@ -12452,7 +12452,7 @@ var init_promise = __esm(() => {
   };
 });
 
-// node_modules/@reactful/client/extensions/function.js
+// node_modules/@c0d3x/reacful/extensions/function.js
 var init_function = __esm(() => {
   Function.prototype.isAsync = function() {
     const functionString = this.toString();
@@ -12467,7 +12467,7 @@ var init_function = __esm(() => {
   };
 });
 
-// node_modules/@reactful/client/extensions/index.js
+// node_modules/@c0d3x/reacful/extensions/index.js
 var init_extensions = __esm(() => {
   init_json();
   init_array();
@@ -12479,7 +12479,7 @@ var init_extensions = __esm(() => {
   init_function();
 });
 
-// node_modules/@reactful/client/variables/context.js
+// node_modules/@c0d3x/reacful/variables/context.js
 function contextualizer() {
   if (globalThis[GLOBAL_KEY])
     return;
@@ -12546,7 +12546,7 @@ var init_context = __esm(() => {
   failure = (status2, errors) => console.error(`status error ${status2}`, "\n - " + errors.join("; \n - "));
 });
 
-// node_modules/@reactful/client/variables/try.js
+// node_modules/@c0d3x/reacful/variables/try.js
 function validation(instance) {
   Object.entries(instance).map(validateOf).filter((x) => Array.isArray(x)).forEach((x) => x && (instance[x[0]] = x[1]));
 }
@@ -12572,7 +12572,7 @@ var init_try = __esm(() => {
   fail = (key, pre = "") => `Not found ${pre}'${key.trim()}' of .env file`;
 });
 
-// node_modules/@reactful/client/variables/let.js
+// node_modules/@c0d3x/reacful/variables/let.js
 function routefy(route2) {
   route2 = route2.replace(/\/$/, "") || "/";
   allSettings().current = route2;
@@ -12608,7 +12608,7 @@ var init_let = __esm(() => {
   init_all();
 });
 
-// node_modules/@reactful/client/variables/get.js
+// node_modules/@c0d3x/reacful/variables/get.js
 function get(type, path, name) {
   const allByType = allCachings().filter((x) => x.type == type);
   const allByName = (name2) => allByType.find((x) => x.name == name2);
@@ -12625,7 +12625,7 @@ var init_get = __esm(() => {
   init_all();
 });
 
-// node_modules/@reactful/client/variables/set.js
+// node_modules/@c0d3x/reacful/variables/set.js
 function set(...args) {
   var type, data, name, path, call;
   const settings = globalThis[GLOBAL_KEY];
@@ -12659,7 +12659,7 @@ var init_set = __esm(() => {
   init_constants();
 });
 
-// node_modules/@reactful/client/variables/class.js
+// node_modules/@c0d3x/reacful/variables/class.js
 class Environment {
   constructor() {
     validation(this);
@@ -12700,14 +12700,14 @@ var init_class = __esm(() => {
   consoleEmpty = (...args) => null;
 });
 
-// node_modules/@reactful/client/variables/index.js
+// node_modules/@c0d3x/reacful/variables/index.js
 var variables_default;
 var init_variables = __esm(() => {
   init_class();
   variables_default = new Environment;
 });
 
-// node_modules/@reactful/client/decorators/@seo.js
+// node_modules/@c0d3x/reacful/decorators/@seo.js
 function seo(title, metadata) {
   const isString = typeof metadata === "string";
   const isCharSet = isString && charsets.includes(metadata);
@@ -12729,7 +12729,7 @@ var init__seo = __esm(() => {
   charsets = ["UTF-8", "UTF-16"];
 });
 
-// node_modules/@reactful/client/decorators/@auth.js
+// node_modules/@c0d3x/reacful/decorators/@auth.js
 var failure2, context3;
 var init__auth = __esm(() => {
   init_variables();
@@ -12737,17 +12737,17 @@ var init__auth = __esm(() => {
   ({ failure: failure2, context: context3 } = variables_default.settings);
 });
 
-// node_modules/@reactful/client/decorators/@error.js
+// node_modules/@c0d3x/reacful/decorators/@error.js
 var init__error = __esm(() => {
 });
 
-// node_modules/@reactful/client/decorators/@route.js
+// node_modules/@c0d3x/reacful/decorators/@route.js
 var init__route = __esm(() => {
   init_variables();
   init_constants();
 });
 
-// node_modules/@reactful/client/decorators/@style.js
+// node_modules/@c0d3x/reacful/decorators/@style.js
 var settings, IS_SERVER_SIDE4;
 var init__style = __esm(() => {
   init_variables();
@@ -12755,7 +12755,7 @@ var init__style = __esm(() => {
   IS_SERVER_SIDE4 = !globalThis.document;
 });
 
-// node_modules/@reactful/client/decorators/@server.js
+// node_modules/@c0d3x/reacful/decorators/@server.js
 var SERVER_PATH_ERROR, IS_CLIENT_SIDE;
 var init__server = __esm(() => {
   init_constants();
@@ -12766,7 +12766,7 @@ var init__server = __esm(() => {
   IS_CLIENT_SIDE = !!globalThis.document;
 });
 
-// node_modules/@reactful/client/decorators/@client.js
+// node_modules/@c0d3x/reacful/decorators/@client.js
 function client(stateful, ...states) {
   return function(meta, call) {
     if (!meta || !call)
@@ -12804,7 +12804,7 @@ var init__client = __esm(() => {
   init_utilities();
 });
 
-// node_modules/@reactful/client/decorators/index.js
+// node_modules/@c0d3x/reacful/decorators/index.js
 var init_decorators = __esm(() => {
   init__seo();
   init__auth();
@@ -12815,7 +12815,7 @@ var init_decorators = __esm(() => {
   init__client();
 });
 
-// node_modules/@reactful/client/directives/[bind].js
+// node_modules/@c0d3x/reacful/directives/[bind].js
 var IS_SERVER_SIDE5, bindProps;
 var init__bind_ = __esm(() => {
   "use client";
@@ -12839,7 +12839,7 @@ var init__bind_ = __esm(() => {
   };
 });
 
-// node_modules/@reactful/client/directives/[style].js
+// node_modules/@c0d3x/reacful/directives/[style].js
 var gridProps, globalTag, styleProps;
 var init__style_ = __esm(() => {
   gridProps = function(props, params3) {
@@ -12877,7 +12877,7 @@ var init__style_ = __esm(() => {
   };
 });
 
-// node_modules/@reactful/client/directives/[route].js
+// node_modules/@c0d3x/reacful/directives/[route].js
 var settings2, context4, IS_SERVER_SIDE6, routeProps;
 var init__route_ = __esm(() => {
   init_variables();
@@ -12907,7 +12907,7 @@ var init__route_ = __esm(() => {
   };
 });
 
-// node_modules/@reactful/client/directives/[await].js
+// node_modules/@c0d3x/reacful/directives/[await].js
 var warn, LACK_OF_METADATA, INVALID_AWAIT_PROPS, NO_ASYNC_AWAIT_PROPS, awaitProps;
 var init__await_ = __esm(() => {
   init_variables();
@@ -12940,7 +12940,7 @@ var init__await_ = __esm(() => {
   };
 });
 
-// node_modules/@reactful/client/directives/form[submit].js
+// node_modules/@c0d3x/reacful/directives/form[submit].js
 async function onSubmitValidate(props, e) {
   context5.fails = [];
   const founds = document.querySelectorAll(":invalid");
@@ -12985,7 +12985,7 @@ var init_form_submit_ = __esm(() => {
   ({ context: context5, binding: storage } = variables_default.settings);
 });
 
-// node_modules/@reactful/client/directives/form.shared.js
+// node_modules/@c0d3x/reacful/directives/form.shared.js
 function defaultError(code) {
   return code <= 400 ? "Invalid request" : code == 404 ? "URL not found" : code >= 400 && code < 500 ? "Error" : "Internal serve error...";
 }
@@ -13014,7 +13014,7 @@ var init_form_shared = __esm(() => {
   isProblemDetailObject = (data) => data.type && data.title && data.status && data.detail;
 });
 
-// node_modules/@reactful/client/directives/form[auth].js
+// node_modules/@c0d3x/reacful/directives/form[auth].js
 function authenticate(props) {
   if (IS_SERVER_SIDE7)
     return throws("formProps only support client-side");
@@ -13052,7 +13052,7 @@ var init_form_auth_ = __esm(() => {
   IS_SERVER_SIDE7 = !globalThis.document;
 });
 
-// node_modules/@reactful/client/directives/form[action].js
+// node_modules/@c0d3x/reacful/directives/form[action].js
 async function action(args) {
   const { props, fetch: caller } = args;
   const config = authenticate(props);
@@ -13083,7 +13083,7 @@ var init_form_action_ = __esm(() => {
   ({ context: context6, binding: binding2 } = variables_default.settings);
 });
 
-// node_modules/@reactful/client/directives/form[bind].js
+// node_modules/@c0d3x/reacful/directives/form[bind].js
 function fixProps(props) {
   const p = { ...props };
   delete p["onAwait"];
@@ -13125,7 +13125,7 @@ var init_form_bind_ = __esm(() => {
   ({ binding: binding3 } = variables_default.settings);
 });
 
-// node_modules/@reactful/client/directives/form[data].js
+// node_modules/@c0d3x/reacful/directives/form[data].js
 function formProps(props, params3) {
   if (IS_SERVER_SIDE8)
     return props;
@@ -13144,7 +13144,7 @@ var init_form_data_ = __esm(() => {
   IS_SERVER_SIDE8 = !globalThis.document;
 });
 
-// node_modules/@reactful/client/directives/index.js
+// node_modules/@c0d3x/reacful/directives/index.js
 function proper(props, params3) {
   const library = [
     bindProps,
@@ -13166,7 +13166,7 @@ var init_directives = __esm(() => {
   init_form_data_();
 });
 
-// node_modules/@reactful/client/bindings/shared.js
+// node_modules/@c0d3x/reacful/bindings/shared.js
 function createProxyState(store, index) {
   if (store[PROXY])
     return store;
@@ -13211,7 +13211,7 @@ var init_shared = __esm(() => {
   DELAY_RENDER = 9;
 });
 
-// node_modules/@reactful/client/bindings/props.js
+// node_modules/@c0d3x/reacful/bindings/props.js
 function useProps(react, child, path) {
   const stateless = Object.keys(clients).filter((k) => clients[k].off).some((k) => k == path);
   child = { ...child, props: { ...child.props, uid: ++binding5.count } };
@@ -13235,7 +13235,7 @@ var init_props = __esm(() => {
   clients = globalThis[GLOBAL_KEY];
 });
 
-// node_modules/@reactful/client/bindings/feeds.js
+// node_modules/@c0d3x/reacful/bindings/feeds.js
 function useFeeds(hook, href) {
   if (binding6.ready)
     return context7;
@@ -13253,7 +13253,7 @@ var init_feeds = __esm(() => {
   ({ context: context7, binding: binding6 } = variables_default.settings);
 });
 
-// node_modules/@reactful/client/bindings/mount.js
+// node_modules/@c0d3x/reacful/bindings/mount.js
 function mountState(args) {
   if (IS_SERVER_SIDE9)
     return [args.jsx.props, context8];
@@ -13270,7 +13270,7 @@ var init_mount = __esm(() => {
   IS_SERVER_SIDE9 = !globalThis.document;
 });
 
-// node_modules/@reactful/client/bindings/proxy.js
+// node_modules/@c0d3x/reacful/bindings/proxy.js
 function createProxy(store, index) {
   store[GUID] = index;
   return new Proxy(store, {
@@ -13302,7 +13302,7 @@ var init_proxy = __esm(() => {
   ({ binding: binding7 } = variables_default.settings);
 });
 
-// node_modules/@reactful/client/bindings/store.js
+// node_modules/@c0d3x/reacful/bindings/store.js
 function useStore(value2) {
   if (variables_default.is("SERVER"))
     return value2;
@@ -13323,7 +13323,7 @@ var init_store = __esm(() => {
   ({ binding: binding8 } = variables_default.settings);
 });
 
-// node_modules/@reactful/client/bindings/refocus.js
+// node_modules/@c0d3x/reacful/bindings/refocus.js
 function refocus(timeout2) {
   if (IS_SERVER_SIDE10)
     return true;
@@ -13344,7 +13344,7 @@ var init_refocus = __esm(() => {
   IS_SERVER_SIDE10 = !globalThis.document;
 });
 
-// node_modules/@reactful/client/bindings/index.js
+// node_modules/@c0d3x/reacful/bindings/index.js
 var init_bindings = __esm(() => {
   init_mount();
   init_store();
@@ -13352,7 +13352,7 @@ var init_bindings = __esm(() => {
   "use client";
 });
 
-// node_modules/@reactful/client/renders/shared.js
+// node_modules/@c0d3x/reacful/renders/shared.js
 function fromKebabCaseToCamelCase(field2) {
   for (const match of field2.matchAll(/-\w/gm)) {
     const [oldName] = match;
@@ -34210,7 +34210,7 @@ var require_client = __commonJS((exports) => {
   var i;
 });
 
-// node_modules/@reactful/client/renders/styler.js
+// node_modules/@c0d3x/reacful/renders/styler.js
 function styler(node, path) {
   if (!node || !path || typeof node.type != "string")
     return node;
@@ -34239,7 +34239,7 @@ var init_styler = __esm(() => {
   "use client";
 });
 
-// node_modules/@reactful/client/renders/element.js
+// node_modules/@c0d3x/reacful/renders/element.js
 function element(args) {
   const { jsx, own, dir } = args;
   const tag = getTagName(jsx);
@@ -34268,7 +34268,7 @@ var init_element = __esm(() => {
   init_variables();
 });
 
-// node_modules/@reactful/client/renders/component.js
+// node_modules/@c0d3x/reacful/renders/component.js
 function component(args) {
   const { jsx, own, dir, url } = args;
   const retype = (arg, ref) => {
@@ -34319,31 +34319,31 @@ var init_component = __esm(() => {
   init_variables();
 });
 
-// node_modules/@reactful/client/declares/react.js
+// node_modules/@c0d3x/reacful/declares/react.js
 var init_react = __esm(() => {
 });
 
-// node_modules/@reactful/client/declares/aliases.js
+// node_modules/@c0d3x/reacful/declares/aliases.js
 var init_aliases = __esm(() => {
 });
 
-// node_modules/@reactful/client/declares/interfaces.js
+// node_modules/@c0d3x/reacful/declares/interfaces.js
 var init_interfaces = __esm(() => {
 });
 
-// node_modules/@reactful/client/declares/library.js
+// node_modules/@c0d3x/reacful/declares/library.js
 var init_library = __esm(() => {
 });
 
-// node_modules/@reactful/client/declares/types.js
+// node_modules/@c0d3x/reacful/declares/types.js
 var init_types = __esm(() => {
 });
 
-// node_modules/@reactful/client/declares/seo.js
+// node_modules/@c0d3x/reacful/declares/seo.js
 var init_seo = __esm(() => {
 });
 
-// node_modules/@reactful/client/declares/index.js
+// node_modules/@c0d3x/reacful/declares/index.js
 var init_declares = __esm(() => {
   init_react();
   init_aliases();
@@ -34353,7 +34353,7 @@ var init_declares = __esm(() => {
   init_seo();
 });
 
-// node_modules/@reactful/client/renders/children.js
+// node_modules/@c0d3x/reacful/renders/children.js
 function child(args) {
   const { jsx, own } = args;
   const tag = getTagName(jsx);
@@ -34379,7 +34379,7 @@ var init_children = __esm(() => {
   syblings = (args) => Object.fromEntries(Object.entries(args.jsx).map(([key, jsx]) => [key, parent({ ...args, jsx })]));
 });
 
-// node_modules/@reactful/client/renders/render.js
+// node_modules/@c0d3x/reacful/renders/render.js
 async function render(root, path, href, attr) {
   const build = (fce) => import_react5.default.createElement(fce, {});
   const refer = root["type"] ? root : build(root);
@@ -34396,7 +34396,7 @@ var init_render = __esm(() => {
   "use client";
 });
 
-// node_modules/@reactful/client/renders/hidrate.js
+// node_modules/@c0d3x/reacful/renders/hidrate.js
 async function partialHydration() {
   await hidrateElement();
   await hidrateExtends();
@@ -34458,7 +34458,7 @@ var init_hidrate = __esm(() => {
   settings3 = variables_default.settings;
 });
 
-// node_modules/@reactful/client/renders/router.js
+// node_modules/@c0d3x/reacful/renders/router.js
 function routingListener(me) {
   me.addEventListener("click", onClick);
   me.addEventListener("popstate", onBack);
@@ -34514,7 +34514,7 @@ var init_router = __esm(() => {
   settings4 = variables_default.settings;
 });
 
-// node_modules/@reactful/client/renders/index.js
+// node_modules/@c0d3x/reacful/renders/index.js
 var exports_renders = {};
 __export(exports_renders, {
   default: () => {
@@ -34547,7 +34547,7 @@ var init_renders = __esm(() => {
   settings5 = variables_default.settings;
 });
 
-// node_modules/@reactful/client/index.js
+// node_modules/@c0d3x/reacful/index.js
 var init_client = __esm(() => {
   init_variables();
   init_constants();

@@ -15,3 +15,5 @@ if "%~1" == "" (
       )
    )
 ) else ( bun test %~1 )
+
+taskkill /IM bun.exe /F >nul

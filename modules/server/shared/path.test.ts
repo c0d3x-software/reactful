@@ -7,7 +7,7 @@ const scenarios = [
    { key: 'path', inn: '/top/sub/', out: '/top/sub', txt: 'extra / in the end' },
    { key: 'path', inn: 'file:///top/sub', out: '/top/sub', txt: 'file protocol' },
    { key: 'path', inn: 'file://c:\\ok', out: 'c:/ok', txt: 'window path' },
-   { key: 'up.path', inn: '/top/sub', out: '/top', txt: 'up folder' },
+   { key: 'back.path', inn: '/top/sub', out: '/top', txt: 'up folder' },
    { key: 'name', inn: 'file://c:\\logs.txt', out: 'logs', txt: 'file name' },
    { key: 'name', inn: 'file://c:\\logs\\', out: 'logs', txt: 'folder name' },
    { key: 'Name', inn: 'file://c:\\logs.txt', out: 'Logs', txt: 'capitalize name' },
@@ -20,7 +20,7 @@ scenarios.forEach(function ({ key, txt, inn, out }) {
    test(`Path: ${txt}`, function () {
       const path = new Path(inn)
       const data = key.split('.')
-         .reduce((last, next) => last[next], path)
+         .reduce((last, next) => last && last[next], path)
 
       expect(data).toBe(out)
    })
@@ -43,7 +43,7 @@ test('Path: resolve relative path syntax', async function () {
 
 test('Path: get NPM module folder', async function () {
    const resulted = Path.npm
-   const expected = 'reactful/framework/node_modules'
+   const expected = 'reactful/modules/node_modules'
    expect(resulted).toInclude(expected)
 })
 

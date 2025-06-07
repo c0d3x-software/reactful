@@ -12,7 +12,7 @@
 Reactful IoC container for <a onclick='goto("review/reactive.html#global-store")'>global store</a>, <a onclick='goto("review/injection.html#error-components")'>error components</a> and <a onclick='goto("review/directive.html#props-directives")'>props handlers</a>.
 
 ```ts
-import { launch } from 'reactful/server'
+import { launch } from '@c0d3x/reactful/server'
 import { directive } from './directives'
 import { decorator } from './decorators'
 
