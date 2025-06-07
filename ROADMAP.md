@@ -1,6 +1,6 @@
 # 🗺️ Reactful Project Roadmap
 
-Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
+Welcome to the roadmap of **Reactful**, a full-featured React meta-framework.
 
 ## ✓ | Milestones
 
@@ -49,8 +49,6 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
  - e2e test coverage 
  - .env.yaml alternative
  
-
-
 ## △ | Warnings
 
 - CSS modular imports does not support pseudo-selector (yet)

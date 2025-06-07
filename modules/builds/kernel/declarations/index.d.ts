@@ -1,0 +1,11 @@
+import './react.d';
+import "./types.d";
+import "./errors.d";
+import "./render.d";
+import "./module.d";
+import "./aliases.d";
+import "./strings.d";
+import "./handlers.d";
+import "./function.d";
+import "./interfaces.d";
+export {};

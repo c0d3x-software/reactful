@@ -31,7 +31,7 @@ test('Path: up folder until find with "goto"', async function () {
    const resulted = await new Path('/a/b/c/d/e/f/g/h/i/j').backTo('c')
    const expected = '/a/b/c' 
 
-   expect(resulted).toBe(expected)
+   expect(resulted.path).toBe(expected)
 })
 
 

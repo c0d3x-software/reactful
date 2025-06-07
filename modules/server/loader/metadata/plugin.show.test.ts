@@ -39,4 +39,4 @@ export async function InnerAsyncComponent(props, feeds) {
 
 const encoded = metadataPlugin({ code: decoded, path: 'file:///c:/ok.ts' })
 
-console.log(encoded)
+// console.log(encoded)
