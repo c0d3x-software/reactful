@@ -30,7 +30,7 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
 ## ○◔◐◕  | Pendings 
 
  - **HTML Validation API** | ◕ | ProblemDetails interface, unit tests, etc
- - **Documentation updates** | ◐ | sitemap, use directives, fallback routing, web standard driven, zipped responses
+ - **Documentation updates** | ◐ | sitemap, use directives, fallback routing, web standard driven, zipped responses, framework=modules, prototype=samples, document=docs
  - **zipped response** | ◕ | unit tests, client-side unzip
  - **GitHub Sponsors page launched** | ◔
  - **SEO sitemap + robot**: | ◐
@@ -46,9 +46,9 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
  - [type=file] binding
  - template error default
  - outlet props
- - c0d3x github 
  - e2e test coverage 
  - .env.yaml alternative
+ 
 
 
 ## △ | Warnings
