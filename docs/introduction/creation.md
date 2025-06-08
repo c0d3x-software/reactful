@@ -1,26 +1,27 @@
 <script src='../@assets/js/index.js'></script>
 <style>@import url(creation.css);</style> 
-<style>
-#tool div { display:table-cell; vertical-align:top; }
-#tool img { height: 120px; width: 210px; padding: 15px 15px 0 0; }
-#tool 
-</style>
 
 # Creation
 
 > HTML | CSS | TypeScript | Bun
 
-<aside id='tool'><div style='width: 210px; '>
-   <img src='../@assets/img/cli-tool-min.png'/>
-</div><div >
-
-Create a new project with the template creator using `@c0d3x/reactful/create@latest`. 
+New project with the template creator using `@c0d3x/reactful/create@latest`. 
 
 ```ps
 $ bunx @c0d3x/reactful/create
 ```
 
-</div></aside>
+The create CLI has some questions as below.
+
+<aside id='cli' cols='4:5'>
+
+![](../@assets/img/cli-tool-min.png)
+
+* **template**: empty | minimal | sampling
+* **project name**: it will create the folder project
+* **vs code**: if yes, it will create debug settings
+
+</aside>
 
 
 Reactful is debug-ready configuration for Vs Code and with package.json scripts:

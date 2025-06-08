@@ -77,3 +77,21 @@ pre+pre { margin-top: 20px; }
 
 th { font-size: 1.1rem; }
 th * { background:transparent !important }
+
+#cli { margin: -15px 0; }
+#cli img { border: solid 3px #272727; }
+#cli div {
+   display: table-cell;   
+   vertical-align: top;
+}
+
+#cli ul {
+   zoom: 95%;
+   width: 100%;    
+   padding: 20px 10px 0 15px;
+}
+
+
+body {
+   background: #333 !important;
+}
