@@ -1,22 +1,24 @@
 <script src='../@assets/js/index.js'></script>
 <style>@import url(creation.css);</style> 
+<style>
+#tool div { display:table-cell; vertical-align:top; }
+#tool img { height: 120px; width: 210px; padding: 15px 15px 0 0; }
+#tool 
+</style>
 
 # Creation
 
 > HTML | CSS | TypeScript | Bun
 
-<aside><div style='display:table-cell; width: 300px; vertical-align:top'>
+<aside id='tool'><div style='width: 210px; '>
+   <img src='../@assets/img/cli-tool-min.png'/>
+</div><div >
 
 Create a new project with the template creator using `@c0d3x/reactful/create@latest`. 
-
 
 ```ps
 $ bunx @c0d3x/reactful/create
 ```
-
-</div><div style='display:table-cell; vertical-align: bottom; padding-top: 15px;'>
-
-   <img src='../@assets/img/cli-tool-min.png' style='height: 120px' >
 
 </div></aside>
 

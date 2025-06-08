@@ -40,21 +40,23 @@ Reactful framework introduces those new features that enable its stateful approa
   
 - **modular CSS**: fixes the global CSS leakins during modular CSS imports.
 
-More details in site [documentation](https://jsenaribeiro.github.io/documentation).
+More details in site [documentation](https://c0d3x.github.io/reactful).
 
 ## Architecture 
 
-<img src='./document/tech/domain.png' />
+<img src='./docs/@assets/img/domain.png' />
 
 
 ## Modules
 
 |                      |                                                        |
 | -------------------: | ------------------------------------------------------ |
-| **@reactful/kernel** | Core decorators, directives, constants, variables, etc |
-| **@reactful/server** | Server transpilers, renders, routing, etc              |
-| **@c0d3x/reacful** | Client data binding, routing and renderers             |
-| **@reactful/create** | CLI tool to create an scaffold project with Reactful   |
-| **@reactful/script** | Bun TypeScripts for utilities in package.json          |
+| **kernel** | Core decorators, directives, constants, variables, etc |
+| **server** | Server transpilers, renders, routing, etc              |
+| **client** | Client data binding, routing and renderers             |
+| **create** | CLI tool to create an scaffold project with Reactful   |
+| **script** | Bun TypeScripts for utilities in package.json          |
 
 
+##  Documnentation
+https://c0d3x.github.io
