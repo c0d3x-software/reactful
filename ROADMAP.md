@@ -4,7 +4,6 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
 
 ## ✓ | Milestones
 
-
 - **framework architecture**: monorepo repository structure  
 - **hybrid rendering**: support to SSR, SSG and ISR 
 - **create CLI tool**: template generator with `create-reactful` 
@@ -36,7 +35,7 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
  - **SEO sitemap + robot**: | ◐
  - **prefix_url context** | ◔
  - **SEO inner HTML** | ◔
- - **JWT + oAuth auth decorator** | ○  
+ - **[auth]** + **@auth** | ◔ : [auth] = authenticator + @auth = authorizator
  - env.yaml + @seo configuration 
  - Zero bundle.js
  - iFrame merging
@@ -48,6 +47,11 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
  - outlet props
  - e2e test coverage 
  - .env.yaml alternative
+ - site documentation remake
+ - queryString in feeds.params
+ - new documentation: tutorial | reference | architecture
+ - checking minimal dependencies: react + reactful
+ - rename all for reactway
  
 ## △ | Warnings
 

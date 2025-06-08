@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <title>Reactful Framework</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="@assets/css/loading.css" />
+   <link rel="stylesheet" href="@assets/css/index.css">
+   <link rel="stylesheet" href="main.css" />
+   <script src="main.js"></script>
+   <title>reactful.js</title>
+</head>
+
+<body onload="startup()">
+   <section id="fading" class="loading"></section>
+   <section id="loading" class="loading" >
+      <span class="loader"></span>
+   </section>
+   <section id="content">
+      <nav id="menu">    
+         <ul id="introduction">
+            <li><label>INTRO</label></li> 
+            <li><a id="creation">Creation</a></li>
+            <li><a id="structure">Structure</a></li>
+            <li><a id="essentials">Essentials</a></li>
+         </ul>
+         
+         <ul id="preview">
+            <li><label>REFERENCE</label></li>
+            <li><a id='serving'>serving app</a></li>
+            <li><a id='styling'>styling scopes</a></li>
+            <li><a id='routing'>routing schema</a></li>
+            <li><a id='storing'>storing algorithm</a></li>
+            <li><a id='binding'>binding paradigm</a></li>
+            <li><a id='syncing'>syncing models</a></li>
+            <!-- <li><a id='authing'>authing tools</a></li> -->
+         </ul>
+         
+         <ul id="review"> 
+            <li><label>ARQUITECTURE</label></li>
+            <li><a id='ioc-container'>IoC container</li></a>
+            <li><a id='hybrid-renders'>hybrid renders</li></a>
+            <li><a id='reactive-objects'>reactive objects</li></a>
+            <li><a id='dual-data-binding'>dual data binding</li></a>
+            <li><a id='function-decorators'>function decorators</li></a>
+            <li><a id='performance-skills'>performance skills</li></a>
+         </ul>
+         
+         <ul id="tutorials"> 
+            <li><label>TUTORIAIS</label></li>
+            <li><a>hello world</a></li>
+            <li><a>server todo list</a></li>
+            <li><a>async app menu</a></li>
+         </ul>
+      </nav>
+      
+      <logo style="display: none;"></logo> 
+      
+      <main id="main" style="padding-top:0;">
+         <header id="header">
+            <h2 style="text-align: left;">
+               <a id="logo" href="index.html"><img src="@assets/img/reactful.png" /></a>
+            </h2>  
+            <h2 style="letter-spacing: 7px;"><a href="index.html">REACTFUL</a></h2> 
+            <h2>documentation | <a>github</a></h2>
+         </header>
+      
+         <iframe scrolling="no" src="default.html">
+         </iframe>
+      </main>      
+   </section>
+</body>
+
+</html>

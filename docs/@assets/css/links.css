@@ -1,0 +1,29 @@
+a {
+   color: #4CA4ED;
+   text-decoration: none;
+   font-family: var(--text-font), sans-serif;
+}
+
+a:hover,
+a:focus,
+a:active,
+a.active,
+input:checked {
+   text-decoration: none;
+   text-shadow: wheat 1px 0 300px;
+   cursor: pointer;
+   color: wheat;
+   outline: none;
+}
+
+a:active, a:focus {
+   /* font-weight: bolder; */
+   /* border-bottom: solid 1px wheat; */
+   /* padding: 2px 0;
+   margin-bottom: 5px;; */
+   /* border: solid 4px transparent;
+   background-color: transparent; */
+   /* text-shadow: black 1px 1px 1px; */
+   /* letter-spacing: 1px; */
+
+}

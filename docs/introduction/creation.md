@@ -1,0 +1,55 @@
+<script src='../@assets/js/index.js'></script>
+<style>@import url(creation.css);</style> 
+
+# Creation
+
+> HTML | CSS | TypeScript | Bun
+
+<aside><div style='display:table-cell; width: 300px; vertical-align:top'>
+
+Create a new project with the template creator using `@c0d3x/reactful/create@latest`. 
+
+
+```ps
+$ bunx @c0d3x/reactful/create
+```
+
+</div><div style='display:table-cell; vertical-align: bottom; padding-top: 15px;'>
+
+   <img src='../@assets/img/cli-tool-min.png' style='height: 120px' >
+
+</div></aside>
+
+
+Reactful is debug-ready configuration for Vs Code and with package.json scripts:
+
+
+<section style=' display: flex; justify-content: center'>
+
+| `bun run start` | `bun run debug` |  `bun run build`  | `bun run clear`    |
+| --------------: | :-------------: | :---------------: | :----------------- |
+|   build and run | vscode debugger | build the project | clear build folder |
+
+</section>
+
+The minimal templates starts with index.html wrapper and index.ts boostrap.
+
+<aside cols='4:5'>
+
+```typescript
+// index.ts
+import Reactful 
+from '@c0d3x/reactful'
+
+await Reactful.launch().server()  
+```
+
+```ts
+// routes/index.ts
+export default props => <>
+   <h1>Welcome to Reactful</h1>
+   <p>Hello World!</p>
+</>
+```
+
+</aside>

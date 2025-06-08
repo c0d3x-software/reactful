@@ -1,0 +1,31 @@
+introduction
+- creation: create-reactful
+- structure: folders, settings
+- essentials: components, states, props
+
+reference
+- serving: api, assets, routes: html+, md, jsx: ssr, ssg, isr
+- storing: reactive objects | local, global, partial
+- styling: imports, tagCSS, @style | no pseudo-selector
+- binding: [bind], input[data], form[data], form[validation], form[action]
+- routing: static, @route(dynamic), nested, lazy, [outlet], router .routed, fallback
+- syncing: fetch(swr+), event(EventSouce), socket(WebSocket)
+- authing: [auth] authentication + @auth authorization
+
+architecture
+- dual binding: flow, property handler
+- IoC container: injection, resolution, interface
+- hybrid rendering: CSR,SSG, SSR,ISR, RSC
+- reactive objects: flow, debounce, destructuring
+- function decorators: model, example, library
+- performance: pre-render, pre-fetch, cache, stream
+
+principles
+- dry: patterns (DI), paradigms (OOP), principles (SoC)
+- kiss: classless CSS, reactive objects, dual binding
+- yagni: cssComponent, incremental JSX
+
+tutoriais
+- hello world: binding + storing
+- todo list: styling + serving
+- app menu: routing + syncing + authing

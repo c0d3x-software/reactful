@@ -1,11 +1,6 @@
-@import url('view/css/index.css');
-
 nav { color: var(--default); }
 
-nav a {
-   text-decoration: none;
-   font-size: 1.1rem;   
-}
+nav a { text-decoration: none; }
 
 main {
    flex: 1;
@@ -42,10 +37,6 @@ button {
    margin-top: 5px;
    padding: 5px 25px;
    font-family: agave;   
-   /* background: dimgrey !important;
-   border-color: #333 !important;
-   border-style: solid;
-   color: whitesmoke; */
 }
 
 button:disabled { color:whitesmoke }
