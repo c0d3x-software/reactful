@@ -1,1 +1,1 @@
-import './object.ts';
+import './object.js';

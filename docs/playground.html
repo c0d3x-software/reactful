@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Creation</title>
+            <title>Playground</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -116,8 +116,7 @@ body.marp-vscode blockquote {
 }
 
 </style>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+            
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -237,61 +236,106 @@ body.marp-vscode blockquote {
         
         </head>
         <body class="vscode-body vscode-dark">
-            <script src='../@assets/js/index.js'></script>
-<style>@import url(creation.css);</style> 
-<h1 id="creation">Creation</h1>
-<blockquote>
-<p>HTML | CSS | TypeScript | Bun</p>
-</blockquote>
-<p>New project with the template creator using <code>@c0d3x/reactful/create@latest</code>.</p>
-<pre><code class="language-ps"><span class="hljs-variable">$</span> bunx @c0d3x/reactful/create
+            <style>
+   
+   @import url(@assets/css/index.css);
+   body { background: #333 !important; }
+   code { font-family: agave !important; }
+   
+</style>
+<h1 id="playground">Playground</h1>
+<pre><code class="language-ts"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> metadata = {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Some title example&#x27;</span>,
+  <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;My description&#x27;</span>
+};
 </code></pre>
-<p>The create CLI has some questions as below.</p>
-<aside id='cli' cols='3:5'>
-<p><img src="../@assets/img/cli-tool-min.png" alt=""></p>
-<ul>
-<li><strong>template</strong>: empty | minimal | sampling</li>
-<li><strong>project name</strong>: it will create the folder project</li>
-<li><strong>vs code</strong>: if yes, it will create debug settings</li>
-</ul>
-</aside>
-<p>Reactful is debug-ready configuration for Vs Code and with package.json scripts:</p>
-<section style='margin-left: 30px; zoom: 95%'>
-<table>
-<thead>
-<tr>
-<th style="text-align:right"><code>bun run start</code></th>
-<th style="text-align:center"><code>bun run debug</code></th>
-<th style="text-align:center"><code>bun run build</code></th>
-<th style="text-align:left"><code>bun run clear</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">build and run</td>
-<td style="text-align:center">vscode debugger</td>
-<td style="text-align:center">build the project</td>
-<td style="text-align:left">clear build folder</td>
-</tr>
-</tbody>
-</table>
-</section>
-<p>The minimal templates starts with index.html wrapper and index.ts boostrap.</p>
-<aside cols='2'>
-<pre><code class="language-typescript"><span class="hljs-comment">// index.ts</span>
-<span class="hljs-keyword">import</span> <span class="hljs-title class_">Reactful</span> 
-<span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
+<pre><code class="language-ts"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Script</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;next/script&#x27;</span>;
 
-<span class="hljs-keyword">await</span> <span class="hljs-title class_">Reactful</span>.<span class="hljs-title function_">launch</span>().<span class="hljs-title function_">server</span>()  
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">HomePage</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> schemaData = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>({
+    <span class="hljs-string">&quot;@type&quot;</span>: <span class="hljs-string">&quot;WebPage&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;My Minimal Page&quot;</span>,
+    <span class="hljs-string">&quot;@context&quot;</span>: <span class="hljs-string">&quot;https://schema.org&quot;</span>, 
+    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;A simple page.&quot;</span>
+  });
+
+  <span class="hljs-keyword">const</span> spreadPropsJSON_LD = {
+      dangerouslySetInnerHTML = {
+         <span class="hljs-attr">__html</span>: schemaData
+      }
+  }
+
+  <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Script</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;page-schema&quot;</span> 
+         <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;application/ld+json&quot;</span>
+         {<span class="hljs-attr">...spreadPropsJSON_LD</span>} /&gt;</span><span class="language-handlebars"><span class="language-xml">
+   <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></span></span>
+}
 </code></pre>
-<pre><code class="language-ts"><span class="hljs-comment">// routes/index.ts</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Welcome to Reactful<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<pre><code class="language-ts"><span class="hljs-meta">@seo</span>(<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;description&#x27;</span>) 
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Hi</span>(<span class="hljs-params">props</span>) {
+   <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>Hello World!<span class="hljs-tag">&lt;/&gt;</span></span>
+}
+
+<span class="hljs-keyword">const</span> <span class="hljs-attr">metatags</span>: <span class="hljs-title class_">MetaTag</span> = { 
+   <span class="hljs-attr">chartset</span>: <span class="hljs-string">&#x27;UTF-8&#x27;</span>, 
+   <span class="hljs-attr">keywords</span>: <span class="hljs-string">&#x27;a,b,etc&#x27;</span> 
+   <span class="hljs-attr">og</span>: { etc... }
+}
+
+<span class="hljs-meta">@seo</span>(metatags) 
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Hello</span>(<span class="hljs-params">props</span>) {
+   <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>Hello World!<span class="hljs-tag">&lt;/&gt;</span></span>
+}
+</code></pre>
+<pre><code class="language-ts"><span class="hljs-keyword">const</span> siteUrl = isProduction 
+   ? <span class="hljs-string">&#x27;https://www.site.com&#x27;</span> 
+   : <span class="hljs-string">&#x27;http://localhost:3000&#x27;</span>
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  siteUrl,
+  <span class="hljs-attr">generateRobotsTxt</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">robotsTxtOptions</span>: {
+    <span class="hljs-attr">policies</span>: isProduction
+      ? [{ <span class="hljs-attr">userAgent</span>: <span class="hljs-string">&#x27;*&#x27;</span>, <span class="hljs-attr">allow</span>: <span class="hljs-string">&#x27;/&#x27;</span> }]
+      : [{ <span class="hljs-attr">userAgent</span>: <span class="hljs-string">&#x27;*&#x27;</span>, <span class="hljs-attr">disallow</span>: <span class="hljs-string">&#x27;/&#x27;</span> }],
+    <span class="hljs-attr">additionalSitemaps</span>: isProd
+      ? [<span class="hljs-string">&#x27;https://www.site.com/sitemap.xml&#x27;</span>]
+      : [],
+  },
+};
+</code></pre>
+<pre><code class="language-ts"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Component</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-16&quot;</span> /&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Whatever...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/&gt;</span></span>
 </code></pre>
-</aside>
-            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&#x27;root&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-16&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&#x27;root&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p><br/><br/><br/></p>
+
+            
             <script async type="text/javascript">
 /* From extension marp-team.marp-vscode */
 (()=>{var W=Object.defineProperty;var K=(w,h,x)=>h in w?W(w,h,{enumerable:!0,configurable:!0,writable:!0,value:x}):w[h]=x;var o=(w,h)=>W(w,"name",{value:h,configurable:!0});var v=(w,h,x)=>K(w,typeof h!="symbol"?h+"":h,x);(()=>{var w={32:(y,S,g)=>{y.exports=g(924)},924:(y,S)=>{"use strict";var g;g={value:!0};const E={h1:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"1"},style:"display: block; font-size: 2em; margin-block-start: 0.67em; margin-block-end: 0.67em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h2:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"2"},style:"display: block; font-size: 1.5em; margin-block-start: 0.83em; margin-block-end: 0.83em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h3:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"3"},style:"display: block; font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h4:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"4"},style:"display: block; margin-block-start: 1.33em; margin-block-end: 1.33em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h5:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"5"},style:"display: block; font-size: 0.83em; margin-block-start: 1.67em; margin-block-end: 1.67em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h6:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"6"},style:"display: block; font-size: 0.67em; margin-block-start: 2.33em; margin-block-end: 2.33em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},span:{proto:o(()=>HTMLSpanElement,"proto")},pre:{proto:o(()=>HTMLElement,"proto"),style:"display: block; font-family: monospace; white-space: pre; margin: 1em 0; --marp-auto-scaling-white-space: pre;"}},A="data-marp-auto-scaling-wrapper",p="data-marp-auto-scaling-svg",c="data-marp-auto-scaling-container",T=class T extends HTMLElement{constructor(){super();v(this,"container");v(this,"containerSize");v(this,"containerObserver");v(this,"svg");v(this,"svgComputedStyle");v(this,"svgPreserveAspectRatio","xMinYMid meet");v(this,"wrapper");v(this,"wrapperSize");v(this,"wrapperObserver");const s=o(t=>([e])=>{const{width:n,height:r}=e.contentRect;this[t]={width:n,height:r},this.updateSVGRect()},"e");this.attachShadow({mode:"open"}),this.containerObserver=new ResizeObserver(s("containerSize")),this.wrapperObserver=new ResizeObserver((...t)=>{s("wrapperSize")(...t),this.flushSvgDisplay()})}static get observedAttributes(){return["data-downscale-only"]}connectedCallback(){this.shadowRoot.innerHTML=`

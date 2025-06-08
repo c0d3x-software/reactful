@@ -1,3 +1,3 @@
-import './react.d';
-export * from './form.d';
-export * from './route.d';
+import './react';
+export * from './form';
+export * from './route';

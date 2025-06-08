@@ -46,12 +46,13 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
  - template error default
  - outlet props
  - e2e test coverage 
- - .env.yaml alternative
  - site documentation remake
+ - .env complex type support
  - queryString in feeds.params
  - new documentation: tutorial | reference | architecture
  - checking minimal dependencies: react + reactful
  - rename all for reactway
+ - JSON-LD design
  
 ## △ | Warnings
 

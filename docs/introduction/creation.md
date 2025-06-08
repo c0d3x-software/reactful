@@ -13,7 +13,7 @@ $ bunx @c0d3x/reactful/create
 
 The create CLI has some questions as below.
 
-<aside id='cli' cols='4:5'>
+<aside id='cli' cols='3:5'>
 
 ![](../@assets/img/cli-tool-min.png)
 
@@ -23,9 +23,7 @@ The create CLI has some questions as below.
 
 </aside>
 
-
 Reactful is debug-ready configuration for Vs Code and with package.json scripts:
-
 
 <section style='margin-left: 30px; zoom: 95%'>
 
