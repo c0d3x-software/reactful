@@ -24,7 +24,7 @@ $ bunx @c0d3x/reactful/create
 Reactful is debug-ready configuration for Vs Code and with package.json scripts:
 
 
-<section style=' display: flex; justify-content: center'>
+<section style='margin-left: 30px; zoom: 95%'>
 
 | `bun run start` | `bun run debug` |  `bun run build`  | `bun run clear`    |
 | --------------: | :-------------: | :---------------: | :----------------- |
@@ -34,7 +34,7 @@ Reactful is debug-ready configuration for Vs Code and with package.json scripts:
 
 The minimal templates starts with index.html wrapper and index.ts boostrap.
 
-<aside cols='4:5'>
+<aside cols='2'>
 
 ```typescript
 // index.ts
