@@ -50,7 +50,11 @@ String.prototype.place = function stringFormat(...args) {
    return this.replace(/{(\#\d+)}/g, (match, index) =>
       typeof args[index] !== 'undefined' ? args[index] : match
    );
- }
+}
+ 
+String.prototype.toRegex = function () {
+   return this.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
 String.prototype.toArray = function (): any {
    const that = this.toString()

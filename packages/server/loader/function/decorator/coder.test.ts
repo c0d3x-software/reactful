@@ -42,59 +42,58 @@ export default function namedDefaultExport() {}
 export default async function namedAsyncDefaultExport() {}
 export default function namedExportedFunction() {}
 
-log(import.meta, namedExportedFunction)(true);
-log(import.meta, namedAsyncDefaultExport)(true);
-log(import.meta, namedDefaultExport)(true);
-log(import.meta, asyncImplicitArrow)(true);
-log(import.meta, implicitArrow)(true);
-log(import.meta, asyncArrow)(true);
+log(import.meta, myFunction)(true);
+log(import.meta, myAsyncFunction)(11,2);
+log(import.meta, myGenFunction)([12]);
+log(import.meta, myAsyncGenFunction)('ok');
+log(import.meta, exportedFunction)(1234);
+log(import.meta, exportedAsyncFunction)();
+log(import.meta, namedDefault)({ ok: true});
+log(import.meta, namedFuncExpr)(true);
+log(import.meta, namedAsyncFuncExpr)(true);
+log(import.meta, namedGenFuncExpr)(true);
+log(import.meta, namedAsyncGenFuncExpr)(true);
 log(import.meta, arrow)(true);
-log(import.meta, asyncGenFuncExpr)(true);
-log(import.meta, genFuncExpr)(true);
-log(import.meta, asyncFuncExpr)(true);
-log(import.meta, funcExpr)(true);
-log(import.meta, namedDefault)(true);
-log(import.meta, exportedAsyncFunction)(true);
-log(import.meta, exportedFunction)(true);
-log(import.meta, myAsyncGenFunction)(true);
-log(import.meta, myGenFunction)(true);
-log(import.meta, myAsyncFunction)(true);
-log(import.meta, myFunction)(true);`
+log(import.meta, asyncArrow)(true);
+log(import.meta, implicitArrow)(true);
+log(import.meta, asyncImplicitArrow)(true);
+log(import.meta, namedDefaultExport)(true);
+log(import.meta, namedAsyncDefaultExport)(true);
+log(import.meta, namedExportedFunction)(true);`
 
 const cases = [
-   'namedExportedFunction',
-   'namedAsyncDefaultExport',
-   'namedDefaultExport',
-   'asyncImplicitArrow',
-   'implicitArrow',
-   'asyncArrow',
-   'arrow',
-   'asyncGenFuncExpr',
-   'genFuncExpr',
-   'asyncFuncExpr',
-   'funcExpr',
-   'namedDefault',
-   'exportedAsyncFunction',
-   'exportedFunction',
-   'myAsyncGenFunction',
-   'myGenFunction',
+   'myFunction',
    'myAsyncFunction',
-   'myFunction']
+   'myGenFunction',
+   'myAsyncGenFunction',
+   'exportedFunction',
+   'exportedAsyncFunction',
+   'namedDefault',
+   'namedFuncExpr',
+   'namedAsyncFuncExpr',
+   'namedGenFuncExpr',
+   'namedAsyncGenFuncExpr',
+   'arrow',
+   'asyncArrow',
+   'implicitArrow',
+   'asyncImplicitArrow',
+   'namedDefaultExport',
+   'namedAsyncDefaultExport',
+   'namedExportedFunction']
 
-// test(`fn-decorator: success`, function () {
-//    const code = coder(oldCode)?.trim()
-//    // expect(code.trim()).toBe(newCode.trim())
-//    console.log(code)
-// })   
+test(`fn-decorator: success`, function () {
+   const code = coder(oldCode)?.trim()
+   expect(code.trim()).toBe(newCode.trim())
+})   
 
-// cases.forEach(function (name) {
-//    test(`fn-decorator: ${name} success`, function () {
-//       const code = coder(oldCode)?.trim()
-//       const have = `log(import.meta, ${name})(true)`
-//       // console.log(code)
-//       // expect(code.trim()).toContain(have)
-//    })   
-// })
+cases.forEach(function (name) {
+   test(`fn-decorator: ${name} success`, function () {
+      const code = coder(oldCode)?.trim()
+      const have = `(import.meta, ${name})`
+      // console.log(code)
+      expect(code.trim()).toContain(have)
+   })   
+})
 
 // nesting decorators !!! : TODO: nesting decorator
 const tmpCode = `
@@ -116,5 +115,5 @@ auth(import.meta, log(import.meta, Ok))
 
 test(`fn-decorator: playground`, function () {
    const code = coder(tmpCode)
-   console.log(code)
+   // console.log(code)
 })   

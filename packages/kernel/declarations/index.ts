@@ -1,12 +1,11 @@
-import './react'
-import "./types"
-import "./errors"
-import "./render"
-import "./module"
-import "./aliases"
-import "./strings"
-import "./handlers"
-import "./function"
-import "./interfaces"
-
-export { }
+import './react.d';
+import "./types.d";
+import "./errors.d";
+import "./render.d";
+import "./module.d";
+import "./aliases.d";
+import "./strings.d";
+import "./handlers.d";
+import "./function.d";
+import "./interfaces.d";
+export { };

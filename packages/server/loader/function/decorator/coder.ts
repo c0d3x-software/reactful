@@ -1,6 +1,7 @@
 import { extractFunctions } from "../extractor";
 import { Ignore } from "../extractor/types";
 import { Check } from "./types";
+import '../../../../kernel'
 
 export function coder(code: string, info = {} as any) {
    const checks: Check = { match: [] as any, catch: {}, found: null, check:null }
@@ -8,7 +9,7 @@ export function coder(code: string, info = {} as any) {
    const functions = extractFunctions(code, ignoreds)
 
    // avoid failure when has no space between ')' of decorator and function 
-   code = code.replace(/\)(function\**|const|let|var|export|async|default)/gm, ') $1') 
+   code = code.replace(/\)(function\**|const|let|var|export|async|default)/gm, ') $1') + '\n' 
 
    // decorator regex with @decoratorName and (decoratorArgs)
    const decoratorRgx = /@(\w+)\(([^)]*)\)/
@@ -21,13 +22,9 @@ export function coder(code: string, info = {} as any) {
 
       while (checks.match = cf.header.match(decoratorRgx)) {
          const [full, name, args] = checks.match
-         const expr = new RegExp(`\\@${name}\\s*\\(\\s*${args}\\s*\\)\\s*`)
-         const crop = cf.header.replace(expr, '') // header without now-decorator
-         const swap = new RegExp(expr.source + `(${crop})`)
          const call = `${name}(${args})`
-
-         cf.header = cf.header.replace(swap, '$1')
-         code = code.replace(swap, '$1')
+         cf.header = cf.header.replace(full + ' ', '')
+         code = code.replace(full + ' ', '')
 
          checks.catch[cf.name] ||= []
          checks.catch[cf.name].push({ full, name, args, call })

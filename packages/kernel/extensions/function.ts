@@ -1,4 +1,4 @@
-import '../declarations/function'
+import '../declarations'
 
 (Function.prototype as any).async = function () {
    const functionString = this.toString()

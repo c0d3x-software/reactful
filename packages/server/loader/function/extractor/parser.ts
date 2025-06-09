@@ -81,9 +81,6 @@ function getFunctionHeader(fn: ts.FunctionLikeDeclaration, src: ts.SourceFile): 
       const nameStart = fn.name?.getStart(src) ?? start;
       const modifiersAndKeyword = src.text.slice(start, nameStart).trim();
 
-      if (fn.getText().includes('function*'))
-         console.log(ts.isVariableDeclaration(fn.parent), fn.parent.parent.parent.getText())
-
      return `${modifiersAndKeyword} ${identifier}`.trim();
    }
    

@@ -41,6 +41,9 @@ declare global {
       /** convert a numeric string to number */
       toNumber(): number
 
+      /** add scapes to regex expression */
+      toRegex(): string
+
       /** similar to string.Format(...) of C# */
       place(...positions: string[])
       
