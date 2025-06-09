@@ -26,24 +26,21 @@ const functions = 'myFunction,myAsyncFunction,myGenFunction,myAsyncGenFunction,'
    + 'namedGenFuncExpr,namedAsyncGenFuncExpr,arrow,asyncArrow,implicitArrow,asyncImplicitArrow,'
    + 'namedDefaultExport,namedAsyncDefaultExport,namedExportedFunction'
 
-// test(`fn-metadata: success`, function () {
-//    const info = { count:0 }
-//    const code = coder(oldCode, '/', info)?.trim()
-//    const linesOfCode = oldCode.trim().split('\n').length
-   
-//    console.log(linesOfCode, info.count)
-//    console.log(code)
-// })
-
 functions.split(',').map(x => x.trim()).forEach(function (name) {
    test(`fn-metadata: ${name} success`, function () {
       const code = coder(oldCode, '/')?.trim()
-      const sync = !name.includes('async')
-      expect(code).toContain(template(name, !sync))
+      const isAsync = name.toLowerCase().includes('async')
+      expect(code).toContain(template(name, isAsync))
    })   
 })
-
 const template = (nm, is) => `
 ${nm}['id'] = 0;
 ${nm}['tag'] = {};
-${nm}['path'] = '/';`.trim()
+${nm}['path'] = '/';
+${nm}['async'] = ${is};
+${nm}['module'] = module;
+${nm}['refresh'] = () => {};
+${nm}['metatags'] = [];
+${nm}['stateless'] = true;
+${nm}['decorators'] = [];`.trim()
+

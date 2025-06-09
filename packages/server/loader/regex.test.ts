@@ -1,0 +1,5 @@
+/*
+ignore nested function
+ignore anonymous function
+get all type of function syntax
+*/
