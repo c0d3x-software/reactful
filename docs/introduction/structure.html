@@ -239,7 +239,7 @@ body.marp-vscode blockquote {
             <script src='../@assets/js/index.js'></script>
 <style>@import url(creation.css);</style> 
 <h1 id="structure">Structure</h1>
-<p>The project is structured with special folders and default files.</p>
+<p>Reactful is made with ultra fast <strong>bun</strong> toolkit. The project is structured with some default folders and files.</p>
 <section cols='2'><aside class='infos'>
 <table>
 <thead>
@@ -259,23 +259,15 @@ body.marp-vscode blockquote {
 </tr>
 <tr>
 <td>/routes</td>
-<td>Component pages</td>
-</tr>
-<tr>
-<td>/directives</td>
-<td>Injectable props</td>
-</tr>
-<tr>
-<td>/decorators</td>
-<td>function decorators</td>
+<td>Content pages</td>
 </tr>
 <tr>
 <td>/controls</td>
-<td>Control components</td>
+<td>Shared components</td>
 </tr>
 <tr>
 <td>/builds</td>
-<td>Deploy content</td>
+<td>Deploy-ready content</td>
 </tr>
 <tr>
 <td>/tests</td>
@@ -297,10 +289,6 @@ body.marp-vscode blockquote {
 <td>Environment file</td>
 </tr>
 <tr>
-<td>.ignore</td>
-<td>Git ignored  files</td>
-</tr>
-<tr>
 <td>index.ts</td>
 <td>Startup script</td>
 </tr>
@@ -309,25 +297,49 @@ body.marp-vscode blockquote {
 <td>HTML wrapper</td>
 </tr>
 <tr>
-<td>sitemap.xml</td>
-<td>automatic SEO sitemap</td>
-</tr>
-<tr>
 <td>package.json</td>
 <td>Project configuration</td>
 </tr>
 <tr>
-<td>bun.lockb</td>
-<td>Bun automatic locked file</td>
+<td>tsconfig.json</td>
+<td>TypeScript settings</td>
 </tr>
 <tr>
-<td>robot.txt</td>
-<td>Optional to SEO crawlers</td>
+<td>.gitignore</td>
+<td>Git ignored  files</td>
 </tr>
 </tbody>
 </table>
 </aside></section>
+<p>The startup is made by standard index semantics.</p>
+<section style='margin-left:50px'>
+<ul>
+<li><strong>/index.ts</strong>: startup script with IoC container</li>
+<li><strong>/index.html</strong>: template warpper HTML</li>
+<li><strong>/routes/index</strong>: home page (supports JSX, HTML and MD)</li>
+</ul>
+</section>
+<aside cols='4:5'>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Reactful<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<pre><code class="language-ts"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Reactful</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
 
+<span class="hljs-comment">// customizing system folders</span>
+<span class="hljs-keyword">const</span> folders = { <span class="hljs-attr">route</span>: <span class="hljs-string">&#x27;/pages&#x27;</span> }
+
+<span class="hljs-keyword">await</span> <span class="hljs-title class_">Reactful</span>
+   .<span class="hljs-title function_">launch</span>({ folders })
+   .<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;#root&#x27;</span>)  
+</code></pre>
+</aside>
             
             <script async type="text/javascript">
 /* From extension marp-team.marp-vscode */

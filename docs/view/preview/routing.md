@@ -46,7 +46,7 @@ export default const Admin = props => <h1>Admin...</h1>
 
 ```tsx
 export default const Menu = props => <>
-   <div link='/main'>Main</div>     <!-- clickable router -->   
+   <div link='/main'>Main</div>     <!-- declarative router -->   
    <main route='/main'>...</main>   <!-- conditional render -->
 </>
 ```

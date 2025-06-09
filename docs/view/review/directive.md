@@ -30,13 +30,13 @@ const decorator = props => { ...props }
 Custom directives are registered it server IoC container, here an example of how to creation, register and usage of a custom directive.
 
 ```tsx
-import { server } from '@c0d3x/reactful'
+import { launch } from '@c0d3x/reactful'
 
 // 1. create a function that receives and returns a props 
 const shown = props => ({ ...props, hidden: !props.shown })
 
 // 2. inject the function into launch IoC container
-await launch("/routes").inject([ shown ]).server("#root")
+await launch("/routes").inject(shown).server("#root")
 
 // 3. declare in module "react" to enable intellisense
 declare module "react" { interface HTMLAttribute { show?:boolean }}

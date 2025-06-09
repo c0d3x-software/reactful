@@ -3,6 +3,7 @@ import { fromKebabCaseToCamelCase } from "../../../kernel"
 export function clientParseCSS(cssString: string) {
    const cssList: StyleRule[] = []
    const styleSheet = new CSSStyleSheet()
+   
    styleSheet.replaceSync(cssString)
 
    for (const rule of [...styleSheet.cssRules]) {

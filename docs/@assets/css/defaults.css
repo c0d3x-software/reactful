@@ -32,7 +32,7 @@ body {
    height: auto;
    display: flex;
    min-height: 100%;
-   font-size: 1.1rem;
+   font-size: 1rem;
    color: var(--default);
    background: var(--inverse);
    font-family: var(--text-font), monospace;

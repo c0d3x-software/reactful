@@ -1,0 +1,12 @@
+@import url('../@assets/css/index.css');
+
+[side-font] {
+   writing-mode: sideways-lr;
+   font-weight: bolder;
+   text-align: center;
+   font-size: 1.7rem;
+}
+
+table tr:empty  {
+   margin-top: -20px;
+}

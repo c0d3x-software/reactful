@@ -8,7 +8,7 @@
 New project with the template creator using `@c0d3x/reactful/create@latest`. 
 
 ```ps
-$ bunx @c0d3x/reactful/create
+$ bunx @c0d3x/reactful/create 
 ```
 
 The create CLI has some questions as below.
