@@ -1,5 +1,4 @@
 import { BunFile } from 'bun';
-import { IFile } from './file';
 export declare class File implements IFile {
     readonly blob: BunFile;
     readonly mime: string;

@@ -1,2 +1,2 @@
-import '../declarations/function';
+import '../declarations';
 export {};

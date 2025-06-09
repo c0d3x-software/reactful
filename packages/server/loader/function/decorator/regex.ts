@@ -1,3 +1,5 @@
+export const DECORATOR_RGX = /@(\w+)\(([^)]*)\)/
+
 
 export function getCodeRegexes() {
    const decoratorRegex = /@([a-zA-Z_$][a-zA-Z0-9_$]*)(?:\(([^)]*)\))?\s+/

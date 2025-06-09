@@ -1,9 +1,10 @@
+/// <reference path="./file.d.ts" />
+
 "use server"
 
-import { throws } from '../../kernel'
 import { Path } from './path'
 import { BunFile } from 'bun'
-import  { IFile } from './file'
+import { throws } from '../../kernel'
 
 export class File implements IFile {
    public readonly blob: BunFile

@@ -1,6 +1,7 @@
 import { extractFunctions } from "../extractor";
 import { Ignore } from "../extractor/types";
 import { Check } from "./types";
+import { DECORATOR_RGX } from "./regex";
 import '../../../../kernel'
 
 export function coder(code: string, info = {} as any) {
@@ -9,18 +10,15 @@ export function coder(code: string, info = {} as any) {
    const functions = extractFunctions(code, ignoreds)
 
    // avoid failure when has no space between ')' of decorator and function 
-   code = code.replace(/\)(function\**|const|let|var|export|async|default)/gm, ') $1') + '\n' 
-
-   // decorator regex with @decoratorName and (decoratorArgs)
-   const decoratorRgx = /@(\w+)\(([^)]*)\)/
+   code = code.replace(/\)(function\**|const|let|var|export|async|default)/gm, ') $1') + '\n'
 
    // recursive extract and remove decorators
    for (const cf of functions) {
-      const found = cf.header.match(decoratorRgx)
+      const found = cf.header.match(DECORATOR_RGX)
 
-      if (!found) console.log(0, found, cf.header, decoratorRgx)
+      if (!found) console.log(0, found, cf.header, DECORATOR_RGX)
 
-      while (checks.match = cf.header.match(decoratorRgx)) {
+      while (checks.match = cf.header.match(DECORATOR_RGX)) {
          const [full, name, args] = checks.match
          const call = `${name}(${args})`
          cf.header = cf.header.replace(full + ' ', '')

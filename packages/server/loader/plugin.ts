@@ -2,10 +2,10 @@
 
 import { BunPlugin } from "bun"
 import { log, Path } from '../shared'
-import { modularPlugin } from './modular'
+import { modulePlugin } from './module'
 import { defaultPlugin } from './default'
-import { decoratorPlugin } from './decorator'
 import { cssPlugin } from "./stylesheet";
+import { functionPlugin } from "./function"
 import fs from 'fs'
 
 const flags = global.env.FLAGS
@@ -24,7 +24,6 @@ export const ownPlugin: BunPlugin = {
 
 async function onLoad({ path }: Bun.OnLoadArgs) {
    const uri = path as `file://${string}`
-
    const args = { path: uri, code: '' }
    
    args.code = fs.readFileSync(path, 'utf-8')
@@ -35,10 +34,10 @@ async function onLoad({ path }: Bun.OnLoadArgs) {
    const isProjectCwd = path.startsWith(Path.cwd)
    const isNotSpecial = isTestScript || flags.serve || !isProjectCwd
    
-   if (isScriptFile) modularPlugin(args)   
+   if (isScriptFile) modulePlugin(args)   
    if (isStyleFiles) await cssPlugin(args)   
    if (isNotSpecial) return defaultPlugin(args)
-   else if (isScriptFile) return decoratorPlugin(args)
+   else if (isScriptFile) return functionPlugin(args)
    else return defaultPlugin(args)
 }
 
