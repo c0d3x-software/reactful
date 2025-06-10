@@ -240,9 +240,11 @@ body.marp-vscode blockquote {
 <h1 id="example">Example</h1>
 <p>TodoList component started with default route <code>/</code>, with modular CSS imports, reactive object states and dual data binding props.</p>
 </aside>
-<pre><code class="language-css"><span class="hljs-selector-class">.done</span> { <span class="hljs-attribute">text-decoration</span>: line-through } <span class="hljs-comment">/* path: /routes/index.css  */</span>
+<h5 id="routesindexcss">/routes/index.css</h5>
+<pre><code class="language-css"><span class="hljs-selector-class">.done</span> { <span class="hljs-attribute">text-decoration</span>: line-through }      
 </code></pre>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./index.css&#x27;</span>
+<h5 id="routesindexts">/routes/index.ts</h5>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./index.css&#x27;</span>                        
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">TodoList</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Todo List<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
@@ -261,6 +263,7 @@ body.marp-vscode blockquote {
    : props.<span class="hljs-property">list</span> = [props.<span class="hljs-property">task</span>]
 </code></pre>
 <p>Project structure with index.ts starter and index.html wrapper.</p>
+<h5 id="indexhtml">/index.html</h5>
 <aside id='step-1' cols='2:5'>
 <pre><code class="language-py">├─── apis/ 
 ├─── assets/
@@ -291,8 +294,8 @@ body.marp-vscode blockquote {
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
 </aside>
-<aside id='launch'>
-<pre><code class="language-ts"><span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>().<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;#root&quot;</span>) <span class="hljs-comment">// path: /index.ts</span>
+<h5 id="indexts">/index.ts</h5>
+<pre><code class="language-ts"><span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>().<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;#root&quot;</span>) 
 </code></pre>
 
             

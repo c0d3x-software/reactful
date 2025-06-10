@@ -6,12 +6,16 @@ TodoList component started with default route `/`, with modular CSS imports, rea
 
 </aside>
  
+##### /routes/index.css
+
 ```css
-.done { text-decoration: line-through } /* path: /routes/index.css  */
+.done { text-decoration: line-through }      
 ```
  
+##### /routes/index.ts
+
 ```tsx
-import './index.css'
+import './index.css'                        
 
 export const TodoList = props => <div>
    <h1>Todo List</h1>
@@ -32,6 +36,8 @@ const add = props = e => props.list
 
 
 Project structure with index.ts starter and index.html wrapper.
+
+##### /index.html
 
 <aside id='step-1' cols='2:5'>
 
@@ -68,8 +74,9 @@ Project structure with index.ts starter and index.html wrapper.
 ```
 
 </aside>
-<aside id='launch'>
+
+##### /index.ts
 
 ```ts
-await launch().server("#root") // path: /index.ts
+await launch().server("#root") 
 ```
