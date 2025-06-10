@@ -34,48 +34,10 @@ const add = props = e => props.list
    : props.list = [props.task]
 ```
 
-Project structure with index.ts starter and index.html wrapper.
-
-##### /index.html
-
-<aside id='step-1' cols='2:5'>
-
-```py
-├─── apis/ 
-├─── assets/
-├─── builds/
-├─┬─ routes/
-│ ├─ index.ts 
-│ └─ index.css
-├─── .env
-├─── .gitignore 
-├─── index.html
-├─── index.ts
-├─── package.json
-└─── tsconfig.json 
-```
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-   <meta charset="UTF-8">
-   <title>Hello World</title>
-   <meta name="description" contents='Hello' />
-   <meta name="viewport" content="width=device-width">
-</head>
-<body>
-   <div id="root"></div>
-</body>
-</html>
-```
-
-</aside>
 
 ##### /index.ts
 
 ```ts
 import { launch } from '@c0d3x/reactful/server'
-
 await launch().server("#root") 
 ```

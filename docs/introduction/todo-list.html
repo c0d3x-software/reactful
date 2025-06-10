@@ -262,39 +262,8 @@ body.marp-vscode blockquote {
    ? props.<span class="hljs-property">list</span>.<span class="hljs-title function_">push</span>(props.<span class="hljs-property">task</span>)
    : props.<span class="hljs-property">list</span> = [props.<span class="hljs-property">task</span>]
 </code></pre>
-<p>Project structure with index.ts starter and index.html wrapper.</p>
-<h5 id="indexhtml">/index.html</h5>
-<aside id='step-1' cols='2:5'>
-<pre><code class="language-py">├─── apis/ 
-├─── assets/
-├─── builds/
-├─┬─ routes/
-│ ├─ index.ts 
-│ └─ index.css
-├─── .env
-├─── .gitignore 
-├─── index.html
-├─── index.ts
-├─── package.json
-└─── tsconfig.json 
-</code></pre>
-<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;description&quot;</span> <span class="hljs-attr">contents</span>=<span class="hljs-string">&#x27;Hello&#x27;</span> /&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre>
-</aside>
 <h5 id="indexts">/index.ts</h5>
 <pre><code class="language-ts"><span class="hljs-keyword">import</span> { launch } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful/server&#x27;</span>
-
 <span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>().<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;#root&quot;</span>) 
 </code></pre>
 
