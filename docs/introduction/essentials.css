@@ -10,3 +10,7 @@
 table tr:empty  {
    margin-top: -20px;
 }
+
+strong, table th strong {
+   font-weight: 900 !important;
+}

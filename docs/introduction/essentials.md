@@ -7,7 +7,7 @@ All Reacftul follows a minimalist design with low abstraction over web standards
 
 ## All renders
 
-Full rendering with SSR, SSG and ISR, supporting 'use' directives and functional decorators, partial hydration, streaming SSR and server components.
+Full rendering with SSR, SSG and ISR with 'use' directives and function decorators.
 
 ```tsx
 @client(true) export default const Client = props => <>...</>
@@ -17,20 +17,16 @@ Full rendering with SSR, SSG and ISR, supporting 'use' directives and functional
 ```
 ## Modular CSS
 
-Reactful fixes the import CSS leak, allowing modular CSS with no extra lib, extra-coding, or mixing styling with  scripting, just web standard modural CSS.
+Fixed modular CSS imports with component-scoped style decorator.
 
 ```tsx
 import 'modular-css-only-applies-in-components-of-module.tss'
-
 @style('./hello.css') export const Hello = () => <h1>Hello!</h1>
-```
-```css
-h1.Hello { color: red; padding: 20px; } /* component className tag */
 ```
 
 ## Clean routing
 
-Reactful server web apis in **/apis**, static content in **/assets** and pages in **/routes** with static directory routing, dynamic route decorator, nested routing, fallbacks, and lazy loading, etc.
+Server with **/apis**, **/assets** and **/routes** with zero conventions.
 
 <aside cols='3:5'>
 
@@ -57,39 +53,9 @@ export default const Menu = props => <>
 
 ## Reactive objects
 
-Reactive objects brings encapsulates all state management boilerplate code in collaboration with built-in property handlers [data] and [bind].
+<aside cols='4:5'>
 
-<aside style='display:grid; grid-template-columns: auto 1fr'>
-<div side-font>
-
-stateful react
-
-</div><div>
-
-```tsx
-import React, { useState } from 'react';
-
-function Stateful() {
-  const [name, setName] = useState('');
-  
-  return <div>
-      <h1>Hello, {name || 'World'}!</h1>
-      <input value={name} onChange={e => setName(e.target.value)} />
-   </div>
-}
-```
-
-</div></aside>
-
----
-
-<aside style='display:grid; grid-template-columns: auto 1fr'>
-<div side-font>
-
-reactful
-
-</div><div>
-
+Reactive objects is a hookless stateful approach that encapsulates all state boilerplate codewith dual data binding props for clean minimalist components
 
 ```tsx
 @client(true)
@@ -99,7 +65,7 @@ const Hello = props => <>
 </>
 ```
 
-</div></aside>
+</aside>
 
 ## Property handlers
 
@@ -109,9 +75,8 @@ Built-in framework props that encapsulates props transformation.
 |:-:|:-:|:-:|:-:|:-:|
 | data bound | data binding | declarative router | conditional route | grid layout props |
 
-It supports custom property handlers by depedency injection as in example bellow.
-
 ```tsx
+// custom property handlers using depedency injection.
 const shown = props => ({ ...props, hidden: !props.shown })
 export const Ok = prop => <div shown={true}>Show me!</div>
 await launch("/routes").inject(shown).server("#root")
@@ -119,7 +84,7 @@ await launch("/routes").inject(shown).server("#root")
 
 ## Dependency injection
 
-Reactful brings dependency injection to handle props, excetions and request.
+Dependency injection to handle props, requests and exceptions.
 
 <aside cols='5:3'>
 
@@ -145,12 +110,14 @@ await launch({ store })
 
 ## Function decorators
 
-Reactul transpiler brings decorator support to functions as currying suggar syntax and function metadata, without breaking its hoisting.
+Function decorator as currying suggar syntax and function metadata.
 
 ```ts
-const example = (args) => (meta: ImportMeta, call: Function) => call
-
-@example('testing') const someFunction = () => { }
-
-example('testing')(import.meta, someFunction) // <----- transpilations
+const example = (args) => (meta, call) => call     // <-- definition 
+@example('testing') const someFunction = () => { } // <-- consumption
+example('testing')(import.meta, someFunction)      // <-- transpilation
 ````
+
+## Performance tricks
+
+Reactful is built with ultra-fast **bun** toolkit, supporting server rendering, static zero bundle, prefetch routing, partial hydration, streaming SSR and lazy loading.

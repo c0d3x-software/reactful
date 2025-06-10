@@ -1,5 +1,13 @@
 @import url('index.css');
 
+body {
+   background: linear-gradient(to right,
+    var(--darkest) 0%, 
+   var(--darkest) 20%,
+   var(--inverse) 20%,
+    var(--inverse) 100%);
+}
+
 #content {
    height: 100%;
    display: grid; 
@@ -67,7 +75,7 @@ pre+pre { margin-top: 20px; }
    padding: 10px;
    height: 100%;
    width: 700px;
-   margin-left: 200px;
+   margin-left: 170px;
    padding-bottom: 20px
 }
 

@@ -2,8 +2,13 @@
 <style>@import url(creation.css);</style> 
 
 # Structure
+> env complex | index standard | fullstack app
 
-Reactful is made with ultra fast **bun** toolkit. The project is structured with some default folders and files.
+
+
+## Project structure
+
+ The project is structured with some default folders and files.
 
 <section cols='2'><aside class='infos'>
    
@@ -29,7 +34,32 @@ Reactful is made with ultra fast **bun** toolkit. The project is structured with
 
 </aside></section>
 
-The startup is made by standard index semantics. 
+## .env settings
+
+Reactful supports **.env** file swith complex types and prefix in fullstack global.env variable. The required fields are typed, but support dynamic keyed fields. 
+
+<aside cols='2:5' style='margin-bottom: 10px'>
+
+```py
+PORT: 333
+DELAY: 50
+ZIPPED: FALSE
+MINIFIED: FALSE
+PREFIX_URL: /
+MY_VALUE=100 
+```
+
+```ts
+const port = global.env.PORT
+const value = global.env['MY_VALUE']
+const address = global.env.PUBLIC_URL
+
+// extending Env type with custom values
+declare interface Env { MY_VALUE: number }
+```
+</aside>
+
+The Reactful app starts with web standard index semantics and vanilla React, with index.html as wrapper and index.ts as bootstrap.
 
 <section style='margin-left:50px'>
 

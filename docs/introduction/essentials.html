@@ -241,22 +241,19 @@ body.marp-vscode blockquote {
 <h1 id="essentials">Essentials</h1>
 <p>All Reacftul follows a minimalist design with low abstraction over web standards and broad paradigms, patterns and principles, specially DRY, KISS and YAGNY principles.</p>
 <h2 id="all-renders">All renders</h2>
-<p>Full rendering with SSR, SSG and ISR, supporting 'use' directives and functional decorators, partial hydration, streaming SSR and server components.</p>
+<p>Full rendering with SSR, SSG and ISR with 'use' directives and function decorators.</p>
 <pre><code class="language-tsx">@<span class="hljs-title function_">client</span>(<span class="hljs-literal">true</span>) <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Client</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>...<span class="hljs-tag">&lt;/&gt;</span></span>
 @<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;static&#x27;</span>) <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Static</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>...<span class="hljs-tag">&lt;/&gt;</span></span>
 @<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;dynamic&#x27;</span>) <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> cont <span class="hljs-title class_">Dynamic</span> = <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>...<span class="hljs-tag">&lt;/&gt;</span></span>
 @<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;periodic&#x27;</span>, <span class="hljs-string">&quot;36h&quot;</span>)  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Periodic</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>...<span class="hljs-tag">&lt;/&gt;</span></span>
 </code></pre>
 <h2 id="modular-css">Modular CSS</h2>
-<p>Reactful fixes the import CSS leak, allowing modular CSS with no extra lib, extra-coding, or mixing styling with  scripting, just web standard modural CSS.</p>
+<p>Fixed modular CSS imports with component-scoped style decorator.</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;modular-css-only-applies-in-components-of-module.tss&#x27;</span>
-
 @<span class="hljs-title function_">style</span>(<span class="hljs-string">&#x27;./hello.css&#x27;</span>) <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = (<span class="hljs-params"></span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
 </code></pre>
-<pre><code class="language-css"><span class="hljs-selector-tag">h1</span><span class="hljs-selector-class">.Hello</span> { <span class="hljs-attribute">color</span>: red; <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>; } <span class="hljs-comment">/* component className tag */</span>
-</code></pre>
 <h2 id="clean-routing">Clean routing</h2>
-<p>Reactful server web apis in <strong>/apis</strong>, static content in <strong>/assets</strong> and pages in <strong>/routes</strong> with static directory routing, dynamic route decorator, nested routing, fallbacks, and lazy loading, etc.</p>
+<p>Server with <strong>/apis</strong>, <strong>/assets</strong> and <strong>/routes</strong> with zero conventions.</p>
 <aside cols='3:5'>
 <table>
 <thead>
@@ -293,35 +290,15 @@ body.marp-vscode blockquote {
 </code></pre>
 </aside>
 <h2 id="reactive-objects">Reactive objects</h2>
-<p>Reactive objects brings encapsulates all state management boilerplate code in collaboration with built-in property handlers [data] and [bind].</p>
-<aside style='display:grid; grid-template-columns: auto 1fr'>
-<div side-font>
-<p>stateful react</p>
-</div><div>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
-
-<span class="hljs-keyword">function</span> <span class="hljs-title function_">Stateful</span>(<span class="hljs-params"></span>) {
-  <span class="hljs-keyword">const</span> [name, setName] = <span class="hljs-title function_">useState</span>(<span class="hljs-string">&#x27;&#x27;</span>);
-  
-  <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, {name || &#x27;World&#x27;}!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{name}</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{e</span> =&gt;</span> setName(e.target.value)} /&gt;
-   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
-}
-</code></pre>
-</div></aside>
-<hr>
-<aside style='display:grid; grid-template-columns: auto 1fr'>
-<div side-font>
-<p>reactful</p>
-</div><div>
+<aside cols='4:5'>
+<p>Reactive objects is a hookless stateful approach that encapsulates all state boilerplate codewith dual data binding props for clean minimalist components</p>
 <pre><code class="language-tsx">@<span class="hljs-title function_">client</span>(<span class="hljs-literal">true</span>)
 <span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> Hello { props.name }!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;name&#x27;</span> /&gt;</span>  
 <span class="hljs-tag">&lt;/&gt;</span></span>
 </code></pre>
-</div></aside>
+</aside>
 <h2 id="property-handlers">Property handlers</h2>
 <p>Built-in framework props that encapsulates props transformation.</p>
 <table>
@@ -344,13 +321,13 @@ body.marp-vscode blockquote {
 </tr>
 </tbody>
 </table>
-<p>It supports custom property handlers by depedency injection as in example bellow.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">shown</span> = props =&gt; ({ ...props, <span class="hljs-attr">hidden</span>: !props.<span class="hljs-property">shown</span> })
+<pre><code class="language-tsx"><span class="hljs-comment">// custom property handlers using depedency injection.</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">shown</span> = props =&gt; ({ ...props, <span class="hljs-attr">hidden</span>: !props.<span class="hljs-property">shown</span> })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Ok</span> = prop =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">shown</span>=<span class="hljs-string">{true}</span>&gt;</span>Show me!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
 <span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>(<span class="hljs-string">&quot;/routes&quot;</span>).<span class="hljs-title function_">inject</span>(shown).<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;#root&quot;</span>)
 </code></pre>
 <h2 id="dependency-injection">Dependency injection</h2>
-<p>Reactful brings dependency injection to handle props, excetions and request.</p>
+<p>Dependency injection to handle props, requests and exceptions.</p>
 <aside cols='5:3'>
 <pre><code class="language-tsx"><span class="hljs-keyword">import</span> { launch } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
 
@@ -368,13 +345,13 @@ body.marp-vscode blockquote {
 </code></pre>
 </aside>
 <h2 id="function-decorators">Function decorators</h2>
-<p>Reactul transpiler brings decorator support to functions as currying suggar syntax and function metadata, without breaking its hoisting.</p>
-<pre><code class="language-ts"><span class="hljs-keyword">const</span> <span class="hljs-title function_">example</span> = (<span class="hljs-params">args</span>) =&gt; <span class="hljs-function">(<span class="hljs-params">meta: ImportMeta, call: <span class="hljs-built_in">Function</span></span>) =&gt;</span> call
-
-<span class="hljs-meta">@example</span>(<span class="hljs-string">&#x27;testing&#x27;</span>) <span class="hljs-keyword">const</span> <span class="hljs-title function_">someFunction</span> = (<span class="hljs-params"></span>) =&gt; { }
-
-<span class="hljs-title function_">example</span>(<span class="hljs-string">&#x27;testing&#x27;</span>)(<span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>, someFunction) <span class="hljs-comment">// &lt;----- transpilations</span>
+<p>Function decorator as currying suggar syntax and function metadata.</p>
+<pre><code class="language-ts"><span class="hljs-keyword">const</span> <span class="hljs-title function_">example</span> = (<span class="hljs-params">args</span>) =&gt; <span class="hljs-function">(<span class="hljs-params">meta, call</span>) =&gt;</span> call     <span class="hljs-comment">// &lt;-- definition </span>
+<span class="hljs-meta">@example</span>(<span class="hljs-string">&#x27;testing&#x27;</span>) <span class="hljs-keyword">const</span> <span class="hljs-title function_">someFunction</span> = (<span class="hljs-params"></span>) =&gt; { } <span class="hljs-comment">// &lt;-- consumption</span>
+<span class="hljs-title function_">example</span>(<span class="hljs-string">&#x27;testing&#x27;</span>)(<span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>, someFunction)      <span class="hljs-comment">// &lt;-- transpilation</span>
 </code></pre>
+<h2 id="performance-tricks">Performance tricks</h2>
+<p>Reactful is built with ultra-fast <strong>bun</strong> toolkit, supporting server rendering, static zero bundle, prefetch routing, partial hydration, streaming SSR and lazy loading.</p>
 
             
             <script async type="text/javascript">

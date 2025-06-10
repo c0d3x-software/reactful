@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Structure</title>
+            <title>Routing pages</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -236,132 +236,80 @@ body.marp-vscode blockquote {
         
         </head>
         <body class="vscode-body vscode-dark">
-            <script src='../@assets/js/index.js'></script>
-<style>@import url(creation.css);</style> 
-<h1 id="structure">Structure</h1>
+            <style>@import url(routing.css);</style>
+<style>@import url(../@assets/css/index.css);</style> 
+<style>
+   table { margin: 0px 30px !important; zoom:0.95; }
+   table th { font-weight:700; border-bottom-style: dashed }
+</style> 
+<h1 id="routing-pages">Routing pages</h1>
 <blockquote>
-<p>env complex | index standard | fullstack app</p>
+<p>file-base routes • route decorator • dynamic route • props routing •  markdown support • lazy load • nested routes</p>
 </blockquote>
-<h2 id="project-structure">Project structure</h2>
-<p>The project is structured with some default folders and files.</p>
-<section cols='2'><aside class='infos'>
+<h2 id="static-routes">Static routes</h2>
+<p>Static routes uses directory routing with zero conventions and <strong>nested routes</strong>.</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th>model</th>
+<th>route</th>
+<th>resolution</th>
+<th>context</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>/apis</td>
-<td>RESTful functions</td>
-</tr>
-<tr>
-<td>/assets</td>
-<td>Static contents</td>
-</tr>
-<tr>
+<td>indexing</td>
 <td>/routes</td>
-<td>Content pages</td>
+<td>/routes/index.tsx</td>
+<td>/routes</td>
 </tr>
 <tr>
-<td>/controls</td>
-<td>Shared components</td>
+<td>prefixing</td>
+<td>/admin</td>
+<td>/routes/admin.tsx</td>
+<td>/routes</td>
 </tr>
 <tr>
-<td>/builds</td>
-<td>Deploy-ready content</td>
-</tr>
-<tr>
-<td>/tests</td>
-<td>unit and e2e tests</td>
+<td>nesting</td>
+<td>./top</td>
+<td>/routes/sub/top.tsx</td>
+<td>/routes/sub</td>
 </tr>
 </tbody>
 </table>
-</aside><aside class='infos'>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.env</td>
-<td>Environment file</td>
-</tr>
-<tr>
-<td>index.ts</td>
-<td>Startup script</td>
-</tr>
-<tr>
-<td>index.html</td>
-<td>HTML wrapper</td>
-</tr>
-<tr>
-<td>package.json</td>
-<td>Project configuration</td>
-</tr>
-<tr>
-<td>tsconfig.json</td>
-<td>TypeScript settings</td>
-</tr>
-<tr>
-<td>.gitignore</td>
-<td>Git ignored  files</td>
-</tr>
-</tbody>
-</table>
-</aside></section>
-<h2 id="env-settings">.env settings</h2>
-<p>Reactful supports <strong>.env</strong> file swith complex types and prefix in fullstack global.env variable. The required fields are typed, but support dynamic keyed fields.</p>
-<aside cols='2:5' style='margin-bottom: 10px'>
-<pre><code class="language-py">PORT: <span class="hljs-number">333</span>
-DELAY: <span class="hljs-number">50</span>
-ZIPPED: FALSE
-MINIFIED: FALSE
-PREFIX_URL: /
-MY_VALUE=<span class="hljs-number">100</span> 
+<h2 id="dynamic-routes">Dynamic routes</h2>
+<p>Dynamic route decorator has priority over directory routing.</p>
+<pre><code class="language-tsx">@<span class="hljs-title function_">route</span>(<span class="hljs-string">&#x27;/profile/:id&#x27;</span>)
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">User</span> = (<span class="hljs-params">props, feeds</span>) =&gt;
+   <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>User id: { feeds.param.id }<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
 </code></pre>
-<pre><code class="language-ts"><span class="hljs-keyword">const</span> port = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>.<span class="hljs-property">PORT</span>
-<span class="hljs-keyword">const</span> value = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>[<span class="hljs-string">&#x27;MY_VALUE&#x27;</span>]
-<span class="hljs-keyword">const</span> address = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>.<span class="hljs-property">PUBLIC_URL</span>
+<h2 id="props-routing">Props routing</h2>
+<p><a onclick='goto("review/structure.html#props-routing")'>Route directives</a> with conditional <code>[route]</code> and clickable router <code>[link]</code>.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Menu</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">link</span>=<span class="hljs-string">&#x27;/main&#x27;</span>&gt;</span>Main<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>     <span class="hljs-comment">&lt;!-- declarative router --&gt;</span>   
+   <span class="hljs-tag">&lt;<span class="hljs-name">main</span> <span class="hljs-attr">route</span>=<span class="hljs-string">&#x27;/main&#x27;</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>   <span class="hljs-comment">&lt;!-- conditional render --&gt;</span>
+<span class="hljs-tag">&lt;/&gt;</span></span>
+</code></pre>
+<h2 id="lazy-loading">Lazy loading</h2>
+<p><a onclick='goto("review/structure.html#lazy-loading")'>Lazy routing</a> using <code>asLazyComponent</code> promise extension.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Main</span> = <span class="hljs-title function_">import</span>(<span class="hljs-string">&#x27;./main&#x27;</span>).<span class="hljs-title function_">asLazyComponent</span>(<span class="hljs-string">&#x27;Sample&#x27;</span>)
 
-<span class="hljs-comment">// extending Env type with custom values</span>
-<span class="hljs-keyword">declare</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Env</span> { <span class="hljs-attr">MY_VALUE</span>: <span class="hljs-built_in">number</span> }
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Menu</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">link</span>=<span class="hljs-string">&#x27;/sample&#x27;</span>&gt;</span>Sample<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">Main</span> <span class="hljs-attr">route</span>=<span class="hljs-string">&#x27;/lazy&#x27;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/&gt;</span></span>
 </code></pre>
-</aside>
-<p>The Reactful app starts with web standard index semantics and vanilla React, with index.html as wrapper and index.ts as bootstrap.</p>
-<section style='margin-left:50px'>
-<ul>
-<li><strong>/index.ts</strong>: startup script with IoC container</li>
-<li><strong>/index.html</strong>: template warpper HTML</li>
-<li><strong>/routes/index</strong>: home page (supports JSX, HTML and MD)</li>
-</ul>
-</section>
-<aside cols='4:5'>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Reactful<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+<h2 id="fallback-routing">Fallback routing</h2>
+<p>Fallback routing retries not found routes, going up until the root (/), avoiding not found error (as a fault tolerance pattern for routing for certain scenarios).</p>
+<pre><code class="language-ts"><span class="hljs-meta">@route</span>(<span class="hljs-string">&#x27;/path/to/:id&#x27;</span>, <span class="hljs-literal">true</span>) <span class="hljs-comment">// true = enabling fallback routing</span>
 </code></pre>
-<pre><code class="language-ts"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Reactful</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
+<h2 id="authorization-roles">Authorization roles</h2>
+<p>Function decorator for role authorization based on <code>feeds.logon.role</code> (experimental).</p>
+<pre><code class="language-tsx">@<span class="hljs-title function_">auth</span>([<span class="hljs-string">&#x27;manager&#x27;</span>,<span class="hljs-string">&#x27;admin&#x27;</span>])
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Admin</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Admin...<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>
+</code></pre>
 
-<span class="hljs-comment">// customizing system folders</span>
-<span class="hljs-keyword">const</span> folders = { <span class="hljs-attr">route</span>: <span class="hljs-string">&#x27;/pages&#x27;</span> }
-
-<span class="hljs-keyword">await</span> <span class="hljs-title class_">Reactful</span>
-   .<span class="hljs-title function_">launch</span>({ folders })
-   .<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;#root&#x27;</span>)  
-</code></pre>
-</aside>
             
             <script async type="text/javascript">
 /* From extension marp-team.marp-vscode */

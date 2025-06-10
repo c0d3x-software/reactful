@@ -33,7 +33,7 @@ nav li label {
 nav li a {
    text-transform: lowercase;
    letter-spacing: 0px;
-   font-size: 0.9rem;
+   font-size: 0.93rem;
    padding-left: 7px;
    color: #AAA;
    font-family: var(--menu-font), monospace;

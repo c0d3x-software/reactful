@@ -7,11 +7,11 @@
 
 # Routing pages
 
-> path routing • route decorator • dynamic route • props routing •  markdown support • lazy components • nested routes
+> file-base routes • route decorator • dynamic route • props routing •  markdown support • lazy load • nested routes
 
-## Folder routing
+## Static routes
 
-<a onclick='goto("review/structure.html#folder-routing")'>Directory routing</a> with recursive fallbacks and nested routes.
+Static routes uses directory routing with zero conventions and **nested routes**.
 
 | model     | route   | resolution          | context     |
 | --------- | ------- | ------------------- | ----------- |
@@ -22,21 +22,12 @@
 
 ## Dynamic routes
 
-Dynamic <a onclick='goto("review/structure.html#dynamic-routes")'>route decorator</a> as highest priority routing resolution.
+Dynamic route decorator has priority over directory routing. 
 
 ```tsx
 @route('/profile/:id')
 export default const User = (props, feeds) =>
    <h1>User id: { feeds.param.id }</h1>
-```
-
-## Authorization roles
-
-Function decorator for role authorization based on `feeds.logon.role`.
-
-```tsx
-@auth(['manager','admin'])
-export default const Admin = props => <h1>Admin...</h1>
 ```
 
 ## Props routing
@@ -63,3 +54,20 @@ export default const Menu = props => <>
 </>
 ```
 
+## Fallback routing
+
+Fallback routing retries not found routes, going up until the root (/), avoiding not found error (as a fault tolerance pattern for routing for certain scenarios).
+
+```ts
+@route('/path/to/:id', true) // true = enabling fallback routing
+```
+
+
+## Authorization roles
+
+Function decorator for role authorization based on `feeds.logon.role` (experimental).
+
+```tsx
+@auth(['manager','admin'])
+export default const Admin = props => <h1>Admin...</h1>
+```

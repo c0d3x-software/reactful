@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Structure</title>
+            <title>Data binding</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -236,132 +236,49 @@ body.marp-vscode blockquote {
         
         </head>
         <body class="vscode-body vscode-dark">
-            <script src='../@assets/js/index.js'></script>
-<style>@import url(creation.css);</style> 
-<h1 id="structure">Structure</h1>
+            <script src='../js/index.js'></script>
+<style>@import url(../css/index.css);</style> 
+<style>@import url(binding.css);</style> 
+<h1 id="data-binding">Data binding</h1>
 <blockquote>
-<p>env complex | index standard | fullstack app</p>
+<p>props binding • form binding • dual binding • action binding • validation • authentication</p>
 </blockquote>
-<h2 id="project-structure">Project structure</h2>
-<p>The project is structured with some default folders and files.</p>
-<section cols='2'><aside class='infos'>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/apis</td>
-<td>RESTful functions</td>
-</tr>
-<tr>
-<td>/assets</td>
-<td>Static contents</td>
-</tr>
-<tr>
-<td>/routes</td>
-<td>Content pages</td>
-</tr>
-<tr>
-<td>/controls</td>
-<td>Shared components</td>
-</tr>
-<tr>
-<td>/builds</td>
-<td>Deploy-ready content</td>
-</tr>
-<tr>
-<td>/tests</td>
-<td>unit and e2e tests</td>
-</tr>
-</tbody>
-</table>
-</aside><aside class='infos'>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.env</td>
-<td>Environment file</td>
-</tr>
-<tr>
-<td>index.ts</td>
-<td>Startup script</td>
-</tr>
-<tr>
-<td>index.html</td>
-<td>HTML wrapper</td>
-</tr>
-<tr>
-<td>package.json</td>
-<td>Project configuration</td>
-</tr>
-<tr>
-<td>tsconfig.json</td>
-<td>TypeScript settings</td>
-</tr>
-<tr>
-<td>.gitignore</td>
-<td>Git ignored  files</td>
-</tr>
-</tbody>
-</table>
-</aside></section>
-<h2 id="env-settings">.env settings</h2>
-<p>Reactful supports <strong>.env</strong> file swith complex types and prefix in fullstack global.env variable. The required fields are typed, but support dynamic keyed fields.</p>
-<aside cols='2:5' style='margin-bottom: 10px'>
-<pre><code class="language-py">PORT: <span class="hljs-number">333</span>
-DELAY: <span class="hljs-number">50</span>
-ZIPPED: FALSE
-MINIFIED: FALSE
-PREFIX_URL: /
-MY_VALUE=<span class="hljs-number">100</span> 
+<h2 id="props-binding">Props binding</h2>
+<p><a onclick='goto("review/paradigm.html#props-binding")'>Props binding</a> is enabled by <code>[data]</code> receiving the object and <code>[bind]</code> mapping to its field.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> Hello { props.name || &#x27;World&#x27; }!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{object}</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;field&#x27;</span> /&gt;</span>  
+<span class="hljs-tag">&lt;/&gt;</span></span>
 </code></pre>
-<pre><code class="language-ts"><span class="hljs-keyword">const</span> port = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>.<span class="hljs-property">PORT</span>
-<span class="hljs-keyword">const</span> value = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>[<span class="hljs-string">&#x27;MY_VALUE&#x27;</span>]
-<span class="hljs-keyword">const</span> address = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>.<span class="hljs-property">PUBLIC_URL</span>
+<h2 id="form-binding">Form binding</h2>
+<p><a onclick='goto("review/paradigm.html#props-binding")'>Form binding</a> is a uncontrolled uses <code>form[data]</code> and <code>child[bind]</code> directives, with full support to a customizable HTML <a onclick='goto("review/paradigm.html#form-binding-validation")'>validation API</a>.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Form</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span>&gt;</span> 
+      Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;name&#x27;</span> /&gt;</span>
+      Mail: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;mail&#x27;</span>/&gt;</span>    
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/&gt;</span></span>
+</code></pre>
+<h2 id="action-binding">Action binding</h2>
+<p><a onclick='goto("review/paradigm.html#action-binding")'>Action binding</a> has a pending state in <strong>feeds.await</strong>, error states in **feeds.fails' and <code>[onFetch]</code> props handler. It also support <a onclick='goto("review/paradigm.html#authentication-binding")'>authentication</a> binding variation.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Form</span> = (<span class="hljs-params">props, feeds</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span> 
+   { feeds.await &amp; <span class="hljs-tag">&lt;<span class="hljs-name">progress</span>&gt;</span>loading<span class="hljs-tag">&lt;/<span class="hljs-name">progress</span>&gt;</span> }
 
-<span class="hljs-comment">// extending Env type with custom values</span>
-<span class="hljs-keyword">declare</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Env</span> { <span class="hljs-attr">MY_VALUE</span>: <span class="hljs-built_in">number</span> }
-</code></pre>
-</aside>
-<p>The Reactful app starts with web standard index semantics and vanilla React, with index.html as wrapper and index.ts as bootstrap.</p>
-<section style='margin-left:50px'>
-<ul>
-<li><strong>/index.ts</strong>: startup script with IoC container</li>
-<li><strong>/index.html</strong>: template warpper HTML</li>
-<li><strong>/routes/index</strong>: home page (supports JSX, HTML and MD)</li>
-</ul>
-</section>
-<aside cols='4:5'>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Reactful<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre>
-<pre><code class="language-ts"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Reactful</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span> <span class="hljs-attr">onError</span>=<span class="hljs-string">{onValidate}</span>&gt;</span>
+      Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;name&#x27;</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">{50}</span> /&gt;</span>
+      Mail: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;mail&#x27;</span> <span class="hljs-attr">validate</span>=<span class="hljs-string">{validateMe}</span> /&gt;</span>    
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 
-<span class="hljs-comment">// customizing system folders</span>
-<span class="hljs-keyword">const</span> folders = { <span class="hljs-attr">route</span>: <span class="hljs-string">&#x27;/pages&#x27;</span> }
+   { feeds.fails.map(x =&gt; <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{ x.message }<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>) }
+<span class="hljs-tag">&lt;/&gt;</span></span>
 
-<span class="hljs-keyword">await</span> <span class="hljs-title class_">Reactful</span>
-   .<span class="hljs-title function_">launch</span>({ folders })
-   .<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;#root&#x27;</span>)  
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">validateMe</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-string">&quot;Is invalidated if return something&quot;</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">onValidate</span> = invalids =&gt; invalids.<span class="hljs-property">errors</span>.<span class="hljs-title function_">push</span>({ <span class="hljs-attr">error</span>: <span class="hljs-string">&#x27;new error&#x27;</span> })
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">onPost</span>(<span class="hljs-params">response: Response</span>) { <span class="hljs-comment">/* something... */</span> }
 </code></pre>
-</aside>
+
             
             <script async type="text/javascript">
 /* From extension marp-team.marp-vscode */

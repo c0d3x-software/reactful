@@ -3,8 +3,10 @@
 [cols='2'] { grid-template-columns: repeat(2, 1fr); }
 [cols='3'] { grid-template-columns: repeat(3, 1fr); }
 [cols='4'] { grid-template-columns: repeat(4, 1fr); }
+[cols='2:5'] { grid-template-columns: 2fr 5fr; }
 [cols='3:5'] { grid-template-columns: 3fr 5fr; }
 [cols='4:5'] { grid-template-columns: 4fr 5fr; }
+[cols='5:2'] { grid-template-columns: 5fr 2fr; }
 [cols='5:3'] { grid-template-columns: 5fr 3fr; }
 [cols='5:4'] { grid-template-columns: 5fr 4fr; }
 [cols='3:7'] { grid-template-columns: 3fr 7fr; }

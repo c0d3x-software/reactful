@@ -57,11 +57,12 @@ pre + pre {  margin-top: 20px; }
 
 blockquote {
    border: 0;
-   background-color: transparent;
+   font-size: 15px;
+   padding: 0 130px;
    text-align: center;
    margin-top: -20px;
    margin-bottom: -5px;
-   padding: 0 75px;
+   background-color: transparent;
    color: var(--subtile);
 }
 

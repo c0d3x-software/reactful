@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Structure</title>
+            <title>Serving</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -236,132 +236,96 @@ body.marp-vscode blockquote {
         
         </head>
         <body class="vscode-body vscode-dark">
-            <script src='../@assets/js/index.js'></script>
-<style>@import url(creation.css);</style> 
-<h1 id="structure">Structure</h1>
+            <script src='../js/index.js'></script>
+<style>@import url(../@assets/css/index.css);</style> 
+<style>@import url(serving.css);</style> 
+<h1 id="serving">Serving</h1>
 <blockquote>
-<p>env complex | index standard | fullstack app</p>
+<p>hybrid render • server components • partial hydration • web apis • markdown • error handling • html+</p>
 </blockquote>
-<h2 id="project-structure">Project structure</h2>
-<p>The project is structured with some default folders and files.</p>
-<section cols='2'><aside class='infos'>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/apis</td>
-<td>RESTful functions</td>
-</tr>
-<tr>
-<td>/assets</td>
-<td>Static contents</td>
-</tr>
-<tr>
-<td>/routes</td>
-<td>Content pages</td>
-</tr>
-<tr>
-<td>/controls</td>
-<td>Shared components</td>
-</tr>
-<tr>
-<td>/builds</td>
-<td>Deploy-ready content</td>
-</tr>
-<tr>
-<td>/tests</td>
-<td>unit and e2e tests</td>
-</tr>
-</tbody>
-</table>
-</aside><aside class='infos'>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.env</td>
-<td>Environment file</td>
-</tr>
-<tr>
-<td>index.ts</td>
-<td>Startup script</td>
-</tr>
-<tr>
-<td>index.html</td>
-<td>HTML wrapper</td>
-</tr>
-<tr>
-<td>package.json</td>
-<td>Project configuration</td>
-</tr>
-<tr>
-<td>tsconfig.json</td>
-<td>TypeScript settings</td>
-</tr>
-<tr>
-<td>.gitignore</td>
-<td>Git ignored  files</td>
-</tr>
-</tbody>
-</table>
-</aside></section>
-<h2 id="env-settings">.env settings</h2>
-<p>Reactful supports <strong>.env</strong> file swith complex types and prefix in fullstack global.env variable. The required fields are typed, but support dynamic keyed fields.</p>
-<aside cols='2:5' style='margin-bottom: 10px'>
-<pre><code class="language-py">PORT: <span class="hljs-number">333</span>
-DELAY: <span class="hljs-number">50</span>
-ZIPPED: FALSE
-MINIFIED: FALSE
-PREFIX_URL: /
-MY_VALUE=<span class="hljs-number">100</span> 
-</code></pre>
-<pre><code class="language-ts"><span class="hljs-keyword">const</span> port = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>.<span class="hljs-property">PORT</span>
-<span class="hljs-keyword">const</span> value = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>[<span class="hljs-string">&#x27;MY_VALUE&#x27;</span>]
-<span class="hljs-keyword">const</span> address = <span class="hljs-variable language_">global</span>.<span class="hljs-property">env</span>.<span class="hljs-property">PUBLIC_URL</span>
+<h2 id="server-launcher">Server launcher</h2>
+<p>Server launcher starting point allows some configurations.</p>
+<pre><code class="language-ts"><span class="hljs-keyword">import</span> { launch } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful/server&#x27;</span>
 
-<span class="hljs-comment">// extending Env type with custom values</span>
-<span class="hljs-keyword">declare</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Env</span> { <span class="hljs-attr">MY_VALUE</span>: <span class="hljs-built_in">number</span> }
+<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>({ <span class="hljs-attr">folders</span>: { <span class="hljs-attr">routes</span>: <span class="hljs-string">&#x27;/pages&#x27;</span> } }).<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;#root&#x27;</span>)
 </code></pre>
-</aside>
-<p>The Reactful app starts with web standard index semantics and vanilla React, with index.html as wrapper and index.ts as bootstrap.</p>
-<section style='margin-left:50px'>
+<p>ITs IoC supports injection stores (global states) and handlers.</p>
+<aside cols='5:4'>
+<pre><code class="language-ts"><span class="hljs-keyword">import</span> { error } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./components&#x27;</span>
+<span class="hljs-keyword">import</span> { myProps } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./props&#x27;</span>
+<span class="hljs-keyword">import</span> { pipe } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./middleware&#x27;</span>
+
+<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>({ <span class="hljs-attr">store</span>: { <span class="hljs-attr">ok</span>:<span class="hljs-literal">true</span> } })
+     .<span class="hljs-title function_">inject</span>(myProps)
+     .<span class="hljs-title function_">inject</span>(error)
+     .<span class="hljs-title function_">inject</span>(pipe)
+     .<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;#root&quot;</span>)
+</code></pre>
 <ul>
-<li><strong>/index.ts</strong>: startup script with IoC container</li>
-<li><strong>/index.html</strong>: template warpper HTML</li>
-<li><strong>/routes/index</strong>: home page (supports JSX, HTML and MD)</li>
+<li><strong>error handler</strong>: get the error and returns an component</li>
+<li><strong>request handler</strong>: it allows request and response interceptions</li>
+<li><strong>property handler</strong>: user custom property handler for props transformation</li>
 </ul>
-</section>
-<aside cols='4:5'>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Reactful<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</aside>
+<h2 id="restful-server">RESTful server</h2>
+<p>Fullstack support with RESTFul api in <code>/apis</code> folder, it maps each function by its HTTP verb name, exposing the directory structure with <code>/api</code> prefix URL.</p>
+<pre><code class="language-ts"><span class="hljs-comment">// /apis/sample.ts  -&gt;  http://localhost:3000/api/sample</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">get</span> = request =&gt; <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Hello World!&#x27;</span>)
 </code></pre>
-<pre><code class="language-ts"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Reactful</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
+<h2 id="decorator-renders">Decorator renders</h2>
+<p>Rendering mode with 'use' directives and component-scoped metadata decorators.</p>
+<pre><code class="language-tsx">@<span class="hljs-title function_">client</span>(<span class="hljs-literal">true</span>) <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Client</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>...<span class="hljs-tag">&lt;/&gt;</span></span>
+@<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;static&#x27;</span>) <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Static</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>...<span class="hljs-tag">&lt;/&gt;</span></span>
+@<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;dynamic&#x27;</span>) <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> cont <span class="hljs-title class_">Dynamic</span> = <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>...<span class="hljs-tag">&lt;/&gt;</span></span>
+@<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;periodic&#x27;</span>, <span class="hljs-string">&quot;36h&quot;</span>)  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Periodic</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>...<span class="hljs-tag">&lt;/&gt;</span></span>
+</code></pre>
+<p>It server component and suspense API for server-side rendering.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Async</span>(<span class="hljs-params">props</span>) {
+   <span class="hljs-keyword">const</span> text = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(url).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.<span class="hljs-title function_">text</span>())
+   <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>content response: { text }<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></span>
+}
 
-<span class="hljs-comment">// customizing system folders</span>
-<span class="hljs-keyword">const</span> folders = { <span class="hljs-attr">route</span>: <span class="hljs-string">&#x27;/pages&#x27;</span> }
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">SyspenseExample</span> = <span class="hljs-keyword">async</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">Suspense</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">h1</span>&gt;</span>loading...<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>} /&gt;
+<span class="hljs-tag">&lt;/&gt;</span></span>
+</code></pre>
+<h2 id="seo-decorator">SEO decorator</h2>
+<p>SEO support by function decorator with metatatag object and OpenGraphProtocol overload.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { seo } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
 
-<span class="hljs-keyword">await</span> <span class="hljs-title class_">Reactful</span>
-   .<span class="hljs-title function_">launch</span>({ folders })
-   .<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;#root&#x27;</span>)  
+@<span class="hljs-title function_">seo</span>(<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;description&#x27;</span>) 
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Home</span>(<span class="hljs-params">props</span>) { <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>Home<span class="hljs-tag">&lt;/&gt;</span></span> }
+
+@<span class="hljs-title function_">seo</span>(<span class="hljs-string">&#x27;title&#x27;</span>, { <span class="hljs-attr">chartset</span>: <span class="hljs-string">&#x27;UTF-8&#x27;</span>, <span class="hljs-attr">keywords</span>: <span class="hljs-string">&#x27;fast,etc&#x27;</span> }) 
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">About</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>etc...<span class="hljs-tag">&lt;/&gt;</span></span> 
+</code></pre>
+<aside cols='2:5' style='margin-top:15px'>
+<p>It has auto-generated <strong>sitemap</strong> and <strong>robot.txt</strong> without any extra lib. Reactful enhances <strong>.env file</strong> to supports complexy type, allowing to soft coding SEO settings between environments without any workrounds or special file settings.</p>
+<pre><code class="language-js"><span class="hljs-variable constant_">PORT</span>=<span class="hljs-number">3333</span>
+<span class="hljs-variable constant_">DELAY</span>=<span class="hljs-number">50</span>
+<span class="hljs-variable constant_">ZIPPED</span>=<span class="hljs-literal">false</span>
+<span class="hljs-variable constant_">MINIFIED</span>=<span class="hljs-literal">false</span>
+<span class="hljs-variable constant_">HOSTNAME</span>=localhost
+<span class="hljs-variable constant_">PREFIX_URL</span>=/
+<span class="hljs-variable constant_">SITEMAP</span>=[<span class="hljs-string">&#x27;www.site.com&#x27;</span>]
+<span class="hljs-variable constant_">ROBOT</span>=[{ 
+   <span class="hljs-attr">agent</span>:<span class="hljs-string">&#x27;*&#x27;</span>, 
+   <span class="hljs-attr">allow</span>: <span class="hljs-string">&#x27;/&#x27;</span> 
+}]
+
 </code></pre>
 </aside>
+<h2 id="markdown-and-html">Markdown and HTML+</h2>
+<p>Reactful supports markdown rendering with Marko lib and extends HTML to allow JSX in HTML, enabling micro component tree and container page design, breaking a monolith component tree in micro-component threes (still in experimental stage).</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;jsx&#x27;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;./components/sample.jsx&#x27;</span> /&gt;</span><span class="language-handlebars"><span class="language-xml">      
+   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;tsx&#x27;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;./components/example.tsx&#x27;</span> /&gt;</span><span class="language-handlebars"><span class="language-xml">
+
+   <span class="hljs-tag">&lt;<span class="hljs-name">Sample</span> /&gt;</span>  <span class="hljs-comment">&lt;!-- only works with default exports --&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">Example</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;ok&#x27;</span> /&gt;</span>   <span class="hljs-comment">&lt;!-- supports parameters --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+</span></span></span></span></code></pre>
+
             
             <script async type="text/javascript">
 /* From extension marp-team.marp-vscode */

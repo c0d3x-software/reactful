@@ -4,7 +4,7 @@ function startup() {
    const frame = document.querySelector("iframe")
 
    createLinks('introduction')
-   // createLinks('preview')
+   createLinks('reference')
    // createLinks('review')
    
    resize(frame)

@@ -53,6 +53,7 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
  - checking minimal dependencies: react + reactful
  - rename all for reactway
  - JSON-LD design
+ - high-order function decorator
  
 ## △ | Warnings
 
