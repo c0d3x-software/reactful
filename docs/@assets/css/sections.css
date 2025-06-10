@@ -1,5 +1,3 @@
-@import url(../index.css);
-
 table th:empty { border: 0 !important; }
 
 section.infos table tr td,
