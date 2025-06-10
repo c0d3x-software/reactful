@@ -49,7 +49,6 @@ Project structure with index.ts starter and index.html wrapper.
 │ ├─ index.ts 
 │ └─ index.css
 ├─── .env
-├─── .env.local
 ├─── .gitignore 
 ├─── index.html
 ├─── index.ts
@@ -58,7 +57,6 @@ Project structure with index.ts starter and index.html wrapper.
 ```
 
 ```html
-<!-- path: /index.html -->
 <!DOCTYPE html>
 <html>
 <head>
