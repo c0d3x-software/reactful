@@ -76,5 +76,7 @@ Project structure with index.ts starter and index.html wrapper.
 ##### /index.ts
 
 ```ts
+import { launch } from '@c0d3x/reactful/server'
+
 await launch().server("#root") 
 ```
