@@ -1,20 +1,28 @@
-<style> @import url(todo-list.css); </style>
+<style> @import url(todo-list.css);</style>
 
 # Example
+> A client-side Todo List component example
 
-TodoList component started with default route `/`, with modular CSS imports, global reactive objects and dual data binding props. 
+
+<br>
+
+A **TodoList** component in root route `/`, modular CSS,reactive objects and dual binding. 
 
 ##### /index.ts
 
 ```ts
 import { launch } from '@c0d3x/reactful/server'
+
 const store = { list:[], task:'', done:false }
+
 await launch({ store }).server("#root") 
 ```
  
 ##### /routes/index.ts
 
 ```tsx
+'use client'
+
 import './index.css'                        
 
 export const TodoList = (props, ({ store })) => <div>
