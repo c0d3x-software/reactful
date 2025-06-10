@@ -272,15 +272,13 @@ body.marp-vscode blockquote {
 │ ├─ index.ts 
 │ └─ index.css
 ├─── .env
-├─── .env.local
 ├─── .gitignore 
 ├─── index.html
 ├─── index.ts
 ├─── package.json
 └─── tsconfig.json 
 </code></pre>
-<pre><code class="language-html"><span class="hljs-comment">&lt;!-- path: /index.html --&gt;</span>
-<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
@@ -295,7 +293,9 @@ body.marp-vscode blockquote {
 </code></pre>
 </aside>
 <h5 id="indexts">/index.ts</h5>
-<pre><code class="language-ts"><span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>().<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;#root&quot;</span>) 
+<pre><code class="language-ts"><span class="hljs-keyword">import</span> { launch } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful/server&#x27;</span>
+
+<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>().<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;#root&quot;</span>) 
 </code></pre>
 
             
