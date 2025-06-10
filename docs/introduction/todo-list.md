@@ -34,7 +34,6 @@ const add = props = e => props.list
    : props.list = [props.task]
 ```
 
-
 Project structure with index.ts starter and index.html wrapper.
 
 ##### /index.html

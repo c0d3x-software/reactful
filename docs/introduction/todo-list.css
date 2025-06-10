@@ -1,7 +1,7 @@
 @import url(../@assets/css/index.css);
 
-#launch pre {
-   margin: 15px 0 !important;
+#step-1 {
+   margin-top: -15px;
 }
 
 h5 {
