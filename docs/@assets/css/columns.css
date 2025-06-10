@@ -13,8 +13,23 @@
 [cols='4:7'] { grid-template-columns: 4fr 7fr; }
 [cols='5:7'] { grid-template-columns: 5fr 7fr; }
 
+[cols='1:auto'] { grid-template-columns: 1fr auto; }
+[cols='2:auto'] { grid-template-columns: 2fr auto; }
+[cols='3:auto'] { grid-template-columns: 3fr auto; }
+[cols='4:auto'] { grid-template-columns: 4fr auto; }
+[cols='5:auto'] { grid-template-columns: 5fr auto; }
+
+[cols='auto:1'] { grid-template-columns: auto 1fr; }
+[cols='auto:2'] { grid-template-columns: auto 2fr; }
+[cols='auto:3'] { grid-template-columns: auto 3fr; }
+[cols='auto:4'] { grid-template-columns: auto 4fr; }
+[cols='auto:5'] { grid-template-columns: auto 5fr; }
+
+
 [divs] > * { padding: 0 15px 0 5px; }
 [divs] > *:not(:last-of-type) { border-right: solid grey 1px; }
 [divs] > *:last-of-type { text-align: left; }
 [divs] > *:first-of-type { text-align: right; }
 [divs] > *:nth-child(2) { text-align: center; }
+
+[cols] p { padding:0; margin-top: 0px; }

@@ -1,14 +1,16 @@
 h1, h2, h3, h4, h5, h6 {
-   font-weight: 700;
+   font-weight: 600 !important;
    font-family: var(--text-font);
    color: var(--primary);
 }
 
 h1 {
-   font-weight: 100;
-   font-size: 2.5rem;
+   margin-top: 15PX;
+   text-transform: uppercase;
+   font-weight: 100 !important;
+   font-size: 2.1rem;
    text-align: center;
-   letter-spacing: 7px;
+   letter-spacing: 20px;
    margin-bottom: 10px;
    border-bottom: 0px solid var(--primary) !important;
    padding:0;
@@ -18,9 +20,14 @@ h1 {
 h2, h3, h4 { font-weight: 300; }
 
 h2 {
-   font-size: 1.3rem;
-   margin-bottom: 7px;
-   border-bottom: 1px solid grey !important;
+   color: #CCC;
+   font-size: 1.1rem;
+   padding-top: 0.7rem !important;
+   margin-bottom: 5px;
+   filter: saturate(0.7);
+   letter-spacing: 3px;;
+   text-transform: uppercase;
+   border-bottom: 1px dashed dimgrey !important;
 }
 
 h3 {

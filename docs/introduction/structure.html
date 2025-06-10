@@ -237,7 +237,7 @@ body.marp-vscode blockquote {
         </head>
         <body class="vscode-body vscode-dark">
             <script src='../@assets/js/index.js'></script>
-<style>@import url(creation.css);</style> 
+<style>@import url(structure.css);</style> 
 <h1 id="structure">Structure</h1>
 <blockquote>
 <p>env complex | index standard | fullstack app</p>
@@ -332,18 +332,18 @@ MY_VALUE=<span class="hljs-number">100</span>
 <span class="hljs-comment">// extending Env type with custom values</span>
 <span class="hljs-keyword">declare</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Env</span> { <span class="hljs-attr">MY_VALUE</span>: <span class="hljs-built_in">number</span> }
 </code></pre>
-</aside>
-<p>The Reactful app starts with web standard index semantics and vanilla React, with index.html as wrapper and index.ts as bootstrap.</p>
-<section style='margin-left:50px'>
+</aside> 
+<aside id='standard' cols='3:5'>
+<p>The Reactful follows web standard index semantics and vanilla React, with index.html as wrapper and index.ts entry file.</p>
 <ul>
 <li><strong>/index.ts</strong>: startup script with IoC container</li>
 <li><strong>/index.html</strong>: template warpper HTML</li>
-<li><strong>/routes/index</strong>: home page (supports JSX, HTML and MD)</li>
+<li><strong>/routes/index</strong>: home page with JSX, HTML or MD</li>
 </ul>
-</section>
+</aside>
 <aside cols='4:5'>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span> 
   <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Reactful<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>

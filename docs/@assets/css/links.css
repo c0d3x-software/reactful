@@ -16,6 +16,10 @@ input:checked {
    outline: none;
 }
 
+a:hover {
+   color: #4CA4ED;
+}
+
 a:active, a:focus {
    /* font-weight: bolder; */
    /* border-bottom: solid 1px wheat; */

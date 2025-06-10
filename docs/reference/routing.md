@@ -5,7 +5,7 @@
    table th { font-weight:700; border-bottom-style: dashed }
 </style> 
 
-# Routing pages
+# Routing
 
 > file-base routes • route decorator • dynamic route • props routing •  markdown support • lazy load • nested routes
 

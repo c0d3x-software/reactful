@@ -54,6 +54,8 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
  - rename all for reactway
  - JSON-LD design
  - high-order function decorator
+ - kickistart | : proof of concept
+ - presentation | : remake   
  
 ## △ | Warnings
 

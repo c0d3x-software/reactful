@@ -13,10 +13,10 @@ Server launcher starting point allows some configurations.
 ```ts
 import { launch } from '@c0d3x/reactful/server'
 
-await launch({ folders: { routes: '/pages' } }).server('#root')
+await launch({ folders:{ routes: '/pages' }}).server('#root')
 ```
 
-ITs IoC supports injection stores (global states) and handlers.
+The Reactful IoC supports injection stores (global states) and handlers.
 
 <aside cols='5:4'>
 
@@ -25,7 +25,7 @@ import { error } from './components'
 import { myProps } from './props'
 import { pipe } from './middleware'
 
-await launch({ store: { ok:true } })
+await launch({ store: { ok:true } }) 
      .inject(myProps)
      .inject(error)
      .inject(pipe)
@@ -73,37 +73,35 @@ const SyspenseExample = async props => <>
 
 ## SEO decorator
 
-SEO support by function decorator with metatatag object and OpenGraphProtocol overload.
+SEO with function decorator with string or metatatag object. The **sitemap** and **robot.txt** auto-generation is soft coded with **.env file** that was enhanced with complexy type support.
 
+<aside cols='5:3'> 
+ 
 
 ```tsx
 import { seo } from '@c0d3x/reactful'
+ 
+@seo('title', 'description')  
+function Home(props) { return <>Home</> }
 
-@seo('title', 'description') 
-export function Home(props) { return <>Home</> }
+const metas = { chartset:'UTF-8', etc... }
 
-@seo('title', { chartset: 'UTF-8', keywords: 'fast,etc' }) 
-export const About = props => <>etc...</> 
+@seo('title', metas) 
+const About = props => <>etc...</> 
 ```
 
-<aside cols='2:5' style='margin-top:15px'>
-
-It has auto-generated **sitemap** and **robot.txt** without any extra lib. Reactful enhances **.env file** to supports complexy type, allowing to soft coding SEO settings between environments without any workrounds or special file settings.
 
 ```js
 PORT=3333
-DELAY=50
-ZIPPED=false
-MINIFIED=false
-HOSTNAME=localhost
-PREFIX_URL=/
+ZIPPED=FALSE
+MINIFIED=FALSE
+PREFIX_URL=/  
 SITEMAP=['www.site.com']
 ROBOT=[{ 
-   agent:'*', 
+   agent:'*',  
    allow: '/' 
 }]
-
-```
+``` 
 
 </aside>
 

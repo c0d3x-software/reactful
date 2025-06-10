@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Stateful objects</title>
+            <title>Stateful</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -236,42 +236,82 @@ body.marp-vscode blockquote {
         
         </head>
         <body class="vscode-body vscode-dark">
-            <script src='../js/index.js'></script>
-<style>@import url(../css/index.css);</style> 
-<style>@import url(storing.css);</style> 
-<h1 id="stateful-objects">Stateful objects</h1>
+            <style>@import url(stateful.css);</style> 
+<h1 id="stateful">Stateful</h1>
 <blockquote>
 <p>reactive object • stateful props • modular state • global state • self-rendering state • dependency injection</p>
 </blockquote>
-<h2 id="local-props">Local props</h2>
-<p>Local states with reactive props as <a onclick='goto("review/reactive.html#stateful-props")'>self-rendering states</a>.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span> Hello { props.name } !
-   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{props.name}</span> {<span class="hljs-attr">e</span> =&gt;</span> props.name = e.target.value} /&gt;
+<h2 id="reactive-objects">Reactive objects</h2>
+<p>Reactive object is a self-rendering state that encapsulates the state handling boilerplate code. When a reactive objct is changed, it call the render of its hosted component.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">local</td>
+<td>props</td>
+<td>all props is meade reactive</td>
+</tr>
+<tr>
+<td style="text-align:right">global</td>
+<td>store + DI</td>
+<td>object injected component root</td>
+</tr>
+<tr>
+<td style="text-align:right">partial</td>
+<td>stores + decorator</td>
+<td>shared states between components</td>
+</tr>
+</tbody>
+</table>
+<h2 id="local-state-props">Local state props</h2>
+<p>Props and states are merged in reactive object for imediate local state handling.</p>
+<aside id='local-state' diagram cols='1:auto'>
+<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+    Hello { props.name } !
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{props.name}</span> 
+         <span class="hljs-attr">onChange</span>=<span class="hljs-string">{e</span> =&gt;</span> props.name = e.target.value} /&gt;
 <span class="hljs-tag">&lt;/&gt;</span></span>
 </code></pre>
-<h2 id="global-store">Global store</h2>
-<p>Injectable <a onclick='goto("review/reactive.html#global-store")'>global store</a> as global store as Single Source of Truth (SSoT) pattern.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { launch } 
-<span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful/server&#x27;</span>
-<span class="hljs-keyword">const</span> store = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;world&#x27;</span> } 
-<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>({ store }).<span class="hljs-title function_">server</span>()
+<p><img src="../@assets/img/local-state-tree.png" alt=""></p>
+</aside>
+<h2 id="injectable-global-state">Injectable Global state</h2>
+<p>Store is an injectable global state, following the Single Source of Truth (SSoT) pattern.</p>
+<aside id='global-state' diagram cols='1:auto'>
+<pre><code class="language-tsx"><span class="hljs-comment">// injecting a global state in launch function</span>
+<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>({ <span class="hljs-attr">store</span>:{ <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;world&#x27;</span> }}).<span class="hljs-title function_">server</span>()
 
+<span class="hljs-comment">// resolving in 2nd arguments as feeds.store</span>
 <span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = (<span class="hljs-params">props, feeds</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
    Hello { feeds.store.name || &#x27;World&#x27; } !
    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{feeds.store.name}</span> 
-            <span class="hljs-attr">onChange</span>=<span class="hljs-string">{e</span> =&gt;</span> props.name = e.target.value} /&gt;
+          <span class="hljs-attr">onChange</span>=<span class="hljs-string">{e</span> =&gt;</span> props.name = e.target.value} /&gt;
 <span class="hljs-tag">&lt;/&gt;</span></span>
 </code></pre>
-<h2 id="partial-states">Partial states</h2>
-<p><a onclick='goto("review/reactive.html#partial-states")'>Partial states</a> is a modular state set in the <code>@client</code> decorator.</p>
-<pre><code class="language-ts"><span class="hljs-keyword">const</span> guy = <span class="hljs-title function_">useStore</span>({ <span class="hljs-attr">guid</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;john&#x27;</span> })
+<p><img src="../@assets/img/global-store-tree.png" alt=""></p>
+</aside>
+<h2 id="modular-partial-states">Modular Partial states</h2>
+<p>Partial states are modular state as multiple store, with partial component tree render, instead of a full rendering of a global state. It is an specialized alterantive to deal large monolith component tree.</p>
+<aside id='partial-state' diagram cols='1:auto'>
+<pre><code class="language-ts"><span class="hljs-keyword">const</span> person = <span class="hljs-title function_">useStore</span>({ <span class="hljs-attr">guid</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;john&#x27;</span> })
 
-<span class="hljs-meta">@client</span>(<span class="hljs-literal">true</span>, guy)
-<span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span> Hello { guy.name } !
-   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{guy.name}</span> {<span class="hljs-attr">e</span> =&gt;</span> guy.name = e.target.value} /&gt;
+<span class="hljs-meta">@client</span>(<span class="hljs-literal">true</span>, person)
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span> 
+   Hello { person.name } !
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{person.name}</span> 
+      <span class="hljs-attr">onChange</span>=<span class="hljs-string">{e</span> =&gt;</span> person.name = e.target.value} /&gt;
 <span class="hljs-tag">&lt;/&gt;</span></span>
-</code></pre>
 
+<span class="hljs-meta">@client</span>(<span class="hljs-literal">true</span>, person) 
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">Hi</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>  Hi { person.name } !<span class="hljs-tag">&lt;/&gt;</span></span>
+</code></pre>
+<p><img src="../@assets/img/partial-state-tree.png" alt=""></p>
+</aside>
             
             <script async type="text/javascript">
 /* From extension marp-team.marp-vscode */

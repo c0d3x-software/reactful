@@ -15,4 +15,11 @@ p code {
 
 pre code {
    transform: scaleX(0.96) !important;   
+   line-height: 16px;
+}
+
+pre:not(.hljs),
+pre.hljs code>div {
+   padding:13px;
+   border-radius: 7px;
 }

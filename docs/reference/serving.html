@@ -247,15 +247,15 @@ body.marp-vscode blockquote {
 <p>Server launcher starting point allows some configurations.</p>
 <pre><code class="language-ts"><span class="hljs-keyword">import</span> { launch } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful/server&#x27;</span>
 
-<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>({ <span class="hljs-attr">folders</span>: { <span class="hljs-attr">routes</span>: <span class="hljs-string">&#x27;/pages&#x27;</span> } }).<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;#root&#x27;</span>)
+<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>({ <span class="hljs-attr">folders</span>:{ <span class="hljs-attr">routes</span>: <span class="hljs-string">&#x27;/pages&#x27;</span> }}).<span class="hljs-title function_">server</span>(<span class="hljs-string">&#x27;#root&#x27;</span>)
 </code></pre>
-<p>ITs IoC supports injection stores (global states) and handlers.</p>
+<p>The Reactful IoC supports injection stores (global states) and handlers.</p>
 <aside cols='5:4'>
 <pre><code class="language-ts"><span class="hljs-keyword">import</span> { error } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./components&#x27;</span>
 <span class="hljs-keyword">import</span> { myProps } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./props&#x27;</span>
 <span class="hljs-keyword">import</span> { pipe } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./middleware&#x27;</span>
 
-<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>({ <span class="hljs-attr">store</span>: { <span class="hljs-attr">ok</span>:<span class="hljs-literal">true</span> } })
+<span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>({ <span class="hljs-attr">store</span>: { <span class="hljs-attr">ok</span>:<span class="hljs-literal">true</span> } }) 
      .<span class="hljs-title function_">inject</span>(myProps)
      .<span class="hljs-title function_">inject</span>(error)
      .<span class="hljs-title function_">inject</span>(pipe)
@@ -290,29 +290,27 @@ body.marp-vscode blockquote {
 <span class="hljs-tag">&lt;/&gt;</span></span>
 </code></pre>
 <h2 id="seo-decorator">SEO decorator</h2>
-<p>SEO support by function decorator with metatatag object and OpenGraphProtocol overload.</p>
+<p>SEO with function decorator with string or metatatag object. The <strong>sitemap</strong> and <strong>robot.txt</strong> auto-generation is soft coded with <strong>.env file</strong> that was enhanced with complexy type support.</p>
+<aside cols='5:3'> 
 <pre><code class="language-tsx"><span class="hljs-keyword">import</span> { seo } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
+ 
+@<span class="hljs-title function_">seo</span>(<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;description&#x27;</span>)  
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Home</span>(<span class="hljs-params">props</span>) { <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>Home<span class="hljs-tag">&lt;/&gt;</span></span> }
 
-@<span class="hljs-title function_">seo</span>(<span class="hljs-string">&#x27;title&#x27;</span>, <span class="hljs-string">&#x27;description&#x27;</span>) 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Home</span>(<span class="hljs-params">props</span>) { <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>Home<span class="hljs-tag">&lt;/&gt;</span></span> }
+<span class="hljs-keyword">const</span> metas = { <span class="hljs-attr">chartset</span>:<span class="hljs-string">&#x27;UTF-8&#x27;</span>, etc... }
 
-@<span class="hljs-title function_">seo</span>(<span class="hljs-string">&#x27;title&#x27;</span>, { <span class="hljs-attr">chartset</span>: <span class="hljs-string">&#x27;UTF-8&#x27;</span>, <span class="hljs-attr">keywords</span>: <span class="hljs-string">&#x27;fast,etc&#x27;</span> }) 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">About</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>etc...<span class="hljs-tag">&lt;/&gt;</span></span> 
+@<span class="hljs-title function_">seo</span>(<span class="hljs-string">&#x27;title&#x27;</span>, metas) 
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">About</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>etc...<span class="hljs-tag">&lt;/&gt;</span></span> 
 </code></pre>
-<aside cols='2:5' style='margin-top:15px'>
-<p>It has auto-generated <strong>sitemap</strong> and <strong>robot.txt</strong> without any extra lib. Reactful enhances <strong>.env file</strong> to supports complexy type, allowing to soft coding SEO settings between environments without any workrounds or special file settings.</p>
 <pre><code class="language-js"><span class="hljs-variable constant_">PORT</span>=<span class="hljs-number">3333</span>
-<span class="hljs-variable constant_">DELAY</span>=<span class="hljs-number">50</span>
-<span class="hljs-variable constant_">ZIPPED</span>=<span class="hljs-literal">false</span>
-<span class="hljs-variable constant_">MINIFIED</span>=<span class="hljs-literal">false</span>
-<span class="hljs-variable constant_">HOSTNAME</span>=localhost
-<span class="hljs-variable constant_">PREFIX_URL</span>=/
+<span class="hljs-variable constant_">ZIPPED</span>=<span class="hljs-variable constant_">FALSE</span>
+<span class="hljs-variable constant_">MINIFIED</span>=<span class="hljs-variable constant_">FALSE</span>
+<span class="hljs-variable constant_">PREFIX_URL</span>=/  
 <span class="hljs-variable constant_">SITEMAP</span>=[<span class="hljs-string">&#x27;www.site.com&#x27;</span>]
 <span class="hljs-variable constant_">ROBOT</span>=[{ 
-   <span class="hljs-attr">agent</span>:<span class="hljs-string">&#x27;*&#x27;</span>, 
+   <span class="hljs-attr">agent</span>:<span class="hljs-string">&#x27;*&#x27;</span>,  
    <span class="hljs-attr">allow</span>: <span class="hljs-string">&#x27;/&#x27;</span> 
 }]
-
 </code></pre>
 </aside>
 <h2 id="markdown-and-html">Markdown and HTML+</h2>

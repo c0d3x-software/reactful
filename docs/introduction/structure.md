@@ -1,10 +1,8 @@
 <script src='../@assets/js/index.js'></script>
-<style>@import url(creation.css);</style> 
+<style>@import url(structure.css);</style> 
 
 # Structure
 > env complex | index standard | fullstack app
-
-
 
 ## Project structure
 
@@ -57,23 +55,23 @@ const address = global.env.PUBLIC_URL
 // extending Env type with custom values
 declare interface Env { MY_VALUE: number }
 ```
-</aside>
 
-The Reactful app starts with web standard index semantics and vanilla React, with index.html as wrapper and index.ts as bootstrap.
-
-<section style='margin-left:50px'>
-
+</aside> 
+<aside id='standard' cols='3:5'>
+ 
+The Reactful follows web standard index semantics and vanilla React, with index.html as wrapper and index.ts entry file.
+  
 * **/index.ts**: startup script with IoC container
 * **/index.html**: template warpper HTML
-* **/routes/index**: home page (supports JSX, HTML and MD)
-
-</section>
+* **/routes/index**: home page with JSX, HTML or MD
+ 
+</aside>
 
 <aside cols='4:5'>
 
 ```html
 <html>
-<head>
+<head> 
   <meta charset="utf-8">
   <title>Reactful</title>
 </head>

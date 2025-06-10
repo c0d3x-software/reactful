@@ -2,10 +2,20 @@
 
 body {
    background: linear-gradient(to right,
-    var(--darkest) 0%, 
-   var(--darkest) 20%,
-   var(--inverse) 20%,
-    var(--inverse) 100%);
+      var(--darkest) 0%, 
+      var(--darkest) 20%,
+      var(--inverse) 20%,
+      var(--inverse) 100%);
+}
+
+@media (min-width: 90rem) {
+   body {
+      background: linear-gradient(to right,
+         var(--darkest) 0%, 
+         var(--darkest) 30%,
+         var(--inverse) 30%,
+         var(--inverse) 100%);
+   }
 }
 
 #content {

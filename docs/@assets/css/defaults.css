@@ -14,7 +14,6 @@ body { background: var(--inverse); }
    padding:10px 0 0 0; 
 }
 
-
 #folder {
    border: 0;
    width: 100%;
@@ -26,7 +25,7 @@ P+iframe { margin-top: -20px; }
 
 h1 { letter-spacing: 2px; }
 
-strong { font-weight: bolder !important; }
+strong { font-weight: 600 !important; }
 
 body {
    height: auto;
@@ -37,6 +36,7 @@ body {
    background: var(--inverse);
    font-family: var(--text-font), monospace;
    flex-direction: column;
+   line-height: 20px;
    font-weight: 1000;
    height: 100%;
 }
@@ -64,6 +64,10 @@ blockquote {
    margin-bottom: -5px;
    background-color: transparent;
    color: var(--subtile);
+}
+
+blockquote p {
+   margin-bottom: 0;
 }
 
 [data-kantu] { padding-left:0; }

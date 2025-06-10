@@ -3,9 +3,22 @@
 
 # Essentials
 
-All Reacftul follows a minimalist design with low abstraction over web standards and broad paradigms, patterns and principles, specially DRY, KISS and YAGNY principles.
+Reacftul follows a standardized minimalist design with low abstraction based on DRY, KISS and YAGNY design principles and high performance architecture. 
+ 
+## Fast Tricks
+ 
+Reactful is built with ultra-fast **bun** toolkit, supporting server rendering, static zero bundle, prefetch routing, partial hydration, streaming SSR and lazy loading.
 
-## All renders
+## Modular CSS
+
+Fixed modular CSS imports with component-scoped style decorator.
+
+```tsx
+import 'modular-css-only-applies-in-components-of-module.tss'
+@style('./hello.css') export const Hello = () => <h1>Hello!</h1>
+```
+
+## Hybrid renders
 
 Full rendering with SSR, SSG and ISR with 'use' directives and function decorators.
 
@@ -14,14 +27,6 @@ Full rendering with SSR, SSG and ISR with 'use' directives and function decorato
 @server('static') export default const Static = props => <>...</>
 @server('dynamic') export default cont Dynamic = props => <>...</>
 @server('periodic', "36h")  export default const Periodic = props => <>...</>
-```
-## Modular CSS
-
-Fixed modular CSS imports with component-scoped style decorator.
-
-```tsx
-import 'modular-css-only-applies-in-components-of-module.tss'
-@style('./hello.css') export const Hello = () => <h1>Hello!</h1>
 ```
 
 ## Clean routing
@@ -117,7 +122,3 @@ const example = (args) => (meta, call) => call     // <-- definition
 @example('testing') const someFunction = () => { } // <-- consumption
 example('testing')(import.meta, someFunction)      // <-- transpilation
 ````
-
-## Performance tricks
-
-Reactful is built with ultra-fast **bun** toolkit, supporting server rendering, static zero bundle, prefetch routing, partial hydration, streaming SSR and lazy loading.

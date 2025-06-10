@@ -1,7 +1,16 @@
+table {
+   font-family: var(--menu-font);
+}
+
 table th:empty { border: 0 !important; }
 
 table tr td:first-of-type {
    color: whitesmoke;
+}
+
+table th {
+   font-weight: 900;
+   border-bottom: solid 1px grey !important;
 }
 
 .infos table tr td,
