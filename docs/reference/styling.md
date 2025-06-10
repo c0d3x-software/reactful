@@ -8,6 +8,14 @@
 
 > module-scoped CSS • component scope CSS • layout props • function decorator • SoC styling • vanilla-like CSS
 
+## CSS class
+
+Reactful support the attribute class as alias for CSS className.
+
+```tsx
+export const Hello = () => <h1 class='hello'>Hello World!</h1>
+```
+
 ## Modular CSS
 
 Reactful fixes the global leaking in CSS imports\*, enabling modular CSS.

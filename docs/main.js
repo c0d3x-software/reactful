@@ -5,7 +5,6 @@ function startup() {
 
    createLinks('introduction')
    createLinks('reference')
-   // createLinks('review')
    
    resize(frame)
 }

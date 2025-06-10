@@ -15,7 +15,7 @@ p code {
 
 pre code {
    transform: scaleX(0.96) !important;   
-   line-height: 16px;
+   line-height: 17px;
 }
 
 pre:not(.hljs),
