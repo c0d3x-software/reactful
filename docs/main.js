@@ -31,11 +31,13 @@ function createLinks(where) {
    clearHash()
 }
 
-function goto(address, manual) {   
+async function goto(address, manual) {   
    loading(true)
 
    const menu = address.split('/').at(-1).split('.')[0]
    const main = document.querySelector('iframe')
+
+   await wait (111)
 
    main.src = address
    main.style.height = 'auto'
@@ -93,7 +95,7 @@ window.addEventListener('message', function(event) {
    const path = JSON.parse(event.data.text)?.path?.pathname
    const name = path?.split('/').at(-1)?.split('.')[0]
    const node = this.document.querySelector('iframe')
-   console.log(name, { path, name })     
+   // console.log(name, { path, name })     
    select(name)
    resize(node)
    window.scrollTo({ top: 0, behavior: 'smooth' });
