@@ -66,8 +66,8 @@ blockquote {
    color: var(--subtile);
 }
 
-blockquote p {
-   margin-bottom: 0;
+blockquote + h2 {
+   margin-top: 10px;
 }
 
 [data-kantu] { padding-left:0; }
