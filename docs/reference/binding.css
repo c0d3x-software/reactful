@@ -1,0 +1,24 @@
+@import url(../@assets/css/index.css);
+
+#validation-api pre:last-of-type {
+   margin: 0px !important;
+   border-top: dashed 1px grey;
+}
+
+aside[auth] ul {
+   zoom: 0.97;
+   margin-left: 20px;
+}
+
+/* [auth] ul li:first-of-type {
+   list-style-type: none;
+   letter-spacing: 7px;
+   font-weight: bold;
+   margin-left: -20px;
+   margin-bottom: 5px;
+   border-bottom: solid 1px grey;
+} */
+
+[auth] ul li {
+   padding-bottom: 3px; 
+}

@@ -56,6 +56,8 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
  - high-order function decorator
  - kickistart | : proof of concept
  - presentation | : remake   
+ - error handler must be exception only, not invalids
+ - support to React native
  
 ## △ | Warnings
 

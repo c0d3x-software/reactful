@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Data binding</title>
+            <title>Binding</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -236,48 +236,115 @@ body.marp-vscode blockquote {
         
         </head>
         <body class="vscode-body vscode-dark">
-            <script src='../js/index.js'></script>
-<style>@import url(../css/index.css);</style> 
-<style>@import url(binding.css);</style> 
-<h1 id="data-binding">Data binding</h1>
+            <style>@import url(binding.css);</style> 
+<h1 id="binding">Binding</h1>
 <blockquote>
 <p>props binding • form binding • dual binding • action binding • validation • authentication</p>
 </blockquote>
-<h2 id="props-binding">Props binding</h2>
-<p><a onclick='goto("review/paradigm.html#props-binding")'>Props binding</a> is enabled by <code>[data]</code> receiving the object and <code>[bind]</code> mapping to its field.</p>
+<h2 id="dual-binding">Dual binding</h2>
+<p>Dual binding is a two-way data binding design for React one-way data flow, with new <code>[data]</code> and <code>[bind]</code> props handlers, mapping attributes to each specific input type.</p>
+<section class='divs' style='margin-left:20px'>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data binding</td>
+<td>controlled component with [data] and [bind] props</td>
+</tr>
+<tr>
+<td>form binding</td>
+<td>uncontrolled component with form[data] and input[bind]</td>
+</tr>
+<tr>
+<td>action binding</td>
+<td>form binding with RESTful action request</td>
+</tr>
+</tbody>
+</table>
+</section>
+<h2 id="data-binding">Data binding</h2>
+<p>Data binding receives a reactive object in <code>[data]</code> props and its fields in <code>[bind]</code> props. When the input make any change, it sets the object field, triggering its reactive self-rendering behavior.</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> Hello { props.name || &#x27;World&#x27; }!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{object}</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;field&#x27;</span> /&gt;</span>  
 <span class="hljs-tag">&lt;/&gt;</span></span>
 </code></pre>
 <h2 id="form-binding">Form binding</h2>
-<p><a onclick='goto("review/paradigm.html#props-binding")'>Form binding</a> is a uncontrolled uses <code>form[data]</code> and <code>child[bind]</code> directives, with full support to a customizable HTML <a onclick='goto("review/paradigm.html#form-binding-validation")'>validation API</a>.</p>
-<pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Form</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+<p>Form binding is a reactive form for uncontrolled componen, as <code>form[data]</code> with <code>input[bind]</code>. It does not require reactive object, since the rendering is here controlled by submit event.</p>
+<pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Form</span> = (<span class="hljs-params">props, feeds</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span>&gt;</span> 
-      Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;name&#x27;</span> /&gt;</span>
-      Mail: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;mail&#x27;</span>/&gt;</span>    
+      Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;name&#x27;</span> <span class="hljs-attr">required</span> /&gt;</span>
+      Mail: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;mail&#x27;</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">{50}</span> /&gt;</span>    
       <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-<span class="hljs-tag">&lt;/&gt;</span></span>
+
+   { feeds.errors.map(...) } 
+<span class="hljs-tag">&lt;/&gt;</span></span> 
 </code></pre>
+<p><strong>HTML validation API</strong> support with <code>feeds.errors</code>, input[validate] and form[onError].</p>
+<section id='validation-api'>
+<pre><code class="language-html">export const Form = (props, feeds) =&gt; <span class="hljs-tag">&lt;&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span> <span class="hljs-attr">onError</span>=<span class="hljs-string">{onValidate}</span>&gt;</span>  
+      Email: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;mail&#x27;</span> <span class="hljs-attr">validate</span>=<span class="hljs-string">{customValidate}</span> /&gt;</span>   
+</code></pre>
+<pre><code class="language-tsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">customValidate</span>(<span class="hljs-params"></span>) { <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span> }
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">onValidate</span> = (<span class="hljs-params">errors: { field, error, value }[]</span>) =&gt;
+   errors.<span class="hljs-title function_">push</span>({ <span class="hljs-attr">error</span>: <span class="hljs-string">&#x27;some custom error message&#x27;</span> })
+</code></pre>
+</section>
 <h2 id="action-binding">Action binding</h2>
-<p><a onclick='goto("review/paradigm.html#action-binding")'>Action binding</a> has a pending state in <strong>feeds.await</strong>, error states in **feeds.fails' and <code>[onFetch]</code> props handler. It also support <a onclick='goto("review/paradigm.html#authentication-binding")'>authentication</a> binding variation.</p>
+<p>The <code>form[data]</code> activates RESTful <code>form[action]</code>, serializing the object in form[data] and making a fetch call where the pending state in injected as <code>feeds.await</code>.</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Form</span> = (<span class="hljs-params">props, feeds</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span> 
    { feeds.await &amp; <span class="hljs-tag">&lt;<span class="hljs-name">progress</span>&gt;</span>loading<span class="hljs-tag">&lt;/<span class="hljs-name">progress</span>&gt;</span> }
 
-   <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span> <span class="hljs-attr">onError</span>=<span class="hljs-string">{onValidate}</span>&gt;</span>
-      Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;name&#x27;</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">{50}</span> /&gt;</span>
-      Mail: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;mail&#x27;</span> <span class="hljs-attr">validate</span>=<span class="hljs-string">{validateMe}</span> /&gt;</span>    
+   <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span> &gt;</span>
+      Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;name&#x27;</span> /&gt;</span>
+      Mail: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;mail&#x27;</span>/&gt;</span>    
       <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 
    { feeds.fails.map(x =&gt; <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{ x.message }<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>) }
 <span class="hljs-tag">&lt;/&gt;</span></span>
 
-<span class="hljs-keyword">const</span> <span class="hljs-title function_">validateMe</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-string">&quot;Is invalidated if return something&quot;</span>
-<span class="hljs-keyword">const</span> <span class="hljs-title function_">onValidate</span> = invalids =&gt; invalids.<span class="hljs-property">errors</span>.<span class="hljs-title function_">push</span>({ <span class="hljs-attr">error</span>: <span class="hljs-string">&#x27;new error&#x27;</span> })
 <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">onPost</span>(<span class="hljs-params">response: Response</span>) { <span class="hljs-comment">/* something... */</span> }
 </code></pre>
+<p>The <code>form[action]</code> also supports JWT authentication with <code>form[bearer]</code> props, this feature is yet in experimental stage. Here a preview algorithm and code example with authentication binding.</p>
+<aside auth cols='5:3'>
+<pre><code class="language-tsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">Login</span> = (<span class="hljs-params">props, { fails }</span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&#x27;https://localhost/api/auth&#x27;</span>
+         <span class="hljs-attr">method</span>=<span class="hljs-string">&#x27;POST&#x27;</span> <span class="hljs-attr">bearer</span>=<span class="hljs-string">&#x27;access_token&#x27;</span>
+         <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span>&gt;</span> 
+
+      username: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;username&#x27;</span> /&gt;</span>
+      password: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;password&#x27;</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&#x27;error-summary&#x27;</span>&gt;</span>
+         { fails.map(e =&gt; ...) }
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>   
+   <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/&gt;</span></span>
+</code></pre>
+<ul>
+<li>submit to request</li>
+<li>stop if invalidated</li>
+<li>binding object fields</li>
+<li>object JSON serialization</li>
+<li>[bearer] sets token field</li>
+<li>request was sent to server</li>
+<li>authentication sent response</li>
+<li>ok: 'token' in sessionStorage</li>
+<li>ok: injects in feeds.logon</li>
+<li>err: append in feeds.fails</li>
+<li>err: clear 'token'</li>
+</ul>
+</aside>
 
             
             <script async type="text/javascript">
