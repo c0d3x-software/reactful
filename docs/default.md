@@ -1,26 +1,16 @@
 <script src='../@assets/js/index.js'></script>
 <script src='default.js'></script>
 <style>@import url(default.css);</style> 
-<style>
-table td { padding:2px 7px;  }
-
-[smart-object] {
-   letter-spacing: 7px;
-   font-size: 1.1em;
-}
-</style> 
 
 # Overview
- 
-<center>
 
-Reactful is a fullstack React framework with innovative stateful handler, minimalist design approach and comprehensive framework features. 
+<center style='margin: 0 50px'>
 
-<br/>
+Reactful is a fullstack React meta-framework with innovative stateful design, advanced patterns and comprehensive framework features. 
 
 |         |                                            |
 | ------- | ------------------------------------------ |
-| binding | dual binding using props handlers        |
+| binding | dual binding using props handlers          |
 | styling | modular and component CSS scope transpiler |
 | serving | supports SSG, SSR, ISR, RSC, HTML and MD   |
 | ranking | SEO metatags and Open Graph Protocol       |
@@ -29,10 +19,10 @@ Reactful is a fullstack React framework with innovative stateful handler, minima
 
 </center>
 
-<center>
+<center style='margin:0 111px'>
 <h2 upper smart-object>reactive objects</h2>
 
-Smart objects concept is a self-rendering state feature that avoids all React boilerplate code with classes, hooks, imports, calls, etc in React state managenent. 
+Reactive objects are self-rendering state feature that encapsulates all boilerplate code in stateful React. 
 
 </center>
 <section cols='3' divs><aside right>

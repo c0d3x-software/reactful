@@ -70,4 +70,6 @@ blockquote + h2 {
    margin-top: 10px;
 }
 
+b { font-weight: 500 !important; }
+
 [data-kantu] { padding-left:0; }

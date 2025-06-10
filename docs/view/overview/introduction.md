@@ -14,9 +14,9 @@ table td { padding:2px 7px;  }
 
 # Introduction
 
-<center>
+<center style='margin: 0 40px'>
 
-Reactful is a fullstack React framework with innovative stateful handler, minimalist design approach and comprehensive framework features. 
+Reactful is a fullstack React meta-framework with innovative stateful design, advanced patterns and comprehensive framework features. 
 
 |         |                                            |
 | ------- | ------------------------------------------ |
@@ -29,10 +29,10 @@ Reactful is a fullstack React framework with innovative stateful handler, minima
 
 </center>
 
-<center>
+<center style='margin:0 55px'>
 <h2 upper smart-object>reactive objects</h2>
 
-Smart objects concept is a self-rendering state feature that avoids all React boilerplate code with classes, hooks, imports, calls, etc in React state managenent. 
+Reactive objects are self-rendering state feature that encapsulates all boilerplate code in stateful React. 
 
 </center>
 <section cols='3' divs><aside right>

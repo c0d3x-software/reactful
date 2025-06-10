@@ -2,15 +2,22 @@
 
 img { width:100% }
 
+h1 {
+   margin-bottom: 20px;
+}
+
 [divs] h2 { 
+   letter-spacing: 1px;
    text-transform: lowercase;
    border: 0 !important; 
+   margin-top: 5px;
    padding: 0;
 }
 
 [divs] {
    zoom: 0.99;
    padding: 0;
+   margin-top: 10px;
 }
 
 h2 + p { padding: 0; }
@@ -29,6 +36,16 @@ table tr th:first-of-type {
 
 table {
    margin-left: 20px;
-   margin-top: -15px;
+   margin-top: -5px;
+}
+
+table td {
+   padding: 2px 7px;
+}
+
+[smart-object] {
+   letter-spacing: 7px;
+   font-size: 1.1em;
+   margin-top: 15px;
 }
 
