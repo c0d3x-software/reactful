@@ -14,3 +14,7 @@ table tr:empty  {
 strong, table th strong {
    font-weight: 900 !important;
 }
+
+#property-handlers {
+   margin: 10px 0 0 0;
+}
