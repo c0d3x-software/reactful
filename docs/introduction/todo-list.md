@@ -6,7 +6,7 @@
 
 <br>
 
-A **TodoList** component in root route `/`, modular CSS,reactive objects and dual binding. 
+A **TodoList** component in root route `/`, modular CSS, reactive objects and dual binding. 
 
 ##### /index.ts
 
