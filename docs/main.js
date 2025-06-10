@@ -7,6 +7,8 @@ function startup() {
    createLinks('reference')
    
    resize(frame)
+
+   createLogo(document)
 }
 
 function resize(iframe, remake) {

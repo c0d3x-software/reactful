@@ -28,7 +28,7 @@ body {
    grid-template-columns: auto 1fr;
 }
 
-nav#menu * { background: var(--darkest); }
+/* nav#menu * { background: var(--darkest); } */
 
 nav#menu { 
    padding: 10px; 

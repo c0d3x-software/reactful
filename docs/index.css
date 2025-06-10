@@ -87,12 +87,6 @@ textarea, #email, button {
 }
 
 #links > * {
-   margin-bottom:;
    font-size: 0.9rem !important;
    padding: 0 5px;
-}
-
-logo {
-   transform: rotate(140deg);
-   margin-bottom: -15px;
 }

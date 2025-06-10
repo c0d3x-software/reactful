@@ -1,5 +1,3 @@
-console.log('index.js')
-
 function startup() {   
    createLogo(document)
 }
