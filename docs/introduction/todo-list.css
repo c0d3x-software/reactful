@@ -5,6 +5,7 @@
 }
 
 h5 {
+   z-index: 1;
    font-family: var(--menu-font);
    font-weight: normal !important;
    background: #222;
@@ -17,7 +18,7 @@ h5 {
    margin: 0 0 0 auto;
    margin-top: 20px;
    margin-right: 10px;
-   margin-bottom: -35px;
+   margin-bottom: -37px;
    /* margin-left: 65%; */
    width: 150px;
 }
