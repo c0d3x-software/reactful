@@ -8,12 +8,10 @@ h5 {
    z-index: 1;
    font-family: var(--menu-font);
    font-weight: normal !important;
-   background: #222;
    border-radius: 5px;
-   border: dotted 2px #555;
    display: block;
-   text-align: center;
-   color: silver;
+   text-align: right;
+   color: grey;
    padding: 5px 10px;
    margin: 0 0 0 auto;
    margin-top: 20px;

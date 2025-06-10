@@ -236,18 +236,18 @@ body.marp-vscode blockquote {
         
         </head>
         <body class="vscode-body vscode-dark">
-            <style> @import url(todo-list.css);</style>
+            <style> @import url(example.css);</style>
 <h1 id="example">Example</h1>
 <blockquote>
 <p>A client-side Todo List component example</p>
 </blockquote>
-<br>
-<p>A <strong>TodoList</strong> component in root route <code>/</code>, modular CSS,reactive objects and dual binding.</p>
+<br/>
+<section style='margin-top: 10px' hidden>
+<p>A <strong>TodoList</strong> component in root route <code>/</code> with modular CSS, reactive objects and dual binding.</p>
+</section>
 <h5 id="indexts">/index.ts</h5>
 <pre><code class="language-ts"><span class="hljs-keyword">import</span> { launch } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful/server&#x27;</span>
-
 <span class="hljs-keyword">const</span> store = { <span class="hljs-attr">list</span>:[], <span class="hljs-attr">task</span>:<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-attr">done</span>:<span class="hljs-literal">false</span> }
-
 <span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>({ store }).<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;#root&quot;</span>) 
 </code></pre>
 <h5 id="routesindexts">/routes/index.ts</h5>

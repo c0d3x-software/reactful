@@ -1,20 +1,21 @@
-<style> @import url(todo-list.css);</style>
+<style> @import url(example.css);</style>
 
 # Example
 > A client-side Todo List component example
 
+<br/>
 
-<br>
+<section style='margin-top: 10px' hidden>
 
-A **TodoList** component in root route `/`, modular CSS, reactive objects and dual binding. 
+A **TodoList** component in root route `/` with modular CSS, reactive objects and dual binding. 
+
+</section>
 
 ##### /index.ts
 
 ```ts
 import { launch } from '@c0d3x/reactful/server'
-
 const store = { list:[], task:'', done:false }
-
 await launch({ store }).server("#root") 
 ```
  
