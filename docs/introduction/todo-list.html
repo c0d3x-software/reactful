@@ -116,8 +116,7 @@ body.marp-vscode blockquote {
 }
 
 </style>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+            
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -239,7 +238,29 @@ body.marp-vscode blockquote {
         <body class="vscode-body vscode-dark">
             <style> @import url(todo-list.css); </style>
 <h1 id="example">Example</h1>
-<p>A complete TodoList component started with default route <code>/</code>, with modular CSS imports, reactive object states and dual data binding props.</p>
+<p>TodoList component started with default route <code>/</code>, with modular CSS imports, reactive object states and dual data binding props.</p>
+</aside>
+<pre><code class="language-css"><span class="hljs-selector-class">.done</span> { <span class="hljs-attribute">text-decoration</span>: line-through } <span class="hljs-comment">/* path: /routes/index.css  */</span>
+</code></pre>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./index.css&#x27;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">TodoList</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Todo List<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;task&#x27;</span>/&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{add(props)}</span>&gt;</span>Add<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>      
+   { props.list?.map(todoItem) }
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span> 
+ 
+<span class="hljs-keyword">const</span> todoItem = item = <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span> 
+   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{item.done</span> &amp;&amp; &#x27;<span class="hljs-attr">done</span>&#x27;}&gt;</span>{ item.name }<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span> | 
+   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;checkbox&#x27;</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">{item.done}</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>
+
+<span class="hljs-keyword">const</span> add = props = <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> props.<span class="hljs-property">list</span> 
+   ? props.<span class="hljs-property">list</span>.<span class="hljs-title function_">push</span>(props.<span class="hljs-property">task</span>)
+   : props.<span class="hljs-property">list</span> = [props.<span class="hljs-property">task</span>]
+</code></pre>
+<p>Project structure with index.ts starter and index.html wrapper.</p>
 <aside id='step-1' cols='2:5'>
 <pre><code class="language-py">├─── apis/ 
 ├─── assets/
@@ -273,31 +294,8 @@ body.marp-vscode blockquote {
 <aside id='launch'>
 <pre><code class="language-ts"><span class="hljs-keyword">await</span> <span class="hljs-title function_">launch</span>().<span class="hljs-title function_">server</span>(<span class="hljs-string">&quot;#root&quot;</span>) <span class="hljs-comment">// path: /index.ts</span>
 </code></pre>
-</aside>
-<pre><code class="language-css"><span class="hljs-selector-class">.done</span> { <span class="hljs-attribute">text-decoration</span>: line-through } <span class="hljs-comment">/* path: /routes/index.css  */</span>
-</code></pre>
-<pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./index.css&#x27;</span>
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">TodoList</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Todo List<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;task&#x27;</span>/&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{add(props)}</span>&gt;</span>Add<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>      
-   { props.list?.map(todoItem) }
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span> 
- 
-<span class="hljs-keyword">const</span> todoItem = item = <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span> 
-   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">{item.done</span> &amp;&amp; &#x27;<span class="hljs-attr">done</span>&#x27;}&gt;</span>{ item.name }<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span> | 
-   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&#x27;checkbox&#x27;</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">{item.done}</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>
-
-<span class="hljs-keyword">const</span> add = props = <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> props.<span class="hljs-property">list</span> 
-   ? props.<span class="hljs-property">list</span>.<span class="hljs-title function_">push</span>(props.<span class="hljs-property">task</span>)
-   : props.<span class="hljs-property">list</span> = [props.<span class="hljs-property">task</span>]
-</code></pre>
-<pre><code class="language-bash">$ bun run debug <span class="hljs-comment"># starts the app in debug mode in vscode</span>
-</code></pre>
-
-            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
             <script async type="text/javascript">
 /* From extension marp-team.marp-vscode */
 (()=>{var W=Object.defineProperty;var K=(w,h,x)=>h in w?W(w,h,{enumerable:!0,configurable:!0,writable:!0,value:x}):w[h]=x;var o=(w,h)=>W(w,"name",{value:h,configurable:!0});var v=(w,h,x)=>K(w,typeof h!="symbol"?h+"":h,x);(()=>{var w={32:(y,S,g)=>{y.exports=g(924)},924:(y,S)=>{"use strict";var g;g={value:!0};const E={h1:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"1"},style:"display: block; font-size: 2em; margin-block-start: 0.67em; margin-block-end: 0.67em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h2:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"2"},style:"display: block; font-size: 1.5em; margin-block-start: 0.83em; margin-block-end: 0.83em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h3:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"3"},style:"display: block; font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h4:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"4"},style:"display: block; margin-block-start: 1.33em; margin-block-end: 1.33em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h5:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"5"},style:"display: block; font-size: 0.83em; margin-block-start: 1.67em; margin-block-end: 1.67em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h6:{proto:o(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"6"},style:"display: block; font-size: 0.67em; margin-block-start: 2.33em; margin-block-end: 2.33em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},span:{proto:o(()=>HTMLSpanElement,"proto")},pre:{proto:o(()=>HTMLElement,"proto"),style:"display: block; font-family: monospace; white-space: pre; margin: 1em 0; --marp-auto-scaling-white-space: pre;"}},A="data-marp-auto-scaling-wrapper",p="data-marp-auto-scaling-svg",c="data-marp-auto-scaling-container",T=class T extends HTMLElement{constructor(){super();v(this,"container");v(this,"containerSize");v(this,"containerObserver");v(this,"svg");v(this,"svgComputedStyle");v(this,"svgPreserveAspectRatio","xMinYMid meet");v(this,"wrapper");v(this,"wrapperSize");v(this,"wrapperObserver");const s=o(t=>([e])=>{const{width:n,height:r}=e.contentRect;this[t]={width:n,height:r},this.updateSVGRect()},"e");this.attachShadow({mode:"open"}),this.containerObserver=new ResizeObserver(s("containerSize")),this.wrapperObserver=new ResizeObserver((...t)=>{s("wrapperSize")(...t),this.flushSvgDisplay()})}static get observedAttributes(){return["data-downscale-only"]}connectedCallback(){this.shadowRoot.innerHTML=`

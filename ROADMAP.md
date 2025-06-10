@@ -35,7 +35,7 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
  - **SEO sitemap + robot**: | ◐
  - **prefix_url context** | ◔
  - **SEO inner HTML** | ◔
- - **[auth]** + **@auth** | ◔ : [auth] = authenticator + @auth = authorizator
+ - **[auth]** + **@auth** | ◔ : [auth] authenticator + @auth authorizator
  - env.yaml + @seo configuration 
  - Zero bundle.js
  - iFrame merging
