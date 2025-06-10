@@ -22,8 +22,6 @@ await launch({ store }).server("#root")
 ##### /routes/index.ts
 
 ```tsx
-'use client'
-
 import './index.css'                        
 
 export const TodoList = (props, ({ store })) => <div>
