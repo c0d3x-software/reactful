@@ -78,8 +78,8 @@ pre+pre { margin-top: 20px; }
 th { font-size: 1.1rem; }
 th * { background:transparent !important }
 
-#cli { margin: -15px 0; }
-#cli img { border: solid 3px #272727; }
+#cli { margin: -5px 0 -20px 0; }
+#cli img { border: solid 7px #272727; border-radius: 7px; }
 #cli div {
    display: table-cell;   
    vertical-align: top;
@@ -87,8 +87,6 @@ th * { background:transparent !important }
 
 #cli ul {
    zoom: 95%;
-   width: 100%;    
-   padding: 20px 10px 0 15px;
 }
 
 
