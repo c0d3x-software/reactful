@@ -16,3 +16,7 @@ architecture
 - hybrid rendering: CSR, SSG, SSR, ISR, RSC
 - reactive objects: flow, debounce, destructuring
 - function decorators: model, example, library, usage
+
+pending
+- architecture
+- handlers details

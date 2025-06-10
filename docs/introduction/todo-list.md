@@ -2,14 +2,14 @@
 
 # Example
 
-TodoList component started with default route `/`, with modular CSS imports, reactive object states and dual data binding props. 
+TodoList component started with default route `/`, with modular CSS imports, global reactive objects and dual data binding props. 
 
-</aside>
- 
-##### /routes/index.css
+##### /index.ts
 
-```css
-.done { text-decoration: line-through }      
+```ts
+import { launch } from '@c0d3x/reactful/server'
+const store = { list:[], task:'', done:false }
+await launch({ store }).server("#root") 
 ```
  
 ##### /routes/index.ts
@@ -17,11 +17,11 @@ TodoList component started with default route `/`, with modular CSS imports, rea
 ```tsx
 import './index.css'                        
 
-export const TodoList = props => <div>
+export const TodoList = (props, ({ store })) => <div>
    <h1>Todo List</h1>
-   <input data={props} bind='task'/>
-   <button onChange={add(props)}>Add</button>      
-   { props.list?.map(todoItem) }
+   <input data={store} bind='task'/>
+   <button onChange={add(store)}>Add</button>      
+   { store.list?.map(todoItem) }
 </div> 
  
 const todoItem = item = <li> 
@@ -29,15 +29,12 @@ const todoItem = item = <li>
    <input type='checkbox' checked={item.done} />
 </li>
 
-const add = props = e => props.list 
-   ? props.list.push(props.task)
-   : props.list = [props.task]
+const add = store = e => store.list
+   .push({ task:props.task, done:false })
 ```
+ 
+##### /routes/index.css
 
-
-##### /index.ts
-
-```ts
-import { launch } from '@c0d3x/reactful/server'
-await launch().server("#root") 
+```css
+.done { text-decoration: line-through }      
 ```
