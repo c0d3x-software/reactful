@@ -20,3 +20,4 @@ architecture
 pending
 - architecture
 - handlers details
+- performance

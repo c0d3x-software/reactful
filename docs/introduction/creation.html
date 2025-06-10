@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Creation</title>
+            <title>Installation</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -237,23 +237,36 @@ body.marp-vscode blockquote {
         
         </head>
         <body class="vscode-body vscode-dark">
-            <script src='../@assets/js/index.js'></script>
-<style>@import url(creation.css);</style> 
-<h1 id="creation">Creation</h1>
+            <style>@import url(creation.css);</style> 
+<h1 id="installation">Installation</h1>
 <blockquote>
 <p>HTML | CSS | TypeScript | Bun</p>
 </blockquote>
 <p>New project with the template creator using <code>@c0d3x/reactful/create@latest</code>.</p>
-<pre><code class="language-ps"><span class="hljs-variable">$</span> bunx @c0d3x/reactful/create
+<pre><code class="language-ps"><span class="hljs-variable">$</span> bunx @c0d3x/reactful/create 
 </code></pre>
-<p>The create CLI has some questions as below.</p>
 <aside id='cli' cols='3:5'>
-<p><img src="../@assets/img/cli-tool-min.png" alt=""></p>
+<img src='../@assets/img/cli-tool-min.png'>
 <ul>
 <li><strong>template</strong>: empty | minimal | sampling</li>
 <li><strong>project name</strong>: it will create the folder project</li>
 <li><strong>vs code</strong>: if yes, it will create debug settings</li>
 </ul>
+</aside>
+<p>The minimal templates starts with index.html wrapper and index.ts boostrap.</p>
+<aside cols='2'>
+<pre><code class="language-typescript"><span class="hljs-comment">// index.ts</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">Reactful</span> 
+<span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
+
+<span class="hljs-keyword">await</span> <span class="hljs-title class_">Reactful</span>.<span class="hljs-title function_">launch</span>().<span class="hljs-title function_">server</span>()  
+</code></pre>
+<pre><code class="language-ts"><span class="hljs-comment">// routes/index.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Welcome to Reactful<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/&gt;</span></span>
+</code></pre>
 </aside>
 <p>Reactful is debug-ready configuration for Vs Code and with package.json scripts:</p>
 <section style='margin-left: 30px; zoom: 95%'>
@@ -276,21 +289,6 @@ body.marp-vscode blockquote {
 </tbody>
 </table>
 </section>
-<p>The minimal templates starts with index.html wrapper and index.ts boostrap.</p>
-<aside cols='2'>
-<pre><code class="language-typescript"><span class="hljs-comment">// index.ts</span>
-<span class="hljs-keyword">import</span> <span class="hljs-title class_">Reactful</span> 
-<span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@c0d3x/reactful&#x27;</span>
-
-<span class="hljs-keyword">await</span> <span class="hljs-title class_">Reactful</span>.<span class="hljs-title function_">launch</span>().<span class="hljs-title function_">server</span>()  
-</code></pre>
-<pre><code class="language-ts"><span class="hljs-comment">// routes/index.ts</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Welcome to Reactful<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/&gt;</span></span>
-</code></pre>
-</aside>
             <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
             <script async type="text/javascript">
 /* From extension marp-team.marp-vscode */

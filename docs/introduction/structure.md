@@ -30,7 +30,7 @@
 
 ## .env settings
 
-Reactful supports **.env** file swith complex types and prefix in fullstack global.env variable. The required fields are typed, but support dynamic keyed fields. 
+Reactful supports **.env** file swith complex types and prefix in fullstack global.env variable. 
 
 <aside cols='2:5' style='margin-bottom: 10px'>
 

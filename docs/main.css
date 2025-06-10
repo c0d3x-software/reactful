@@ -98,3 +98,7 @@ pre+pre { margin-top: 20px; }
    letter-spacing: 3px;
    font-weight: bolder;
 }
+
+#contacts li a {
+   letter-spacing: -0.05px;
+}

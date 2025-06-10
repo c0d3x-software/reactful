@@ -240,8 +240,6 @@ body.marp-vscode blockquote {
 <style>@import url(essentials.css);</style> 
 <h1 id="essentials">Essentials</h1>
 <p>Reacftul follows a standardized minimalist design with low abstraction based on DRY, KISS and YAGNY design principles and high performance architecture.</p>
-<h2 id="fast-tricks">Fast Tricks</h2>
-<p>Reactful is built with ultra-fast <strong>bun</strong> toolkit, supporting server rendering, static zero bundle, prefetch routing, partial hydration, streaming SSR and lazy loading.</p>
 <h2 id="modular-css">Modular CSS</h2>
 <p>Fixed modular CSS imports with component-scoped style decorator.</p>
 <pre><code class="language-tsx"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;modular-css-only-applies-in-components-of-module.tss&#x27;</span>
@@ -294,8 +292,7 @@ body.marp-vscode blockquote {
 <h2 id="reactive-objects">Reactive objects</h2>
 <aside cols='4:5'>
 <p>Reactive objects is a hookless stateful approach that encapsulates all state boilerplate codewith dual data binding props for clean minimalist components</p>
-<pre><code class="language-tsx">@<span class="hljs-title function_">client</span>(<span class="hljs-literal">true</span>)
-<span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
+<pre><code class="language-tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">Hello</span> = props =&gt; <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> Hello { props.name }!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data</span>=<span class="hljs-string">{props}</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">&#x27;name&#x27;</span> /&gt;</span>  
 <span class="hljs-tag">&lt;/&gt;</span></span>

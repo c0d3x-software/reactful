@@ -6,19 +6,11 @@
 }
 
 aside[auth] ul {
-   zoom: 0.97;
+   zoom: 1;
    margin-left: 20px;
+   margin-top: 9px;
 }
 
-/* [auth] ul li:first-of-type {
-   list-style-type: none;
-   letter-spacing: 7px;
-   font-weight: bold;
-   margin-left: -20px;
-   margin-bottom: 5px;
-   border-bottom: solid 1px grey;
-} */
-
 [auth] ul li {
-   padding-bottom: 3px; 
+   padding-bottom: 7px; 
 }

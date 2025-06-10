@@ -29,7 +29,7 @@ const Hello = props => <>
 </>
 ```
 
-![](../@assets/img/local-state-tree.png)
+![](../@assets/img/props-state-tree.png)
 
 </aside>
 

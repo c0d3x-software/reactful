@@ -5,10 +5,6 @@
 
 Reacftul follows a standardized minimalist design with low abstraction based on DRY, KISS and YAGNY design principles and high performance architecture. 
  
-## Fast Tricks
- 
-Reactful is built with ultra-fast **bun** toolkit, supporting server rendering, static zero bundle, prefetch routing, partial hydration, streaming SSR and lazy loading.
-
 ## Modular CSS
 
 Fixed modular CSS imports with component-scoped style decorator.
@@ -63,7 +59,6 @@ export default const Menu = props => <>
 Reactive objects is a hookless stateful approach that encapsulates all state boilerplate codewith dual data binding props for clean minimalist components
 
 ```tsx
-@client(true)
 const Hello = props => <>
    <h1> Hello { props.name }!</h1>
    <input data={props} bind='name' />  

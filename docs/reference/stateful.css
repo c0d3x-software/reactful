@@ -15,6 +15,6 @@ table {
    padding:0;
 }
 
-#local-state img { height: 100px; }
-#global-state img { height: 170px; }
-#partial-state img { height: 190px; } 
+#local-state img { height: 130px; }
+#global-state img { height: 190px; }
+#partial-state img { height: 230px; } 
