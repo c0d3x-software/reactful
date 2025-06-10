@@ -59,6 +59,7 @@ Welcome to the roadmap of **Reactful**, a fullstack React meta-framework.
  - error handler must be exception only, not invalids
  - support to React native
  - class + style binding support
+ - finishing syncher lib for syncing features
  
 ## △ | Warnings
 
