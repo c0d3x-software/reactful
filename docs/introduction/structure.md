@@ -4,11 +4,7 @@
 # Structure
 > env complex | index standard | fullstack app
 
-## Project structure
-
- The project is structured with some default folders and files.
-
-<section cols='2'><aside class='infos'>
+<section style='margin: 0 50px;' cols='2'><aside class='infos'>
    
 |           |                      |
 | --------- | -------------------- |
@@ -57,7 +53,8 @@ declare interface Env { MY_VALUE: number }
 ```
 
 </aside> 
-<aside id='standard' cols='3:5'>
+
+<aside id='standard' cols='2'>
  
 The Reactful follows web standard index semantics and vanilla React, with index.html as wrapper and index.ts entry file.
   

@@ -1,5 +1,10 @@
 @import url('../@assets/css/index.css');
 
 #standard li {
-   padding-bottom: 7px; 
+   padding-bottom: 0px; 
+}
+
+#standard {
+   margin-top: 10px;
+   gap: 30px;
 }
