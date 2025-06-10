@@ -10,7 +10,6 @@ reference
 - binding: [bind], input[data], form[data], form[validation], form[action]
 - routing: static, @route(dynamic), nested, lazy, [outlet], router .routed, fallback
 - syncing: fetch(swr+), event(EventSouce), socket(WebSocket)
-- authing: [auth] authentication + @auth authorization
 
 architecture
 - dual binding: flow, property handler
